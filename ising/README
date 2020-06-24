@@ -23,6 +23,12 @@ Output files
     ising_output10.csv : N = 8, M = 100, B = 0.1
     ising_output11.csv : N = 8, M = 100, B = 1
     ising_output12.csv : N = 8, M = 100, B = 10
+    ising_output13.csv : N = 16, M = 100, B = 0.1
+    ising_output14.csv : N = 16, M = 100, B = 1
+    ising_output15.csv : N = 16, M = 100, B = 10
+    ising_output16.csv : N = 32, M = 100, B = 0.1
+    ising_output17.csv : N = 32, M = 100, B = 1
+    ising_output18.csv : N = 32, M = 100, B = 10
 
 Analysis files
 

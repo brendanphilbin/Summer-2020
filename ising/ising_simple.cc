@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
     // Print parameters
     // printf("Spins: %d, Iterations: %d, Beta: %f\n\n", num_spins, iterations, beta);
 
-    int spins[num_spins];
+    double spins[num_spins];
 
     srand(time(NULL));
     
@@ -56,7 +56,7 @@ int main(int argc, char** argv) {
     
     bool all_ones = false;
     
-    int j_values[num_spins][num_spins];
+    double j_values[num_spins][num_spins];
 
     for(int i = 0; i < num_spins; i++) {
         for(int j = 0; j < num_spins; j++) {
@@ -64,13 +64,13 @@ int main(int argc, char** argv) {
                 j_values[i][j] = 0;
             else {
                 if(all_ones)
-                    j_values[i][j] = 1;
+                    j_values[i][j] = 1 / (double) num_spins;
                 else {
                     int random2 = rand() % 2;
                     if(random == 0)
-                        j_values[i][j] = 1;
+                        j_values[i][j] = 1 / std::sqrt((double) num_spins);
                     else
-                        j_values[i][j] = -1;
+                        j_values[i][j] = -1 / std::sqrt((double) num_spins);
                 }
             }
         }
@@ -80,8 +80,8 @@ int main(int argc, char** argv) {
     // First index is energy before first iteration 
     // Last index is energy after final iteration
     
-    int energies[iterations+1];
-    int current_energy, new_energy;
+    double energies[iterations+1];
+    double current_energy, new_energy;
 
     // Monte Carlo loop
 
@@ -91,7 +91,7 @@ int main(int argc, char** argv) {
 
         if(p == 0) {
             current_energy = 0;
-            int temp_array_current[num_spins] = { 0 };
+            double temp_array_current[num_spins] = { 0 };
 
             for(int i = 0; i < num_spins; i++) {
                 for(int j = 0; j < num_spins; j++) {
@@ -122,7 +122,7 @@ int main(int argc, char** argv) {
         // Compute change in energy with new configuration
 
         new_energy = 0;
-        int temp_array_new[num_spins] = { 0 };
+        double temp_array_new[num_spins] = { 0 };
 
         for(int i = 0; i < num_spins; i++) {
             for(int j = 0; j < num_spins; j++) {
@@ -142,8 +142,7 @@ int main(int argc, char** argv) {
 
         // Use acceptance algorithm to determine whether to retain change
 
-        int energy_change = (new_energy - current_energy);
-        double energy_change_double = (double) energy_change;
+        double energy_change = (new_energy - current_energy);
         
         if(energy_change > 0) {
             double random3 = randfrom(0, 1);
@@ -151,7 +150,7 @@ int main(int argc, char** argv) {
             // Print random number
             // printf(" || R: %f", random3);
 
-            double comparison = std::exp(-1 * energy_change_double * beta);
+            double comparison = std::exp(-1 * energy_change * beta);
 
             // Print comparison values
             // printf(" || C: %f", comparison);
@@ -184,9 +183,9 @@ int main(int argc, char** argv) {
     //printf("\nFinal energies:\n");
     for(int i = 0; i < iterations + 1; i++) {
         if(i != iterations)
-            printf("%d,", energies[i]);
+            printf("%f,", energies[i]);
         else
-            printf("%d", energies[i]);
+            printf("%f", energies[i]);
     }
     //printf("\n");
 }
