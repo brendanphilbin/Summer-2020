@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[     61075,       1672]
-NotebookOptionsPosition[     55940,       1560]
-NotebookOutlinePosition[     56337,       1576]
-CellTagsIndexPosition[     56294,       1573]
+NotebookDataLength[     57575,       1578]
+NotebookOptionsPosition[     52763,       1471]
+NotebookOutlinePosition[     53160,       1487]
+CellTagsIndexPosition[     53117,       1484]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1465,95 +1465,6 @@ iKN7
   3.802017391031619*^9},
  CellLabel->
   "Out[105]=",ExpressionUUID->"b249e2b2-d500-4ba3-b80f-de7f986e3db1"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[{
- RowBox[{
-  RowBox[{"SetDirectory", "[", 
-   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{"test", "=", 
-  RowBox[{"Flatten", "[", 
-   RowBox[{"Import", "[", 
-    RowBox[{"\"\<test.csv\>\"", ",", "\"\<CSV\>\""}], "]"}], 
-   "]"}]}], "\[IndentingNewLine]", 
- RowBox[{"Length", "[", "test", "]"}]}], "Input",
- CellChangeTimes->{{3.8020168474614887`*^9, 3.802016872434484*^9}, {
-  3.802016937839102*^9, 3.80201694894751*^9}},
- CellLabel->
-  "In[106]:=",ExpressionUUID->"bfd309cc-f0b3-4b80-8dd0-c35d9c2ce64b"],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", "0", ",", "0", ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", "12", ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", "0", ",", "0", ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", "12", ",", "0", ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0", ",", "0", ",", 
-   RowBox[{"-", "4"}], ",", "0"}], "}"}]], "Output",
- CellChangeTimes->{
-  3.802016875813483*^9, {3.802016935247739*^9, 3.8020169492000732`*^9}, 
-   3.802017308269907*^9, 3.802017391071097*^9},
- CellLabel->
-  "Out[107]=",ExpressionUUID->"65c36e15-7f80-407b-9fde-67a3dc108335"],
-
-Cell[BoxData["101"], "Output",
- CellChangeTimes->{
-  3.802016875813483*^9, {3.802016935247739*^9, 3.8020169492000732`*^9}, 
-   3.802017308269907*^9, 3.802017391072558*^9},
- CellLabel->
-  "Out[108]=",ExpressionUUID->"7b41efec-e1ce-4fdc-9b58-73760112f9c9"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -1659,11 +1570,6 @@ Cell[48633, 1353, 193, 3, 68, "Section",ExpressionUUID->"837de2eb-fce0-4eac-b8e0
 Cell[CellGroupData[{
 Cell[48851, 1360, 1328, 33, 92, "Input",ExpressionUUID->"32d57bde-aada-4be2-8665-55d4f25f5a49"],
 Cell[50182, 1395, 2541, 71, 268, "Output",ExpressionUUID->"b249e2b2-d500-4ba3-b80f-de7f986e3db1"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[52760, 1471, 565, 14, 71, "Input",ExpressionUUID->"bfd309cc-f0b3-4b80-8dd0-c35d9c2ce64b"],
-Cell[53328, 1487, 2315, 61, 55, "Output",ExpressionUUID->"65c36e15-7f80-407b-9fde-67a3dc108335"],
-Cell[55646, 1550, 254, 5, 56, "Output",ExpressionUUID->"7b41efec-e1ce-4fdc-9b58-73760112f9c9"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
