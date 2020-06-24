@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
     // If all_ones is true, all J values expect main diagonal are +1
     // If all_ones if false, J values except main diagonal are randomly +1 or -1
     
-    bool all_ones = true;
+    bool all_ones = false;
     
     int j_values[num_spins][num_spins];
 
