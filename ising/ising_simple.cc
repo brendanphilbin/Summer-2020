@@ -34,7 +34,7 @@ int main(int argc, char** argv) {
     }
     
     // Print parameters
-    printf("Spins: %d, Iterations: %d, Beta: %f\n\n", num_spins, iterations, beta);
+    // printf("Spins: %d, Iterations: %d, Beta: %f\n\n", num_spins, iterations, beta);
 
     int spins[num_spins];
 
@@ -109,7 +109,7 @@ int main(int argc, char** argv) {
         }
 
         // Print current energy
-        printf("Ei = %d", current_energy);
+        // printf("Ei = %d", current_energy);
 
         // Choose random particle 
 
@@ -138,7 +138,7 @@ int main(int argc, char** argv) {
         new_energy *= -1;
 
         // Print proposed new energy
-        printf(" || Ef = %d", new_energy);
+        // printf(" || Ef = %d", new_energy);
 
         // Use acceptance algorithm to determine whether to retain change
 
@@ -149,19 +149,19 @@ int main(int argc, char** argv) {
             double random3 = randfrom(0, 1);
             
             // Print random number
-            printf(" || R: %f", random3);
+            // printf(" || R: %f", random3);
 
             double comparison = std::exp(-1 * energy_change_double * beta);
 
             // Print comparison values
-            printf(" || C: %f", comparison);
+            // printf(" || C: %f", comparison);
 
             if(random3 >= comparison) {
                 spins[random_particle] *= -1;
                 energies[p+1] = current_energy;
                 
                 // Print if not flipped
-                printf(" || No flip\n");
+                // printf(" || No flip\n");
 
             }
 
@@ -169,7 +169,7 @@ int main(int argc, char** argv) {
             else {
                 energies[p+1] = new_energy;
                 current_energy = new_energy;
-                printf(" || Flip\n");
+                // printf(" || Flip\n");
             }
         }
        
@@ -177,15 +177,18 @@ int main(int argc, char** argv) {
         else {
             energies[p+1] = new_energy;
             current_energy = new_energy;
-            printf(" || Flip\n");
+            // printf(" || Flip\n");
         }
     }
 
-    printf("\nFinal energies:\n");
+    //printf("\nFinal energies:\n");
     for(int i = 0; i < iterations + 1; i++) {
-        printf("%d,", energies[i]);
+        if(i != iterations)
+            printf("%d,", energies[i]);
+        else
+            printf("%d", energies[i]);
     }
-    printf("\n");
+    //printf("\n");
 }
 
 double randfrom(double min, double max) 
