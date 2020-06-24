@@ -1,0 +1,29 @@
+Simple Ising Model Simulations
+
+Program files
+
+    ising_simple.cc : source code
+    ising_simple : executable
+    Makefile : program makefile
+
+Output files
+
+    *** All J values are +1 except 0 main diagonal ***
+    ising_output1.txt : N = 4, M = 100, B = 0.1
+    ising_output2.txt : N = 4, M = 100, B = 1
+    ising_output3.txt : N = 4, M = 100, B = 10
+    ising_output4.txt : N = 16, M = 100, B = 0.1
+    ising_output5.txt : N = 16, M = 100, B = 1
+    ising_output6.txt : N = 16, M = 100, B = 10
+    ising_output7.txt : N = 64, M = 100, B = 0.1
+    ising_output8.txt : N = 64, M = 100, B = 1
+    ising_output9.txt : N = 64, M = 100, B = 10
+
+    *** Random J values except 0 main diagonal *** 
+    ising_output10.txt : N = 8, M = 100, B = 0.1
+    ising_output11.txt : N = 8, M = 100, B = 1
+    ising_output12.txt : N = 8, M = 100, B = 10
+
+Analysis files
+
+    ising_analysis.nb : Mathematica notebook with energy equilibration plots
