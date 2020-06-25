@@ -3,7 +3,7 @@ Simple Ising Model Simulations
 Program files
 
     ising_simple_j1.cc : source code with all J_{ij} = 1
-    ising_simple_jrandom.cc : source code with J_{ij{ = +/- 1 randomly
+    ising_simple_jrandom.cc : source code with J_{ij} = +/- 1 randomly
     ising_simple_j1 : executable with all J_{ij} = 1
     ising_simple_jrandom : executable with all J_{ij} = +/- 1 randomly
     ising_test.sh : test script using values described below
