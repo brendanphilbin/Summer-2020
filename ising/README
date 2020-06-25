@@ -2,33 +2,40 @@ Simple Ising Model Simulations
 
 Program files
 
-    ising_simple.cc : source code
-    ising_simple : executable
+    ising_simple_j1.cc : source code with all J_{ij} = 1
+    ising_simple_jrandom.cc : source code with J_{ij{ = +/- 1 randomly
+    ising_simple_j1 : executable with all J_{ij} = 1
+    ising_simple_jrandom : executable with all J_{ij} = +/- 1 randomly
+    ising_test.sh : test script using values described below
     Makefile : program makefile
+    README : this document
 
 Output files
 
+    *** N = # of spins, M = # of sweeps, B = Beta
+    *** J = J_{ij} seed, MC = spins and MC sweep seed 
+
     *** All J values are +1 except 0 main diagonal ***
-    ising_output1.csv : N = 4, M = 100, B = 0.1
-    ising_output2.csv : N = 4, M = 100, B = 1
-    ising_output3.csv : N = 4, M = 100, B = 10
-    ising_output4.csv : N = 16, M = 100, B = 0.1
-    ising_output5.csv : N = 16, M = 100, B = 1
-    ising_output6.csv : N = 16, M = 100, B = 10
-    ising_output7.csv : N = 64, M = 100, B = 0.1
-    ising_output8.csv : N = 64, M = 100, B = 1
-    ising_output9.csv : N = 64, M = 100, B = 10
+    ising_output1.csv : N = 4, M = 100, B = 0.1, J = 3, MC = 5
+    ising_output2.csv : N = 4, M = 100, B = 1, J = 3, MC = 6
+    ising_output3.csv : N = 4, M = 100, B = 10, J = 3, MC = 7
+    ising_output4.csv : N = 16, M = 100, B = 0.1, J = 4, MC = 8
+    ising_output5.csv : N = 16, M = 100, B = 1, J = 4, MC = 9
+    ising_output6.csv : N = 16, M = 100, B = 10, J = 4, MC = 10
+    ising_output7.csv : N = 64, M = 100, B = 0.1, J = 5, MC = 11
+    ising_output8.csv : N = 64, M = 100, B = 1, J = 5, MC = 12
+    ising_output9.csv : N = 64, M = 100, B = 10, J = 5, MC = 13
 
     *** Random J values except 0 main diagonal *** 
-    ising_output10.csv : N = 8, M = 100, B = 0.1
-    ising_output11.csv : N = 8, M = 100, B = 1
-    ising_output12.csv : N = 8, M = 100, B = 10
-    ising_output13.csv : N = 16, M = 100, B = 0.1
-    ising_output14.csv : N = 16, M = 100, B = 1
-    ising_output15.csv : N = 16, M = 100, B = 10
-    ising_output16.csv : N = 32, M = 100, B = 0.1
-    ising_output17.csv : N = 32, M = 100, B = 1
-    ising_output18.csv : N = 32, M = 100, B = 10
+    ising_output10.csv : N = 8, M = 100, B = 0.1, J = 6, MC = 14
+    ising_output11.csv : N = 8, M = 100, B = 1, J = 6, MC = 15
+    ising_output12.csv : N = 8, M = 100, B = 10, J = 6, MC = 16
+    ising_output13.csv : N = 16, M = 100, B = 0.1, J = 7, MC = 17
+    ising_output14.csv : N = 16, M = 100, B = 1, J = 7, MC = 18
+    ising_output15.csv : N = 16, M = 100, B = 10, J = 7, MC = 19
+    ising_output16.csv : N = 32, M = 100, B = 0.1, J = 8, MC = 20
+    ising_output17.csv : N = 32, M = 100, B = 1, J = 8, MC = 21
+    ising_output18.csv : N = 32, M = 100, B = 10, J = 8, MC = 22
 
 Analysis files
 
