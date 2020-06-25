@@ -12,13 +12,13 @@ int main(int argc, char** argv) {
 
     // Parse parameters
 
-    int num_spins, iterations;
+    int num_spins, iterations, j_seed, mc_seed;
     double beta;
 
-    if(argc != 4) {
-        printf("ERROR: This program requires 3 command line arguments.\n");
-        printf("Usage: ./ising_simple SPINS ITERATIONS BETA\n");
-        printf("Ex: ./ising_simple 100 10000 1\n");
+    if(argc != 6) {
+        printf("ERROR: This program requires 4 command line arguments.\n");
+        printf("Usage: ./ising_simple SPINS ITERATIONS BETA J_SEED MC_SEED\n");
+        printf("Ex: ./ising_simple 100 10000 1 5 7\n");
         return 0;
     }
 
@@ -26,10 +26,14 @@ int main(int argc, char** argv) {
         num_spins = atoi(argv[1]);
         iterations = atoi(argv[2]);
         beta = atof(argv[3]);
+        j_seed = atoi(argv[4]);
+        mc_seed = atoi(argv[5]);
     }
 
     if(num_spins == 0 || iterations == 0 || beta == 0) {
-        printf("ERROR: Invalid argument provided.\nUsage: ./ising_simple SPINS ITERATIONS BETA\nEx: ./ising_simple 100 10000 50\n");
+        printf("ERROR: Invalid argument provided.\n");
+        printf("Usage: ./ising_simple SPINS ITERATIONS BETA J_SEED MC_SEED\n");
+        printf("Ex: ./ising_simple 100 10000 1 5 7\n");
         return 0;
     }
     
@@ -38,7 +42,7 @@ int main(int argc, char** argv) {
 
     double spins[num_spins];
 
-    srand(time(NULL));
+    srand(mc_seed);
     
     // Initialize 1D array of random spins, +1 or -1
 
@@ -57,6 +61,7 @@ int main(int argc, char** argv) {
     bool all_ones = false;
     
     double j_values[num_spins][num_spins];
+    srand(j_seed);
 
     for(int i = 0; i < num_spins; i++) {
         for(int j = 0; j < num_spins; j++) {
