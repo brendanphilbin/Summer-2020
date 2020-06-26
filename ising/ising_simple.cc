@@ -199,8 +199,8 @@ int main(int argc, char** argv) {
     // Monte Carlo loop
     srand(mc_seed);
     for(int i = 1; i < iterations + 1; i++) {
-//        for(int j = 0; j < num_spins; j++)
-        attemptSwap(spins, j_values, beta);
+        for(int j = 0; j < num_spins; j++)
+            attemptSwap(spins, j_values, beta);
         energies[i] = computeEnergy(spins, j_values);
     }
 
