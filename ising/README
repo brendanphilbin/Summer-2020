@@ -12,6 +12,7 @@ Output files
 
     *** N = # of spins, M = # of sweeps, B = Beta
     *** J = J_{ij} seed, MC = spins and MC sweep seed 
+    *** SPINS_SEED value being used is trial #
 
     *** All J values are +1 except 0 main diagonal ***
     *** FERRO command line argument = 0 ***

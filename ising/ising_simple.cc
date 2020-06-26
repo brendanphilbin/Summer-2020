@@ -153,13 +153,13 @@ int main(int argc, char** argv) {
 
     // Parse parameters
     
-    int num_spins, iterations, j_seed, mc_seed, ferro;
+    int num_spins, iterations, j_seed, mc_seed, spins_seed, ferro;
     double beta;
 
-    if(argc != 7) {
-        printf("ERROR: This program requires 6 command line arguments.\n");
-        printf("USAGE: ./ising_simple SPINS ITERATIONS BETA J_SEED MC_SEED FERRO\n");
-        printf("SPINS, ITERATIONS, J_SEED, MC_SEED must be integers. BETA must be a double.\n");
+    if(argc != 8) {
+        printf("ERROR: This program requires 7 command line arguments.\n");
+        printf("USAGE: ./ising_simple SPINS ITERATIONS BETA J_SEED MC_SEED SPINS_SEED FERRO\n");
+        printf("SPINS, ITERATIONS, J_SEED, MC_SEED, SPINS_SEED must be integers. BETA must be a double.\n");
         printf("For ferromagnetic model (J = 1), set FERRO = 1. For spin glass (J = +/- 1), set FERRO = 0)\n");
         return 0;
     }
@@ -170,19 +170,20 @@ int main(int argc, char** argv) {
         beta = atof(argv[3]);
         j_seed = atoi(argv[4]);
         mc_seed = atoi(argv[5]);
-        ferro = atoi(argv[6]);
+        spins_seed = atoi(argv[6]);
+        ferro = atoi(argv[7]);
     }
 
-    if(num_spins == 0 || iterations == 0 || beta == 0 || j_seed == 0 || mc_seed == 0 || !(ferro == 0 || ferro == 1)) {
+    if(num_spins == 0 || iterations == 0 || beta == 0 || j_seed == 0 || mc_seed == 0 || spins_seed == 0 || !(ferro == 0 || ferro == 1)) {
         printf("ERROR: Invalid argument provided.\n");
-        printf("USAGE: ./ising_simple SPINS ITERATIONS BETA J_SEED MC_SEED FERRO\n");
-        printf("SPINS, ITERATIONS, J_SEED, MC_SEED must be integers. BETA must be a double.\n");
+        printf("USAGE: ./ising_simple SPINS ITERATIONS BETA J_SEED MC_SEED SPINS_SEED FERRO\n");
+        printf("SPINS, ITERATIONS, J_SEED, MC_SEED, SPINS_SEED must be integers. BETA must be a double.\n");
         printf("For ferromagnetic model (J = 1), set FERRO = 1. For spin glass (J = +/- 1), set FERRO = 0)\n");
         return 0;
     }
 
     // Create initial SpinConfiguration
-    SpinConfiguration spins(num_spins, mc_seed);
+    SpinConfiguration spins(num_spins, spins_seed);
 
     // Create Jij matrix
     JijMatrix j_values;
