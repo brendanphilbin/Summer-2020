@@ -29,6 +29,17 @@ class SpinConfiguration {
         void flip(int index) {
             spins[index] *= -1;
         }
+
+        double get(int index) {
+            return spins[index];
+        }
+
+        void printSpins() {
+            printf("Spins:\n");
+            for(int i = 0; i < N; i++)
+                printf("%f, ", spins[i]);
+            printf("\n");
+        }
 };
 
 class JijMatrix {
@@ -50,7 +61,7 @@ class JijMatrix {
                         j_values[i][j] = 0;
                     else {
                         if(ferromagnetic)
-                            j_values[i][j] = 1 / N;
+                            j_values[i][j] = 1 / (double) N;
                         else {
                             srand(j_seed);
                             int random_j = rand() % 2;
@@ -63,11 +74,26 @@ class JijMatrix {
                 }
             }
         }
+
+        double get(int i, int j) {
+            return j_values[i][j];
+        }
+
+        void printMatrix() {
+            printf("Jij Matrix:\n");
+            for(int i = 0; i < N; i++) {
+                for(int j = 0; j < N; j++)
+                    printf("%f,", j_values[i][j]);
+                printf("\n");
+            }
+            printf("\n");
+        }
+
 };
 
-double randfrom(double min, double max);
 double computeEnergy(SpinConfiguration spin_config, JijMatrix jij);
-bool attemptSwap(SpinConfiguration& spin_config, JijMatrix jij, double beta_value, int swap_seed);
+bool attemptSwap(SpinConfiguration& spin_config, JijMatrix jij, double beta_value);
+double randfrom(double min, double max);
 
 double computeEnergy(SpinConfiguration spin_config, JijMatrix jij) {
 
@@ -93,10 +119,9 @@ double computeEnergy(SpinConfiguration spin_config, JijMatrix jij) {
     return energy;
 }
 
-bool attemptSwap(SpinConfiguration& spin_config, JijMatrix jij, double beta_value, int swap_seed) {
+bool attemptSwap(SpinConfiguration& spin_config, JijMatrix jij, double beta_value) {
 
     double current_energy = computeEnergy(spin_config, jij);
-    srand(swap_seed);
     int random_particle = rand() % spin_config.N;
     spin_config.flip(random_particle);
     double new_energy = computeEnergy(spin_config, jij);
@@ -115,6 +140,13 @@ bool attemptSwap(SpinConfiguration& spin_config, JijMatrix jij, double beta_valu
         else
             return true;
     }
+}
+
+double randfrom(double min, double max) 
+{
+    double range = (max - min); 
+    double div = RAND_MAX / range;
+    return min + (rand() / div);
 }
 
 int main(int argc, char** argv) {
@@ -153,7 +185,6 @@ int main(int argc, char** argv) {
     SpinConfiguration spins(num_spins, mc_seed);
 
     // Create Jij matrix
-    // Need to declare first and then conditionally call new "initialize" function
     JijMatrix j_values;
     if(ferro == 0)
         j_values.initialize(num_spins, j_seed, false);
@@ -165,9 +196,10 @@ int main(int argc, char** argv) {
     energies[0] = computeEnergy(spins, j_values);
 
     // Monte Carlo loop
+    srand(mc_seed);
     for(int i = 1; i < iterations + 1; i++) {
-        for(int j = 0; j < num_spins; j++)
-            attemptSwap(spins, j_values, beta, mc_seed);
+//        for(int j = 0; j < num_spins; j++)
+        attemptSwap(spins, j_values, beta);
         energies[i] = computeEnergy(spins, j_values);
     }
 
@@ -369,11 +401,3 @@ int main(int argc, char** argv) {
     //printf("\n");
 }
 */
-
-double randfrom(double min, double max) 
-{
-    srand(time(NULL));
-    double range = (max - min); 
-    double div = RAND_MAX / range;
-    return min + (rand() / div);
-}
