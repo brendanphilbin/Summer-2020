@@ -1,0 +1,350 @@
+Trial #1 : min_energy_output1.csv : N = 16, M = 100, B = 5.000000, J_SEED = 2, MC_SEED = 45, SPIN_SEED = 7, FERRO = 0
+
+Minimum energy reached: -12.500000
+Configurations: 39458, 
+
+------------------------------------
+
+Trial #2 : min_energy_output2.csv : N = 16, M = 100, B = 5.000000, J_SEED = 2, MC_SEED = 45, SPIN_SEED = 8, FERRO = 0
+
+Minimum energy reached: -12.500000
+Configurations: 3277, 
+
+------------------------------------
+
+Trial #3 : min_energy_output3.csv : N = 16, M = 100, B = 5.000000, J_SEED = 2, MC_SEED = 45, SPIN_SEED = 9, FERRO = 0
+
+Minimum energy reached: -12.500000
+Configurations: 26077, 
+
+------------------------------------
+
+Trial #4 : min_energy_output4.csv : N = 16, M = 100, B = 5.000000, J_SEED = 2, MC_SEED = 45, SPIN_SEED = 10, FERRO = 0
+
+Minimum energy reached: -12.500000
+Configurations: 39458, 
+
+------------------------------------
+
+Trial #5 : min_energy_output5.csv : N = 16, M = 100, B = 5.000000, J_SEED = 2, MC_SEED = 45, SPIN_SEED = 11, FERRO = 0
+
+Minimum energy reached: -12.500000
+Configurations: 39458, 
+
+------------------------------------
+
+Trial #6 : min_energy_output6.csv : N = 16, M = 100, B = 5.000000, J_SEED = 3, MC_SEED = 45, SPIN_SEED = 7, FERRO = 0
+
+Minimum energy reached: -13.000000
+Configurations: 27218, 25170, 
+
+------------------------------------
+
+Trial #7 : min_energy_output7.csv : N = 16, M = 100, B = 5.000000, J_SEED = 3, MC_SEED = 45, SPIN_SEED = 8, FERRO = 0
+
+Minimum energy reached: -13.000000
+Configurations: 27218, 25170, 
+
+------------------------------------
+
+Trial #8 : min_energy_output8.csv : N = 16, M = 100, B = 5.000000, J_SEED = 3, MC_SEED = 45, SPIN_SEED = 9, FERRO = 0
+
+Minimum energy reached: -13.000000
+Configurations: 25170, 27218, 
+
+------------------------------------
+
+Trial #9 : min_energy_output9.csv : N = 16, M = 100, B = 5.000000, J_SEED = 3, MC_SEED = 45, SPIN_SEED = 10, FERRO = 0
+
+Minimum energy reached: -13.000000
+Configurations: 27218, 25170, 
+
+------------------------------------
+
+Trial #10 : min_energy_output10.csv : N = 16, M = 100, B = 5.000000, J_SEED = 3, MC_SEED = 45, SPIN_SEED = 11, FERRO = 0
+
+Minimum energy reached: -12.000000
+Configurations: 1804, 
+
+------------------------------------
+
+Trial #11 : min_energy_output11.csv : N = 16, M = 100, B = 5.000000, J_SEED = 4, MC_SEED = 45, SPIN_SEED = 7, FERRO = 0
+
+Minimum energy reached: -13.500000
+Configurations: 25005, 
+
+------------------------------------
+
+Trial #12 : min_energy_output12.csv : N = 16, M = 100, B = 5.000000, J_SEED = 4, MC_SEED = 45, SPIN_SEED = 8, FERRO = 0
+
+Minimum energy reached: -13.500000
+Configurations: 40530, 
+
+------------------------------------
+
+Trial #13 : min_energy_output13.csv : N = 16, M = 100, B = 5.000000, J_SEED = 4, MC_SEED = 45, SPIN_SEED = 9, FERRO = 0
+
+Minimum energy reached: -13.500000
+Configurations: 25005, 
+
+------------------------------------
+
+Trial #14 : min_energy_output14.csv : N = 16, M = 100, B = 5.000000, J_SEED = 4, MC_SEED = 45, SPIN_SEED = 10, FERRO = 0
+
+Minimum energy reached: -13.500000
+Configurations: 25005, 
+
+------------------------------------
+
+Trial #15 : min_energy_output15.csv : N = 16, M = 100, B = 5.000000, J_SEED = 4, MC_SEED = 45, SPIN_SEED = 11, FERRO = 0
+
+Minimum energy reached: -13.500000
+Configurations: 40530, 
+
+------------------------------------
+
+Trial #16 : min_energy_output16.csv : N = 16, M = 100, B = 5.000000, J_SEED = 5, MC_SEED = 45, SPIN_SEED = 7, FERRO = 0
+
+Minimum energy reached: -12.000000
+Configurations: 4199, 5223, 1127, 
+
+------------------------------------
+
+Trial #17 : min_energy_output17.csv : N = 16, M = 100, B = 5.000000, J_SEED = 5, MC_SEED = 45, SPIN_SEED = 8, FERRO = 0
+
+Minimum energy reached: -16.000000
+Configurations: 21714, 
+
+------------------------------------
+
+Trial #18 : min_energy_output18.csv : N = 16, M = 100, B = 5.000000, J_SEED = 5, MC_SEED = 45, SPIN_SEED = 9, FERRO = 0
+
+Minimum energy reached: -12.000000
+Configurations: 14808, 10712, 
+
+------------------------------------
+
+Trial #19 : min_energy_output19.csv : N = 16, M = 100, B = 5.000000, J_SEED = 5, MC_SEED = 45, SPIN_SEED = 10, FERRO = 0
+
+Minimum energy reached: -16.000000
+Configurations: 21714, 
+
+------------------------------------
+
+Trial #20 : min_energy_output20.csv : N = 16, M = 100, B = 5.000000, J_SEED = 5, MC_SEED = 45, SPIN_SEED = 11, FERRO = 0
+
+Minimum energy reached: -16.000000
+Configurations: 21714, 
+
+------------------------------------
+
+Trial #21 : min_energy_output21.csv : N = 16, M = 100, B = 5.000000, J_SEED = 6, MC_SEED = 45, SPIN_SEED = 7, FERRO = 0
+
+Minimum energy reached: -12.000000
+Configurations: 543, 2591, 2583, 535, 
+
+------------------------------------
+
+Trial #22 : min_energy_output22.csv : N = 16, M = 100, B = 5.000000, J_SEED = 6, MC_SEED = 45, SPIN_SEED = 8, FERRO = 0
+
+Minimum energy reached: -15.000000
+Configurations: 36903, 36919, 
+
+------------------------------------
+
+Trial #23 : min_energy_output23.csv : N = 16, M = 100, B = 5.000000, J_SEED = 6, MC_SEED = 45, SPIN_SEED = 9, FERRO = 0
+
+Minimum energy reached: -15.000000
+Configurations: 28632, 28616, 
+
+------------------------------------
+
+Trial #24 : min_energy_output24.csv : N = 16, M = 100, B = 5.000000, J_SEED = 6, MC_SEED = 45, SPIN_SEED = 10, FERRO = 0
+
+Minimum energy reached: -15.000000
+Configurations: 36903, 36919, 
+
+------------------------------------
+
+Trial #25 : min_energy_output25.csv : N = 16, M = 100, B = 5.000000, J_SEED = 6, MC_SEED = 45, SPIN_SEED = 11, FERRO = 0
+
+Minimum energy reached: -12.000000
+Configurations: 543, 535, 2591, 2583, 
+
+------------------------------------
+
+Trial #26 : min_energy_output26.csv : N = 32, M = 100, B = 5.000000, J_SEED = 2, MC_SEED = 45, SPIN_SEED = 7, FERRO = 0
+
+Minimum energy reached: -27.577164
+Configurations: 184114890, 184114906, 
+
+------------------------------------
+
+Trial #27 : min_energy_output27.csv : N = 32, M = 100, B = 5.000000, J_SEED = 2, MC_SEED = 45, SPIN_SEED = 8, FERRO = 0
+
+Minimum energy reached: -30.405592
+Configurations: 718886586, 
+
+------------------------------------
+
+Trial #28 : min_energy_output28.csv : N = 32, M = 100, B = 5.000000, J_SEED = 2, MC_SEED = 45, SPIN_SEED = 9, FERRO = 0
+
+Minimum energy reached: -28.991378
+Configurations: 18446744072760454216, 
+
+------------------------------------
+
+Trial #29 : min_energy_output29.csv : N = 32, M = 100, B = 5.000000, J_SEED = 2, MC_SEED = 45, SPIN_SEED = 10, FERRO = 0
+
+Minimum energy reached: -30.405592
+Configurations: 718886586, 
+
+------------------------------------
+
+Trial #30 : min_energy_output30.csv : N = 32, M = 100, B = 5.000000, J_SEED = 2, MC_SEED = 45, SPIN_SEED = 11, FERRO = 0
+
+Minimum energy reached: -30.405592
+Configurations: 18446744072990665029, 
+
+------------------------------------
+
+Trial #31 : min_energy_output31.csv : N = 32, M = 100, B = 5.000000, J_SEED = 3, MC_SEED = 45, SPIN_SEED = 7, FERRO = 0
+
+Minimum energy reached: -29.344931
+Configurations: 748066931, 
+
+------------------------------------
+
+Trial #32 : min_energy_output32.csv : N = 32, M = 100, B = 5.000000, J_SEED = 3, MC_SEED = 45, SPIN_SEED = 8, FERRO = 0
+
+Minimum energy reached: -29.344931
+Configurations: 18446744072961484684, 
+
+------------------------------------
+
+Trial #33 : min_energy_output33.csv : N = 32, M = 100, B = 5.000000, J_SEED = 3, MC_SEED = 45, SPIN_SEED = 9, FERRO = 0
+
+Minimum energy reached: -31.466252
+Configurations: 18446744073050617486, 
+
+------------------------------------
+
+Trial #34 : min_energy_output34.csv : N = 32, M = 100, B = 5.000000, J_SEED = 3, MC_SEED = 45, SPIN_SEED = 10, FERRO = 0
+
+Minimum energy reached: -29.344931
+Configurations: 748066931, 
+
+------------------------------------
+
+Trial #35 : min_energy_output35.csv : N = 32, M = 100, B = 5.000000, J_SEED = 3, MC_SEED = 45, SPIN_SEED = 11, FERRO = 0
+
+Minimum energy reached: -31.466252
+Configurations: 18446744073117782182, 
+
+------------------------------------
+
+Trial #36 : min_energy_output36.csv : N = 32, M = 100, B = 5.000000, J_SEED = 4, MC_SEED = 45, SPIN_SEED = 7, FERRO = 0
+
+Minimum energy reached: -31.819805
+Configurations: 18446744073656525574, 
+
+------------------------------------
+
+Trial #37 : min_energy_output37.csv : N = 32, M = 100, B = 5.000000, J_SEED = 4, MC_SEED = 45, SPIN_SEED = 8, FERRO = 0
+
+Minimum energy reached: -31.819805
+Configurations: 1124669693, 
+
+------------------------------------
+
+Trial #38 : min_energy_output38.csv : N = 32, M = 100, B = 5.000000, J_SEED = 4, MC_SEED = 45, SPIN_SEED = 9, FERRO = 0
+
+Minimum energy reached: -31.819805
+Configurations: 1124669693, 
+
+------------------------------------
+
+Trial #39 : min_energy_output39.csv : N = 32, M = 100, B = 5.000000, J_SEED = 4, MC_SEED = 45, SPIN_SEED = 10, FERRO = 0
+
+Minimum energy reached: -28.991378
+Configurations: 1665211319, 1128340407, 
+
+------------------------------------
+
+Trial #40 : min_energy_output40.csv : N = 32, M = 100, B = 5.000000, J_SEED = 4, MC_SEED = 45, SPIN_SEED = 11, FERRO = 0
+
+Minimum energy reached: -28.991378
+Configurations: 18446744072581211208, 18446744072044340296, 
+
+------------------------------------
+
+Trial #41 : min_energy_output41.csv : N = 32, M = 100, B = 5.000000, J_SEED = 5, MC_SEED = 45, SPIN_SEED = 7, FERRO = 0
+
+Minimum energy reached: -33.941125
+Configurations: 2044969942, 
+
+------------------------------------
+
+Trial #42 : min_energy_output42.csv : N = 32, M = 100, B = 5.000000, J_SEED = 5, MC_SEED = 45, SPIN_SEED = 8, FERRO = 0
+
+Minimum energy reached: -33.941125
+Configurations: 18446744071664581673, 
+
+------------------------------------
+
+Trial #43 : min_energy_output43.csv : N = 32, M = 100, B = 5.000000, J_SEED = 5, MC_SEED = 45, SPIN_SEED = 9, FERRO = 0
+
+Minimum energy reached: -33.941125
+Configurations: 18446744071664581673, 
+
+------------------------------------
+
+Trial #44 : min_energy_output44.csv : N = 32, M = 100, B = 5.000000, J_SEED = 5, MC_SEED = 45, SPIN_SEED = 10, FERRO = 0
+
+Minimum energy reached: -33.941125
+Configurations: 18446744071664581673, 
+
+------------------------------------
+
+Trial #45 : min_energy_output45.csv : N = 32, M = 100, B = 5.000000, J_SEED = 5, MC_SEED = 45, SPIN_SEED = 11, FERRO = 0
+
+Minimum energy reached: -33.941125
+Configurations: 18446744071664581673, 
+
+------------------------------------
+
+Trial #46 : min_energy_output46.csv : N = 32, M = 100, B = 5.000000, J_SEED = 6, MC_SEED = 45, SPIN_SEED = 7, FERRO = 0
+
+Minimum energy reached: -28.637825
+Configurations: 18446744073241740200, 
+
+------------------------------------
+
+Trial #47 : min_energy_output47.csv : N = 32, M = 100, B = 5.000000, J_SEED = 6, MC_SEED = 45, SPIN_SEED = 8, FERRO = 0
+
+Minimum energy reached: -26.516504
+Configurations: 18446744073283429256, 
+
+------------------------------------
+
+Trial #48 : min_energy_output48.csv : N = 32, M = 100, B = 5.000000, J_SEED = 6, MC_SEED = 45, SPIN_SEED = 9, FERRO = 0
+
+Minimum energy reached: -28.637825
+Configurations: 467811415, 
+
+------------------------------------
+
+Trial #49 : min_energy_output49.csv : N = 32, M = 100, B = 5.000000, J_SEED = 6, MC_SEED = 45, SPIN_SEED = 10, FERRO = 0
+
+Minimum energy reached: -29.344931
+Configurations: 1805843543, 1789066327, 
+
+------------------------------------
+
+Trial #50 : min_energy_output50.csv : N = 32, M = 100, B = 5.000000, J_SEED = 6, MC_SEED = 45, SPIN_SEED = 11, FERRO = 0
+
+Minimum energy reached: -29.344931
+Configurations: 1805843543, 1789066327, 
+
+------------------------------------
+
