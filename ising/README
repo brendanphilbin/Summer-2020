@@ -1,6 +1,10 @@
 Simple Ising Model Simulations
 Root Directory
 
+Program Files
+
+    Makefile : Makefile for all subdirectories
+
 Subdirectories
 
     source : source code
