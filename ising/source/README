@@ -3,6 +3,9 @@ Source Code Directory
 
 Program Files
 
-    ising_simple.cc : source code
-    ising_simple : executable
-    Makefile : program Makefile
+    ising_simple.cc : simple source code
+    ising_min_energy.cc : source code w/ minimum energy analysis
+
+Information Files
+
+    README : this document
