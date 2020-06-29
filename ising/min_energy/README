@@ -6,3 +6,10 @@ Program Files
     ising_min_energy.cc : source code
     min_energy : executable
     Makefile : program Makefile
+    test_min_energy.sh : test script
+    README : this document
+
+Output Files
+
+    min_energy_output(TRIAL).csv : sweep energy output for a given TRIAL
+    results.txt : result file, providing arguments for each trial and minimum energy information
