@@ -1,0 +1,8 @@
+Simple Ising Model Simulations
+Source Code Directory
+
+Program Files
+
+    ising_simple.cc : source code
+    ising_simple : executable
+    Makefile : program Makefile

@@ -1,13 +1,7 @@
 Simple Ising Model Simulations
 Root Directory
 
-Program files
-
-    ising_simple.cc : source code
-    ising_simple : executable
-    Makefile : program makefile
-    README : this document
-
 Subdirectories
 
+    source : source code
 	initial_tests : simulation correctness trials
