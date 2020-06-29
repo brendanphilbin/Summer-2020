@@ -250,6 +250,7 @@ int main(int argc, char** argv) {
 
     // Open file for sweep energy CSV
     testfile.open("min_energy_output" + to_string(trial) + ".csv");
+    testfile << computeEnergy(spins, j_values) << ",";
 
     for(int i = 1; i < iterations + 1; i++) {
         for(int j = 0; j < num_spins; j++) {

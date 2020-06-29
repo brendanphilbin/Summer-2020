@@ -1,0 +1,154 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4990,        146]
+NotebookOptionsPosition[      3979,        120]
+NotebookOutlinePosition[      4373,        136]
+CellTagsIndexPosition[      4330,        133]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Brendan Philbin
+Ising Model Minimum Energy\
+\>", "Title",
+ CellChangeTimes->{{3.80245317922546*^9, 
+  3.802453189055839*^9}},ExpressionUUID->"c482ad61-3b4f-4e4a-9050-\
+f9e1b3747bf8"],
+
+Cell[CellGroupData[{
+
+Cell["Import Relevant Files", "Section",
+ CellChangeTimes->{{3.802453245133272*^9, 
+  3.8024532475151567`*^9}},ExpressionUUID->"cc5c78b5-4153-4172-ab62-\
+f74c2b2f0521"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "1"}], ",", 
+    RowBox[{"i", "\[LessEqual]", "50"}], ",", 
+    RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Evaluate", "[", 
+       RowBox[{"Symbol", "[", 
+        RowBox[{"\"\<trial\>\"", " ", "<>", " ", 
+         RowBox[{"ToString", "[", "i", "]"}]}], "]"}], "]"}], "=", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Import", "[", 
+        RowBox[{
+         RowBox[{"\"\<min_energy_output\>\"", " ", "<>", 
+          RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<.csv\>\""}], ",", 
+         "\"\<CSV\>\""}], "]"}], "]"}]}], ";"}]}], "\[IndentingNewLine]", 
+   "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.802453228920331*^9, 3.802453292141315*^9}, {
+  3.802453335057423*^9, 3.802453409948288*^9}, {3.8024535312363567`*^9, 
+  3.8024536228588142`*^9}},
+ CellLabel->"In[26]:=",ExpressionUUID->"d233acb9-09c5-4d39-83c9-57294647152d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "setraw", 
+   "\"Cannot assign to raw object \\!\\(\\*RowBox[{\\\"-\\\", \\\"10.5`\\\"}]\
+\\).\"", 2, 27, 57, 32199893458644713551, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.80245356505331*^9, 3.802453588498026*^9}, {
+  3.802453619955611*^9, 3.8024536231592903`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[26]:=",ExpressionUUID->"d778a9fa-837b-484c-8af2-312db162d22b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "setraw", 
+   "\"Cannot assign to raw object \\!\\(\\*RowBox[{\\\"-\\\", \\\"10.5`\\\"}]\
+\\).\"", 2, 27, 58, 32199893458644713551, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.80245356505331*^9, 3.802453588498026*^9}, {
+  3.802453619955611*^9, 3.8024536231653233`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[26]:=",ExpressionUUID->"60b5aaf8-61c3-4f40-88d0-93fa4bfc8c8f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "setraw", 
+   "\"Cannot assign to raw object \\!\\(\\*RowBox[{\\\"-\\\", \\\"10.5`\\\"}]\
+\\).\"", 2, 27, 59, 32199893458644713551, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.80245356505331*^9, 3.802453588498026*^9}, {
+  3.802453619955611*^9, 3.802453623170557*^9}},
+ CellLabel->
+  "During evaluation of \
+In[26]:=",ExpressionUUID->"a40d073c-c7ed-47bb-814b-152002aa291b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Set\\\", \\\"::\\\", \\\
+\"setraw\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 27, 60, 32199893458644713551, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.80245356505331*^9, 3.802453588498026*^9}, {
+  3.802453619955611*^9, 3.802453623175589*^9}},
+ CellLabel->
+  "During evaluation of \
+In[26]:=",ExpressionUUID->"4df4abd7-b60e-4525-ac34-f395d3df3d77"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1440., 773.25},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+FrontEndVersion->"12.1 for Linux x86 (64-bit) (March 18, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"9022c297-035f-425b-a43a-fd632462b5a9"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 192, 6, 160, "Title",ExpressionUUID->"c482ad61-3b4f-4e4a-9050-f9e1b3747bf8"],
+Cell[CellGroupData[{
+Cell[797, 32, 168, 3, 68, "Section",ExpressionUUID->"cc5c78b5-4153-4172-ab62-f74c2b2f0521"],
+Cell[CellGroupData[{
+Cell[990, 39, 1094, 27, 92, "Input",ExpressionUUID->"d233acb9-09c5-4d39-83c9-57294647152d"],
+Cell[2087, 68, 441, 10, 22, "Message",ExpressionUUID->"d778a9fa-837b-484c-8af2-312db162d22b"],
+Cell[2531, 80, 441, 10, 22, "Message",ExpressionUUID->"60b5aaf8-61c3-4f40-88d0-93fa4bfc8c8f"],
+Cell[2975, 92, 439, 10, 22, "Message",ExpressionUUID->"a40d073c-c7ed-47bb-814b-152002aa291b"],
+Cell[3417, 104, 522, 11, 22, "Message",ExpressionUUID->"4df4abd7-b60e-4525-ac34-f395d3df3d77"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
