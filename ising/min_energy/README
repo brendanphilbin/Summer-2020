@@ -1,8 +1,8 @@
 Simple Ising Model Simulations
-Source Code Directory
+Minimum Energy Directory
 
 Program Files
 
-    ising_simple.cc : source code
-    ising_simple : executable
+    ising_min_energy.cc : source code
+    min_energy : executable
     Makefile : program Makefile

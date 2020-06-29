@@ -1,7 +1,7 @@
-all: ising_simple
+all: min_energy
 
-ising_simple: ising_simple.cc
-	g++ ising_simple.cc -o ising_simple
+min_energy: ising_min_energy.cc
+	g++ ising_min_energy.cc -o min_energy 
 
 clean:
-	rm -f ising_simple
+	rm -f min_energy
