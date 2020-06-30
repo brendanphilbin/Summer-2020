@@ -69,14 +69,20 @@ class SpinConfiguration {
         }
 };
 
+// Jij Matrix class
 class JijMatrix {
     public:
         vector<vector<double>> j_values;
         int N;
         bool ferromagnetic;
 
+        // Empty constructor
         JijMatrix() {}
 
+        // Initialization method
+        // "num_spins" = number of particles present in configuration
+        // "j_seed" = random seed for assigning values
+        // "ferro" = whether the system is ferromagnetic or not
         void initialize(int num_spins, int j_seed, bool ferro) {
             N = num_spins;
             ferromagnetic = ferro;
@@ -102,14 +108,17 @@ class JijMatrix {
             }
         }
 
+        // Returns a specific J values at index {i,j}
         double get(int i, int j) {
             return j_values[i][j];
         }
 
+        // Returns side length of the Matrix, the number of particles present
         int size() {
             return N;
         }
 
+        // Print the matrix
         void printMatrix() {
             printf("Jij Matrix:\n");
             for(int i = 0; i < N; i++) {
@@ -122,10 +131,12 @@ class JijMatrix {
 
 };
 
+// Implicit method declarations
 double computeEnergy(SpinConfiguration spin_config, JijMatrix jij);
 bool attemptSwap(SpinConfiguration& spin_config, JijMatrix jij, double beta_value);
 double randfrom(double min, double max);
 
+// Returns the energy as a double given a spin configuration and Jij matrix
 double computeEnergy(SpinConfiguration spin_config, JijMatrix jij) {
 
     vector<double> spin_values = spin_config.spins;
@@ -150,6 +161,8 @@ double computeEnergy(SpinConfiguration spin_config, JijMatrix jij) {
     return energy;
 }
 
+// Attempt to flip a random spin, seeded in the MC loop, depending on the acceptance algorithm
+// Returns "true" if the flip was successful, "false" if not
 bool attemptSwap(SpinConfiguration& spin_config, JijMatrix jij, double beta_value) {
 
     double current_energy = computeEnergy(spin_config, jij);
@@ -173,6 +186,7 @@ bool attemptSwap(SpinConfiguration& spin_config, JijMatrix jij, double beta_valu
     }
 }
 
+// Returns a random double in range [min,max]
 double randfrom(double min, double max) {
 
     double range = (max - min); 
@@ -187,6 +201,7 @@ int main(int argc, char** argv) {
     int num_spins, iterations, j_seed, mc_seed, spins_seed, ferro, trial;
     double beta;
 
+    // Check if the correct number of command line arguments were provided
     if(argc != 9) {
         printf("ERROR: This program requires 8 command line arguments.\n");
         printf("USAGE: ./min_energy SPINS ITERATIONS BETA J_SEED MC_SEED SPINS_SEED FERRO TRIAL\n");
@@ -195,6 +210,7 @@ int main(int argc, char** argv) {
         return 0;
     }
 
+    // Assign the values from the command line arguments to variables
     else {
         num_spins = atoi(argv[1]);
         iterations = atoi(argv[2]);
@@ -206,6 +222,7 @@ int main(int argc, char** argv) {
         trial = atoi(argv[8]);
     }
 
+    // Check if any invalid command line arguments were provided
     if(num_spins == 0 || iterations == 0 || beta == 0 || j_seed == 0 || mc_seed == 0 || spins_seed == 0 || !(ferro == 0 || ferro == 1)) {
         printf("ERROR: Invalid argument provided.\n");
         printf("USAGE: ./min_energy SPINS ITERATIONS BETA J_SEED MC_SEED SPINS_SEED FERRO\n");
@@ -230,18 +247,12 @@ int main(int argc, char** argv) {
 
     // Monte Carlo loop
 
-    // TO DO:
-    //  Instead of recording energies in an array to be printed later, write the energy to disk after each sweep (i iteration)
-    //  Keep a running record of the minimum energy reached during each sweep (within the j loop).
-    //      To store this, record the energy and its corresponding configuration
-    //      Need to find best way to convert the configuration into an integer (like binary) - HELPER FUNCTION
-    //      If multiple states have same minimum energy, record their configurations as a vector
-
-    // Declare minimum energy as max double and create int vector of min energy configurations
+    // Declare minimum energy as max double and create long long int vector of min energy configurations
+    // NOTE: energy configurations can only encompass up to N = 64 particles
     double min_energy = computeEnergy(spins, j_values);
     vector<unsigned long long int> min_configs;
     min_configs.push_back(spins.toInt());
-    bool swapped;
+
     double current_energy;
     srand(mc_seed);
 
@@ -254,15 +265,23 @@ int main(int argc, char** argv) {
 
     for(int i = 1; i < iterations + 1; i++) {
         for(int j = 0; j < num_spins; j++) {
+
+            // Attempt to flip one spin
+            // Calculate energy after attempted flip
+            // Convert spin configuration to a long long int
             attemptSwap(spins, j_values, beta);
             current_energy = computeEnergy(spins, j_values);
             unsigned long long int conf_int = spins.toInt();
 
+            // If current energy is less than minimum energy to this point, update min_energy,
+            // clear configuration vector, and push configuration to the vector
             if(current_energy < min_energy) {
                 min_energy = current_energy;
                 min_configs.clear();
                 min_configs.push_back(conf_int);
             }
+
+            // If current energy is same as minimum energy, push this configuration to the vector
             else if(current_energy == min_energy) {
                 if( find(min_configs.begin(), min_configs.end(), conf_int) == min_configs.end() )
                     min_configs.push_back(conf_int);
@@ -289,6 +308,7 @@ int main(int argc, char** argv) {
     testfile << "\n\n------------------------------------\n\n";
     testfile.close();
 
+    // Print trial(s) status to the command line
     printf("Trial #%d completed and stored to disk.\n", trial);
 
 }
