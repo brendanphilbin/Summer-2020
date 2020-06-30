@@ -9,3 +9,4 @@ Subdirectories
 
     source : source code
 	initial_tests : simulation correctness trials
+    min_energy : minimum energy analysis trials
