@@ -3,9 +3,6 @@ Correctness Trials
 
 Program Files
 
-	ising_simple.cc : source code
-	ising_simple : executable
-	ising_test.sh : test script using values described below
 	README : this document
 
 Output files

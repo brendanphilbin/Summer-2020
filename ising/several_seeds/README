@@ -1,0 +1,8 @@
+Output Files
+
+    several_seeds_output(TRIAL)_r(REPLICA).csv : single replica energy CSV
+    results.txt : summary of all trials including parameters
+
+Information Files
+
+    README : this document

@@ -1,7 +1,7 @@
 // Brendan Philbin
 // 29 June 2020
 // Simple Ising Model MC Simulation
-// min_energy analysis
+// min_energy analysis with several seeds
 
 #include <stdlib.h>
 #include <time.h>
@@ -77,7 +77,7 @@ class JijMatrix {
         int N;
         bool ferromagnetic;
 
-        // Empty constructor
+        // Constructor
         JijMatrix(int num_spins, int j_seed, bool ferro) {
             N = num_spins;
             ferromagnetic = ferro;
@@ -196,7 +196,9 @@ int main(int argc, char** argv) {
 
     // Declare parameters
     
-    int num_spins, iterations, j_seed, mc_seed, spins_seed, trial;
+    int num_spins, iterations, replicas, j_seed, trial;
+    vector<int> mc_seeds;
+    vector<int> spin_seeds;
     double beta;
     bool ferro = false;
 
@@ -207,10 +209,11 @@ int main(int argc, char** argv) {
     options.add_options()
         ("n", "number of spins", cxxopts::value<int>()->default_value("-1"))
         ("m", "number of sweeps", cxxopts::value<int>()->default_value("-1"))
+        ("r", "number of replicas", cxxopts::value<int>()->default_value("1"))
         ("t", "trial number", cxxopts::value<int>()->default_value("-1"))
         ("j", "Jij matrix seed", cxxopts::value<int>()->default_value("-1"))
-        ("c", "MC sweep seed", cxxopts::value<int>()->default_value("-1"))
-        ("s", "initial spin seed", cxxopts::value<int>()->default_value("-1"))
+        ("c", "MC sweep seed(s)", cxxopts::value<vector<int>>()->default_value("-1"))
+        ("s", "initial spin seed(s)", cxxopts::value<vector<int>>()->default_value("-1"))
         ("b", "beta value", cxxopts::value<double>()->default_value("-1"))
         ("f", "ferromagnetic or not");
 
@@ -218,99 +221,119 @@ int main(int argc, char** argv) {
 
     num_spins = parameters["n"].as<int>();
     iterations = parameters["m"].as<int>();
+    replicas = parameters["r"].as<int>();
     trial = parameters["t"].as<int>();
     j_seed = parameters["j"].as<int>();
-    mc_seed = parameters["c"].as<int>();
-    spins_seed = parameters["s"].as<int>();
+    mc_seeds = parameters["c"].as<vector<int>>();
+    spin_seeds = parameters["s"].as<vector<int>>();
     beta = parameters["b"].as<double>();
     ferro = parameters["f"].as<bool>();
 
-    if(num_spins == -1 || iterations == -1 || trial == -1 || j_seed == -1 || mc_seed == -1 || spins_seed == -1 || beta == -1) {
-        printf("\nERROR: missing one or more required options\n");
+    if(num_spins == -1 || iterations == -1 || trial == -1 || j_seed == -1 || mc_seeds.empty() || spin_seeds.empty() || beta == -1) {
+        printf("ERROR: missing one or more required arguments\n");
         printf("Required options:\n");
         printf("    -n : number of spins\n");
         printf("    -m : number of sweeps\n");
+        printf("    -r : number of replicas\n");
         printf("    -t : trial number\n");
         printf("    -j : Jij matrix seed\n");
-        printf("    -mc : MC sweep seed\n");
-        printf("    -s : initial spin seed\n");
+        printf("    -c : MC sweep seed(s)\n");
+        printf("    -s : initial spin seed(s)\n");
         printf("    -b : beta value\n");
-        printf("    -f : add if ferromagnetic\n\n");
-        return 0;
+        printf("    -f : add if ferromagnetic\n");
     }
 
-    // Create initial SpinConfiguration
-    SpinConfiguration spins(num_spins, spins_seed);
+    if(mc_seeds.size() != replicas || spin_seeds.size() != replicas)
+        printf("ERROR: number of SpinConfig seeds not equal to number of replicas\n");
+
+    // Create initial SpinConfiguration vector of replicas
+    vector<SpinConfiguration> spin_configs;
+    for(int seed : spin_seeds)
+        spin_configs.push_back(SpinConfiguration(num_spins, seed));
 
     // Create Jij matrix
     JijMatrix j_values(num_spins, j_seed, ferro);
 
     // Monte Carlo loop
 
-    // Declare minimum energy as current energy and create long long int vector of min energy configurations
+    // For each replica, declare minimum energy as current energy and create long long int vector of min energy configurations
     // NOTE: energy configurations can only encompass up to N = 64 particles
-    double min_energy = computeEnergy(spins, j_values);
-    vector<unsigned long long int> min_configs;
-    min_configs.push_back(spins.toInt());
+    vector<double> min_energies;
+    vector<double> current_energies;
+    vector<vector<unsigned long long int>> min_configs;
 
-    double current_energy;
-    srand(mc_seed);
-
-    // Prepare for file writing
     ofstream testfile;
 
-    // Open file for sweep energy CSV
-    testfile.open("../min_energy/min_energy_output" + to_string(trial) + ".csv");
-    testfile << computeEnergy(spins, j_values) << ",";
+    for(int i = 0; i < spin_configs.size(); i++) {
+        double current_energy = computeEnergy(spin_configs[i], j_values);
+        min_energies.push_back(current_energy);
+        current_energies.push_back(current_energy);
+        vector<unsigned long long int> temp_vector(1, spin_configs[i].toInt());
+        min_configs.push_back(temp_vector);
 
-    for(int i = 1; i < iterations + 1; i++) {
-        for(int j = 0; j < num_spins; j++) {
-
-            // Attempt to flip one spin
-            // Calculate energy after attempted flip
-            // Convert spin configuration to a long long int
-            attemptFlip(spins, j_values, beta);
-            current_energy = computeEnergy(spins, j_values);
-            unsigned long long int conf_int = spins.toInt();
-
-            // If current energy is less than minimum energy to this point, update min_energy,
-            // clear configuration vector, and push configuration to the vector
-            if(current_energy < min_energy) {
-                min_energy = current_energy;
-                min_configs.clear();
-                min_configs.push_back(conf_int);
-            }
-
-            // If current energy is same as minimum energy, push this configuration to the vector
-            else if(current_energy == min_energy) {
-                if( find(min_configs.begin(), min_configs.end(), conf_int) == min_configs.end() )
-                    min_configs.push_back(conf_int);
-            }
-        }
-        
-        // Write energy after each sweep to CSV file
-        if(i == iterations)
-            testfile << computeEnergy(spins, j_values);
-        else
-            testfile << computeEnergy(spins, j_values) << ","; 
+        testfile.open("../several_seeds/several_seeds_output" + to_string(trial) + "_r" + to_string(i) + ".csv", ios_base::app);
+        testfile << current_energies[i] << ",";
+        testfile.close();
     }
 
-    // Close CSV file
-    testfile.close();
+    // Iteration over "-m", number of sweeps
+    for(int i = 1; i < iterations + 1; i++) {
+        // Iteration over "-r", number of replicas
+        for(int r = 0; r < spin_configs.size(); r++) {
+            srand(mc_seeds[r]+i);
+            testfile.open("../several_seeds/several_seeds_output" + to_string(trial) + "_r" + to_string(r) + ".csv", ios_base::app);
+            // Iteration over "-n", number of spins
+            for(int j = 0; j < num_spins; j++) {
+
+                // Attempt to flip one spin
+                // Calculate energy after attempted flip
+                // Convert spin configuration to a long long int
+                attemptFlip(spin_configs[r], j_values, beta);
+                current_energies[r] = computeEnergy(spin_configs[r], j_values);
+                unsigned long long int conf_int = spin_configs[r].toInt();
+
+                // If current energy is less than minimum energy to this point, update min_energy,
+                // clear configuration vector, and push configuration to the vector
+                if(current_energies[r] < min_energies[r]) {
+                    min_energies[r] = current_energies[r];
+                    min_configs[r].clear();
+                    min_configs[r].push_back(conf_int);
+                }
+
+                // If current energy is same as minimum energy, push this configuration to the vector
+                else if(current_energies[r] == min_energies[r]) {
+                    if( find(min_configs[r].begin(), min_configs[r].end(), conf_int) == min_configs[r].end() )
+                        min_configs[r].push_back(conf_int);
+                }
+            }
+
+           if(i == iterations)
+              testfile << current_energies[r];
+           else
+              testfile << current_energies[r] << ","; 
+           testfile.close();
+
+        }
+
+    }
 
     // Write results file w/ minimum energy information
-    testfile.open("../min_energy/results.txt", ios_base::app);
-    testfile << "Trial #" + to_string(trial) + " : min_energy_output" + to_string(trial) + ".csv : N = " + to_string(num_spins) + ", M = " + to_string(iterations) + ", B = " + to_string(beta) + ", J_SEED = " + to_string(j_seed) + ", MC_SEED = " + to_string(mc_seed) + ", SPIN_SEED = " + to_string(spins_seed) + ", FERRO = " + to_string(ferro) + "\n\n";
-    testfile << "Minimum energy reached: " + to_string(min_energy) + "\n";
-    testfile << "Configurations: ";
-    for(int i = 0; i < min_configs.size(); i++)
-        testfile << to_string(min_configs[i]) + ", ";
-    testfile << "\n\n------------------------------------\n\n";
+    
+    testfile.open("../several_seeds/results.txt", ios_base::app);
+    testfile << "Trial " + to_string(trial) + ": N = " + to_string(num_spins) + ", M = " + to_string(iterations) + ", J_SEED = " + to_string(j_seed) + ", B = " + to_string(beta) + "\n\n";
+    for(int i = 0; i < spin_configs.size(); i++) {
+        testfile << "   Replica " + to_string(i) + ": SPIN_SEED = " + to_string(spin_seeds[i]) + ", MC_SEED = " + to_string(mc_seeds[i]) + "\n";
+        testfile << "   Minimum energy reached = " + to_string(min_energies[i]) + "\n";
+        testfile << "   Minimum energy configurations: ";
+        for(int j = 0; j < min_configs[i].size(); j++)
+            testfile << to_string(min_configs[i][j]) + ", ";
+        testfile << "\n\n";
+    }
     testfile.close();
 
-    // Print trial(s) status to the command line
+    // Print trial status to the command line
     printf("Trial #%d completed and stored to disk.\n", trial);
-
+    
     return 1;
 
 }

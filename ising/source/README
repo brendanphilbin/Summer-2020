@@ -1,10 +1,24 @@
 Simple Ising Model Simulations
 Source Code Directory
 
-Program Files
+Source Files
 
     ising_simple.cc : simple source code
     ising_min_energy.cc : source code w/ minimum energy analysis
+    ising_several_seeds.cc : source code w/ multiple concurrent replicas
+    Makefile : project Makefile
+
+Executable Files
+
+    ising_simple
+    min_energy
+    several_seeds
+
+Test Scripts
+
+    ising_test.sh : simple ising test
+    test_min_energy.sh : minimum energy analysis test
+    test_several_seeds.sh : multiple replica analysis test
 
 Information Files
 
