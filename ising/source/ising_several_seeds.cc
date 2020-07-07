@@ -254,8 +254,6 @@ int main(int argc, char** argv) {
     // Create Jij matrix
     JijMatrix j_values(num_spins, j_seed, ferro);
 
-    // Monte Carlo loop
-
     // For each replica, declare minimum energy as current energy and create long long int vector of min energy configurations
     // NOTE: energy configurations can only encompass up to N = 64 particles
     vector<double> min_energies;
@@ -271,17 +269,27 @@ int main(int argc, char** argv) {
         vector<unsigned long long int> temp_vector(1, spin_configs[i].toInt());
         min_configs.push_back(temp_vector);
 
+        // Write initial energy information to CSV
+        // NOTE: RESULTS MUST BE CLEANED BEFORE EACH RUN: use "make cleanResults"
         testfile.open("../several_seeds/several_seeds_output" + to_string(trial) + "_r" + to_string(i) + ".csv", ios_base::app);
         testfile << current_energies[i] << ",";
         testfile.close();
     }
 
+    // Monte Carlo loop
+
     // Iteration over "-m", number of sweeps
     for(int i = 1; i < iterations + 1; i++) {
+
         // Iteration over "-r", number of replicas
         for(int r = 0; r < spin_configs.size(); r++) {
+            
+            // Re-seed each replica on every iteration to avoid same flips being chosen
+            // Re-seeding with same seed results in same string of random numbers
             srand(mc_seeds[r]+i);
+
             testfile.open("../several_seeds/several_seeds_output" + to_string(trial) + "_r" + to_string(r) + ".csv", ios_base::app);
+
             // Iteration over "-n", number of spins
             for(int j = 0; j < num_spins; j++) {
 
@@ -314,6 +322,9 @@ int main(int argc, char** argv) {
            testfile.close();
 
         }
+
+        // THIS IS WHERE REPLICA COMPARISON WILL GO
+        // REACHED AFTER EACH ITERATION COMPLETES ON ALL REPLICAS
 
     }
 
