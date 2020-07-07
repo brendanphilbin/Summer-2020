@@ -1,4 +1,4 @@
-all: min_energy ising_simple several_seeds
+all: min_energy ising_simple several_seeds annealing
 
 min_energy: ising_min_energy.cc
 	g++ ising_min_energy.cc -o min_energy
@@ -8,6 +8,9 @@ ising_simple: ising_simple.cc
 
 several_seeds: ising_several_seeds.cc
 	g++ ising_several_seeds.cc -o several_seeds
+
+annealing: ising_annealing.cc
+	g++ ising_annealing.cc -o annealing
 
 cleanAll: cleanSource cleanResults
 
