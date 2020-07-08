@@ -15,9 +15,10 @@ annealing: ising_annealing.cc
 cleanAll: cleanSource cleanResults
 
 cleanSource:
-	rm -f min_energy ising_simple several_seeds
+	rm -f min_energy ising_simple several_seeds annealing
 
 cleanResults:
 	rm -f ../simple/ising_output*.csv
 	rm -f ../min_energy/min_energy_output*.csv ../min_energy/results.txt
 	rm -f ../several_seeds/several_seeds_output* ../several_seeds/results.txt
+	rm -f ../annealing/annealing_output* ../annealing/results.txt ../annealing/histogram*

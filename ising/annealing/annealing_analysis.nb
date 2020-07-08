@@ -1,0 +1,639 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     26125,        629]
+NotebookOptionsPosition[     23582,        570]
+NotebookOutlinePosition[     24024,        587]
+CellTagsIndexPosition[     23981,        584]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Brendan Philbin
+Thermal Annealing Analysis\
+\>", "Title",
+ CellChangeTimes->{{3.803220224855425*^9, 
+  3.8032202328991957`*^9}},ExpressionUUID->"e0667421-2db0-4ed3-86d0-\
+5d39267b66c1"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Trial 1 (no annealing): N=64, M=100, R=100, J=2, S=3, C=4, \[Beta]=5\
+\>", "Section",
+ CellChangeTimes->{{3.803220242387821*^9, 3.803220365577982*^9}, {
+  3.803220530453926*^9, 
+  3.8032205373065996`*^9}},ExpressionUUID->"e3089fb6-5da2-4831-9ed4-\
+f2c012d3bb81"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"trial1", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Import", "[", 
+     RowBox[{"\"\<histogram1.csv\>\"", ",", "\"\<CSV\>\""}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Histogram", "[", 
+  RowBox[{"trial1", ",", "100", ",", 
+   RowBox[{"ChartStyle", "\[Rule]", 
+    RowBox[{"Darker", "[", "Green", "]"}]}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<minimum energy reached\>\"", ",", "\"\<frequency of replicas\>\""}],
+      "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.80322037333424*^9, 3.8032205044813824`*^9}},
+ CellLabel->"In[47]:=",ExpressionUUID->"cdf97668-a524-4488-8258-5b8780fd34e5"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0, 
+     NCache[
+      Rational[2, 3], 0.6666666666666666], 0], EdgeForm[{Opacity[0.42], 
+    Thickness[Small]}], {}, 
+    {RGBColor[0, 
+      NCache[
+       Rational[2, 3], 0.6666666666666666], 0], EdgeForm[{Opacity[0.42], 
+     Thickness[Small]}], RectangleBox[{-97.75, 0}, {-97.25, 18.},
+      RoundingRadius->0], RectangleBox[{-93.75, 0}, {-93.25, 1.},
+      RoundingRadius->0], RectangleBox[{-93.25, 0}, {-92.75, 6.},
+      RoundingRadius->0], RectangleBox[{-91.75, 0}, {-91.25, 12.},
+      RoundingRadius->0], RectangleBox[{-90.25, 0}, {-89.75, 10.},
+      RoundingRadius->0], RectangleBox[{-89.75, 0}, {-89.25, 19.},
+      RoundingRadius->0], RectangleBox[{-89.25, 0}, {-88.75, 3.},
+      RoundingRadius->0], RectangleBox[{-88.75, 0}, {-88.25, 7.},
+      RoundingRadius->0], RectangleBox[{-87.75, 0}, {-87.25, 1.},
+      RoundingRadius->0], RectangleBox[{-87.25, 0}, {-86.75, 1.},
+      RoundingRadius->0], RectangleBox[{-86.75, 0}, {-86.25, 6.},
+      RoundingRadius->0], RectangleBox[{-86.25, 0}, {-85.75, 4.},
+      RoundingRadius->0], RectangleBox[{-85.75, 0}, {-85.25, 6.},
+      RoundingRadius->0], RectangleBox[{-82.75, 0}, {-82.25, 2.},
+      RoundingRadius->0], RectangleBox[{-82.25, 0}, {-81.75, 1.},
+      RoundingRadius->0], RectangleBox[{-81.75, 0}, {-81.25, 1.},
+      RoundingRadius->0], RectangleBox[{-80.75, 0}, {-80.25, 1.},
+      RoundingRadius->
+       0]}, {}, {}}, {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{-98.63, 0},
+  Frame->True,
+  FrameLabel->{{
+     FormBox["\"frequency of replicas\"", TraditionalForm], None}, {
+     FormBox["\"minimum energy reached\"", TraditionalForm], None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotRange->{{-98.25, -79.25}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {None, 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.8032203977499523`*^9, 3.803220495487429*^9}, 
+   3.8032220288233023`*^9, 3.8032242107114162`*^9},
+ CellLabel->"Out[49]=",ExpressionUUID->"1cb1bc07-8cc9-4e28-b65a-3bfeaf446529"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Trial 2 (no annealing): N=64, M=200, R=100, J=2, S=4, C=5, \[Beta]=5\
+\>", "Section",
+ CellChangeTimes->{{3.803220514887552*^9, 
+  3.803220545435117*^9}},ExpressionUUID->"a6bb835e-9fb7-4731-99ca-\
+ff076129eeaa"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"trial2", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Import", "[", 
+     RowBox[{"\"\<histogram2.csv\>\"", ",", "\"\<CSV\>\""}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Histogram", "[", 
+  RowBox[{"trial2", ",", "100", ",", 
+   RowBox[{"ChartStyle", "\[Rule]", 
+    RowBox[{"Darker", "[", "Green", "]"}]}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<minimum energy reached\>\"", ",", "\"\<frequency of replicas\>\""}],
+      "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8032205656359763`*^9, 3.8032205687895446`*^9}},
+ CellLabel->"In[50]:=",ExpressionUUID->"6f9f1a05-0392-4e7e-904d-9edacd3bb427"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0, 
+     NCache[
+      Rational[2, 3], 0.6666666666666666], 0], EdgeForm[{Opacity[0.42], 
+    Thickness[Small]}], {}, 
+    {RGBColor[0, 
+      NCache[
+       Rational[2, 3], 0.6666666666666666], 0], EdgeForm[{Opacity[0.42], 
+     Thickness[Small]}], RectangleBox[{-97.75, 0}, {-97.25, 27.},
+      RoundingRadius->0], RectangleBox[{-93.25, 0}, {-92.75, 4.},
+      RoundingRadius->0], RectangleBox[{-91.75, 0}, {-91.25, 19.},
+      RoundingRadius->0], RectangleBox[{-90.25, 0}, {-89.75, 11.},
+      RoundingRadius->0], RectangleBox[{-89.75, 0}, {-89.25, 17.},
+      RoundingRadius->0], RectangleBox[{-88.75, 0}, {-88.25, 7.},
+      RoundingRadius->0], RectangleBox[{-86.75, 0}, {-86.25, 6.},
+      RoundingRadius->0], RectangleBox[{-86.25, 0}, {-85.75, 1.},
+      RoundingRadius->0], RectangleBox[{-85.25, 0}, {-84.75, 2.},
+      RoundingRadius->0], RectangleBox[{-84.25, 0}, {-83.75, 1.},
+      RoundingRadius->0], RectangleBox[{-82.75, 0}, {-82.25, 1.},
+      RoundingRadius->0], RectangleBox[{-82.25, 0}, {-81.75, 2.},
+      RoundingRadius->0], RectangleBox[{-80.75, 0}, {-80.25, 1.},
+      RoundingRadius->
+       0]}, {}, {}}, {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{-98.63, 0},
+  Frame->True,
+  FrameLabel->{{
+     FormBox["\"frequency of replicas\"", TraditionalForm], None}, {
+     FormBox["\"minimum energy reached\"", TraditionalForm], None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotRange->{{-98.25, -79.25}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {None, 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.803220570724369*^9, 3.8032220294197392`*^9, 
+  3.8032242112816863`*^9},
+ CellLabel->"Out[51]=",ExpressionUUID->"d9eb17ac-a454-4bf2-8eb4-3391142056da"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Trial 3 (no annealing): N=64, M=400, R=100, J=2, S=5, C=6, \[Beta]=5\
+\>", "Section",
+ CellChangeTimes->{{3.8032205774035096`*^9, 
+  3.8032205924313235`*^9}},ExpressionUUID->"9b2dae55-0324-4bbf-8731-\
+3c25a5604af6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"trial3", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Import", "[", 
+     RowBox[{"\"\<histogram3.csv\>\"", ",", "\"\<CSV\>\""}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Histogram", "[", 
+  RowBox[{"trial3", ",", "100", ",", 
+   RowBox[{"ChartStyle", "\[Rule]", 
+    RowBox[{"Darker", "[", "Green", "]"}]}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<minimum energy reached\>\"", ",", "\"\<frequency of replicas\>\""}],
+      "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8032205995074015`*^9, 3.8032206030908203`*^9}},
+ CellLabel->"In[52]:=",ExpressionUUID->"c02d58ac-fc30-4036-b070-797942cd22e8"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0, 
+     NCache[
+      Rational[2, 3], 0.6666666666666666], 0], EdgeForm[{Opacity[
+    0.44099999999999995`], Thickness[Small]}], {}, 
+    {RGBColor[0, 
+      NCache[
+       Rational[2, 3], 0.6666666666666666], 0], EdgeForm[{Opacity[
+     0.44099999999999995`], Thickness[Small]}], RectangleBox[{-97.75, 0}, {-97.25, 29.},
+      RoundingRadius->0], RectangleBox[{-93.25, 0}, {-92.75, 5.},
+      RoundingRadius->0], RectangleBox[{-91.75, 0}, {-91.25, 24.},
+      RoundingRadius->0], RectangleBox[{-90.25, 0}, {-89.75, 13.},
+      RoundingRadius->0], RectangleBox[{-89.75, 0}, {-89.25, 10.},
+      RoundingRadius->0], RectangleBox[{-89.25, 0}, {-88.75, 2.},
+      RoundingRadius->0], RectangleBox[{-88.75, 0}, {-88.25, 5.},
+      RoundingRadius->0], RectangleBox[{-86.75, 0}, {-86.25, 9.},
+      RoundingRadius->0], RectangleBox[{-85.25, 0}, {-84.75, 2.},
+      RoundingRadius->0]}, {}, {}}, {{}, {}, {}, {}, {}, {}, {}, {}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{-98.6, 0},
+  Frame->True,
+  FrameLabel->{{
+     FormBox["\"frequency of replicas\"", TraditionalForm], None}, {
+     FormBox["\"minimum energy reached\"", TraditionalForm], None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotRange->{{-98.25, -80.75}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {None, 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.8032206039973955`*^9, 3.803222029952318*^9, 
+  3.803224211783058*^9},
+ CellLabel->"Out[53]=",ExpressionUUID->"1228620e-0f9a-4eea-9b8e-42eb45b30ea9"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Trial 4 (w/ annealing): N=64, M=100, R=100, J=2, S=3, C=4, \[Beta]=5\
+\>", "Section",
+ CellChangeTimes->{{3.803220646781046*^9, 
+  3.803220657490413*^9}},ExpressionUUID->"2c3c3b41-865b-4281-a63d-\
+0ee3b0533841"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"trial4", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Import", "[", 
+     RowBox[{"\"\<histogram4.csv\>\"", ",", "\"\<CSV\>\""}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Histogram", "[", 
+  RowBox[{"trial4", ",", "100", ",", 
+   RowBox[{"ChartStyle", "\[Rule]", 
+    RowBox[{"Darker", "[", "Green", "]"}]}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<minimum energy reached\>\"", ",", "\"\<frequency of replicas\>\""}],
+      "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.803221789122096*^9, 3.803221791523675*^9}},
+ CellLabel->"In[54]:=",ExpressionUUID->"15ccb737-b2f3-4b0f-beee-2a25e4fa5e36"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0, 
+     NCache[
+      Rational[2, 3], 0.6666666666666666], 0], EdgeForm[{Opacity[
+    0.33599999999999997`], Thickness[Small]}], {}, 
+    {RGBColor[0, 
+      NCache[
+       Rational[2, 3], 0.6666666666666666], 0], EdgeForm[{Opacity[
+     0.33599999999999997`], Thickness[Small]}], RectangleBox[{-57.25, 0}, {-56.75, 1.},
+      RoundingRadius->0], RectangleBox[{-51.25, 0}, {-50.75, 1.},
+      RoundingRadius->0], RectangleBox[{-50.75, 0}, {-50.25, 1.},
+      RoundingRadius->0], RectangleBox[{-50.25, 0}, {-49.75, 1.},
+      RoundingRadius->0], RectangleBox[{-49.25, 0}, {-48.75, 1.},
+      RoundingRadius->0], RectangleBox[{-48.25, 0}, {-47.75, 1.},
+      RoundingRadius->0], RectangleBox[{-47.75, 0}, {-47.25, 1.},
+      RoundingRadius->0], RectangleBox[{-47.25, 0}, {-46.75, 1.},
+      RoundingRadius->0], RectangleBox[{-46.25, 0}, {-45.75, 2.},
+      RoundingRadius->0], RectangleBox[{-45.25, 0}, {-44.75, 1.},
+      RoundingRadius->0], RectangleBox[{-44.25, 0}, {-43.75, 1.},
+      RoundingRadius->0], RectangleBox[{-43.75, 0}, {-43.25, 4.},
+      RoundingRadius->0], RectangleBox[{-43.25, 0}, {-42.75, 4.},
+      RoundingRadius->0], RectangleBox[{-42.75, 0}, {-42.25, 3.},
+      RoundingRadius->0], RectangleBox[{-42.25, 0}, {-41.75, 6.},
+      RoundingRadius->0], RectangleBox[{-41.75, 0}, {-41.25, 7.},
+      RoundingRadius->0], RectangleBox[{-41.25, 0}, {-40.75, 3.},
+      RoundingRadius->0], RectangleBox[{-40.75, 0}, {-40.25, 5.},
+      RoundingRadius->0], RectangleBox[{-40.25, 0}, {-39.75, 5.},
+      RoundingRadius->0], RectangleBox[{-39.75, 0}, {-39.25, 5.},
+      RoundingRadius->0], RectangleBox[{-39.25, 0}, {-38.75, 1.},
+      RoundingRadius->0], RectangleBox[{-38.75, 0}, {-38.25, 3.},
+      RoundingRadius->0], RectangleBox[{-38.25, 0}, {-37.75, 4.},
+      RoundingRadius->0], RectangleBox[{-37.75, 0}, {-37.25, 3.},
+      RoundingRadius->0], RectangleBox[{-37.25, 0}, {-36.75, 3.},
+      RoundingRadius->0], RectangleBox[{-36.75, 0}, {-36.25, 10.},
+      RoundingRadius->0], RectangleBox[{-36.25, 0}, {-35.75, 3.},
+      RoundingRadius->0], RectangleBox[{-35.75, 0}, {-35.25, 4.},
+      RoundingRadius->0], RectangleBox[{-35.25, 0}, {-34.75, 4.},
+      RoundingRadius->0], RectangleBox[{-34.75, 0}, {-34.25, 5.},
+      RoundingRadius->0], RectangleBox[{-33.25, 0}, {-32.75, 4.},
+      RoundingRadius->
+       0]}, {}, {}}, {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{-58.25, 0},
+  Frame->True,
+  FrameLabel->{{
+     FormBox["\"frequency of replicas\"", TraditionalForm], None}, {
+     FormBox["\"minimum energy reached\"", TraditionalForm], None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotRange->{{-57.75, -32.75}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {None, 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.803222030557695*^9, 3.8032242123622313`*^9},
+ CellLabel->"Out[55]=",ExpressionUUID->"7cd1662e-e2e0-4b25-be21-77e44a869447"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Trial 5 (w/ annealing): N=64, M=200, R=100, J=2, S=4, C=5, \[Beta]=5\
+\>", "Section",
+ CellChangeTimes->{{3.8032206648726716`*^9, 
+  3.8032206783930254`*^9}},ExpressionUUID->"4a7ff33b-47ba-4f35-aebe-\
+4b33b6614ecc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"trial5", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Import", "[", 
+     RowBox[{"\"\<histogram5.csv\>\"", ",", "\"\<CSV\>\""}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Histogram", "[", 
+  RowBox[{"trial5", ",", "100", ",", 
+   RowBox[{"ChartStyle", "\[Rule]", 
+    RowBox[{"Darker", "[", "Green", "]"}]}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<minimum energy reached\>\"", ",", "\"\<frequency of replicas\>\""}],
+      "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8032217929877586`*^9, 3.8032217971157203`*^9}},
+ CellLabel->"In[56]:=",ExpressionUUID->"ba34d11a-dbca-47a6-8c68-a7a1895f8ee2"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0, 
+     NCache[
+      Rational[2, 3], 0.6666666666666666], 0], EdgeForm[{Opacity[0.371], 
+    Thickness[Small]}], {}, 
+    {RGBColor[0, 
+      NCache[
+       Rational[2, 3], 0.6666666666666666], 0], EdgeForm[{Opacity[0.371], 
+     Thickness[Small]}], RectangleBox[{-57.25, 0}, {-56.75, 1.},
+      RoundingRadius->0], RectangleBox[{-56.25, 0}, {-55.75, 1.},
+      RoundingRadius->0], RectangleBox[{-55.25, 0}, {-54.75, 1.},
+      RoundingRadius->0], RectangleBox[{-54.75, 0}, {-54.25, 1.},
+      RoundingRadius->0], RectangleBox[{-53.75, 0}, {-53.25, 1.},
+      RoundingRadius->0], RectangleBox[{-52.25, 0}, {-51.75, 1.},
+      RoundingRadius->0], RectangleBox[{-51.25, 0}, {-50.75, 1.},
+      RoundingRadius->0], RectangleBox[{-50.75, 0}, {-50.25, 2.},
+      RoundingRadius->0], RectangleBox[{-50.25, 0}, {-49.75, 1.},
+      RoundingRadius->0], RectangleBox[{-49.25, 0}, {-48.75, 2.},
+      RoundingRadius->0], RectangleBox[{-48.25, 0}, {-47.75, 2.},
+      RoundingRadius->0], RectangleBox[{-47.75, 0}, {-47.25, 1.},
+      RoundingRadius->0], RectangleBox[{-47.25, 0}, {-46.75, 2.},
+      RoundingRadius->0], RectangleBox[{-46.25, 0}, {-45.75, 3.},
+      RoundingRadius->0], RectangleBox[{-45.75, 0}, {-45.25, 1.},
+      RoundingRadius->0], RectangleBox[{-45.25, 0}, {-44.75, 2.},
+      RoundingRadius->0], RectangleBox[{-44.75, 0}, {-44.25, 2.},
+      RoundingRadius->0], RectangleBox[{-44.25, 0}, {-43.75, 3.},
+      RoundingRadius->0], RectangleBox[{-43.75, 0}, {-43.25, 4.},
+      RoundingRadius->0], RectangleBox[{-43.25, 0}, {-42.75, 5.},
+      RoundingRadius->0], RectangleBox[{-42.75, 0}, {-42.25, 5.},
+      RoundingRadius->0], RectangleBox[{-42.25, 0}, {-41.75, 4.},
+      RoundingRadius->0], RectangleBox[{-41.75, 0}, {-41.25, 6.},
+      RoundingRadius->0], RectangleBox[{-41.25, 0}, {-40.75, 5.},
+      RoundingRadius->0], RectangleBox[{-40.75, 0}, {-40.25, 4.},
+      RoundingRadius->0], RectangleBox[{-40.25, 0}, {-39.75, 7.},
+      RoundingRadius->0], RectangleBox[{-39.75, 0}, {-39.25, 6.},
+      RoundingRadius->0], RectangleBox[{-39.25, 0}, {-38.75, 2.},
+      RoundingRadius->0], RectangleBox[{-38.75, 0}, {-38.25, 5.},
+      RoundingRadius->0], RectangleBox[{-38.25, 0}, {-37.75, 3.},
+      RoundingRadius->0], RectangleBox[{-37.75, 0}, {-37.25, 3.},
+      RoundingRadius->0], RectangleBox[{-37.25, 0}, {-36.75, 2.},
+      RoundingRadius->0], RectangleBox[{-36.75, 0}, {-36.25, 5.},
+      RoundingRadius->0], RectangleBox[{-36.25, 0}, {-35.75, 1.},
+      RoundingRadius->0], RectangleBox[{-35.75, 0}, {-35.25, 2.},
+      RoundingRadius->
+       0]}, {}, {}}, {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{-58.2, 0},
+  Frame->True,
+  FrameLabel->{{
+     FormBox["\"frequency of replicas\"", TraditionalForm], None}, {
+     FormBox["\"minimum energy reached\"", TraditionalForm], None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotRange->{{-57.75, -35.25}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {None, 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.803222031120191*^9, 3.8032242128858323`*^9},
+ CellLabel->"Out[57]=",ExpressionUUID->"be48e446-ceff-4c9d-b7a6-0b8aefae930e"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Trial 6 (w/ annealing): N=64, M=400, R=100, J=2, S=5, C=6, \[Beta]=5\
+\>", "Section",
+ CellChangeTimes->{{3.8032206665142784`*^9, 
+  3.803220686144264*^9}},ExpressionUUID->"28a2d022-8ab6-4b5f-9267-\
+c8e2ff19064b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"trial6", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Import", "[", 
+     RowBox[{"\"\<histogram6.csv\>\"", ",", "\"\<CSV\>\""}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Histogram", "[", 
+  RowBox[{"trial6", ",", "100", ",", 
+   RowBox[{"ChartStyle", "\[Rule]", 
+    RowBox[{"Darker", "[", "Green", "]"}]}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<minimum energy reached\>\"", ",", "\"\<frequency of replicas\>\""}],
+      "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.803221800027933*^9, 3.803221809767888*^9}},
+ CellLabel->"In[58]:=",ExpressionUUID->"13212565-37b1-4dbd-89c3-0f0de22efdcd"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0, 
+     NCache[
+      Rational[2, 3], 0.6666666666666666], 0], EdgeForm[{Opacity[0.35], 
+    Thickness[Small]}], {}, 
+    {RGBColor[0, 
+      NCache[
+       Rational[2, 3], 0.6666666666666666], 0], EdgeForm[{Opacity[0.35], 
+     Thickness[Small]}], RectangleBox[{-60.75, 0}, {-60.25, 1.},
+      RoundingRadius->0], RectangleBox[{-57.25, 0}, {-56.75, 1.},
+      RoundingRadius->0], RectangleBox[{-56.25, 0}, {-55.75, 1.},
+      RoundingRadius->0], RectangleBox[{-55.25, 0}, {-54.75, 1.},
+      RoundingRadius->0], RectangleBox[{-54.75, 0}, {-54.25, 1.},
+      RoundingRadius->0], RectangleBox[{-53.75, 0}, {-53.25, 1.},
+      RoundingRadius->0], RectangleBox[{-52.25, 0}, {-51.75, 1.},
+      RoundingRadius->0], RectangleBox[{-51.25, 0}, {-50.75, 2.},
+      RoundingRadius->0], RectangleBox[{-50.75, 0}, {-50.25, 2.},
+      RoundingRadius->0], RectangleBox[{-50.25, 0}, {-49.75, 3.},
+      RoundingRadius->0], RectangleBox[{-49.75, 0}, {-49.25, 1.},
+      RoundingRadius->0], RectangleBox[{-49.25, 0}, {-48.75, 2.},
+      RoundingRadius->0], RectangleBox[{-48.75, 0}, {-48.25, 3.},
+      RoundingRadius->0], RectangleBox[{-48.25, 0}, {-47.75, 2.},
+      RoundingRadius->0], RectangleBox[{-47.75, 0}, {-47.25, 3.},
+      RoundingRadius->0], RectangleBox[{-47.25, 0}, {-46.75, 3.},
+      RoundingRadius->0], RectangleBox[{-46.25, 0}, {-45.75, 6.},
+      RoundingRadius->0], RectangleBox[{-45.75, 0}, {-45.25, 3.},
+      RoundingRadius->0], RectangleBox[{-45.25, 0}, {-44.75, 3.},
+      RoundingRadius->0], RectangleBox[{-44.75, 0}, {-44.25, 3.},
+      RoundingRadius->0], RectangleBox[{-44.25, 0}, {-43.75, 5.},
+      RoundingRadius->0], RectangleBox[{-43.75, 0}, {-43.25, 11.},
+      RoundingRadius->0], RectangleBox[{-43.25, 0}, {-42.75, 5.},
+      RoundingRadius->0], RectangleBox[{-42.75, 0}, {-42.25, 6.},
+      RoundingRadius->0], RectangleBox[{-42.25, 0}, {-41.75, 5.},
+      RoundingRadius->0], RectangleBox[{-41.75, 0}, {-41.25, 5.},
+      RoundingRadius->0], RectangleBox[{-41.25, 0}, {-40.75, 3.},
+      RoundingRadius->0], RectangleBox[{-40.75, 0}, {-40.25, 6.},
+      RoundingRadius->0], RectangleBox[{-40.25, 0}, {-39.75, 2.},
+      RoundingRadius->0], RectangleBox[{-39.75, 0}, {-39.25, 4.},
+      RoundingRadius->0], RectangleBox[{-39.25, 0}, {-38.75, 1.},
+      RoundingRadius->0], RectangleBox[{-37.75, 0}, {-37.25, 2.},
+      RoundingRadius->
+       0]}, {}, {}}, {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{-61.73, 0},
+  Frame->True,
+  FrameLabel->{{
+     FormBox["\"frequency of replicas\"", TraditionalForm], None}, {
+     FormBox["\"minimum energy reached\"", TraditionalForm], None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotRange->{{-61.25, -37.25}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {None, 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.803222031724575*^9, 3.803224213540494*^9},
+ CellLabel->"Out[59]=",ExpressionUUID->"fb83593f-5b04-4ad0-8e0b-189db186b747"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1152., 585.6},
+WindowMargins->{{-5.3999999999999995`, Automatic}, {
+  Automatic, -5.3999999999999995`}},
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (March 18, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"5931f4c4-d6f8-4946-a48b-a654a1f25cf3"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 195, 6, 158, "Title",ExpressionUUID->"e0667421-2db0-4ed3-86d0-5d39267b66c1"],
+Cell[CellGroupData[{
+Cell[800, 32, 272, 6, 67, "Section",ExpressionUUID->"e3089fb6-5da2-4831-9ed4-f2c012d3bb81"],
+Cell[CellGroupData[{
+Cell[1097, 42, 874, 22, 68, "Input",ExpressionUUID->"cdf97668-a524-4488-8258-5b8780fd34e5"],
+Cell[1974, 66, 2342, 49, 257, "Output",ExpressionUUID->"1cb1bc07-8cc9-4e28-b65a-3bfeaf446529"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4365, 121, 221, 5, 67, "Section",ExpressionUUID->"a6bb835e-9fb7-4731-99ca-ff076129eeaa"],
+Cell[CellGroupData[{
+Cell[4611, 130, 750, 18, 49, "Input",ExpressionUUID->"6f9f1a05-0392-4e7e-904d-9edacd3bb427"],
+Cell[5364, 150, 2033, 44, 252, "Output",ExpressionUUID->"d9eb17ac-a454-4bf2-8eb4-3391142056da"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7446, 200, 225, 5, 67, "Section",ExpressionUUID->"9b2dae55-0324-4bbf-8731-3c25a5604af6"],
+Cell[CellGroupData[{
+Cell[7696, 209, 750, 18, 49, "Input",ExpressionUUID->"c02d58ac-fc30-4036-b070-797942cd22e8"],
+Cell[8449, 229, 1774, 39, 253, "Output",ExpressionUUID->"1228620e-0f9a-4eea-9b8e-42eb45b30ea9"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10272, 274, 221, 5, 67, "Section",ExpressionUUID->"2c3c3b41-865b-4281-a63d-0ee3b0533841"],
+Cell[CellGroupData[{
+Cell[10518, 283, 746, 18, 49, "Input",ExpressionUUID->"15ccb737-b2f3-4b0f-beee-2a25e4fa5e36"],
+Cell[11267, 303, 3297, 62, 252, "Output",ExpressionUUID->"7cd1662e-e2e0-4b25-be21-77e44a869447"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14613, 371, 225, 5, 67, "Section",ExpressionUUID->"4a7ff33b-47ba-4f35-aebe-4b33b6614ecc"],
+Cell[CellGroupData[{
+Cell[14863, 380, 750, 18, 49, "Input",ExpressionUUID->"ba34d11a-dbca-47a6-8c68-a7a1895f8ee2"],
+Cell[15616, 400, 3547, 67, 252, "Output",ExpressionUUID->"be48e446-ceff-4c9d-b7a6-0b8aefae930e"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19212, 473, 223, 5, 67, "Section",ExpressionUUID->"28a2d022-8ab6-4b5f-9267-c8e2ff19064b"],
+Cell[CellGroupData[{
+Cell[19460, 482, 746, 18, 49, "Input",ExpressionUUID->"13212565-37b1-4dbd-89c3-0f0de22efdcd"],
+Cell[20209, 502, 3333, 63, 276, "Output",ExpressionUUID->"fb83593f-5b04-4ad0-8e0b-189db186b747"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

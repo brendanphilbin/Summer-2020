@@ -1,0 +1,2412 @@
+Trial 1: N = 64, M = 100, J_SEED = 2, B = 5.000000
+
+   Replica 0: SPIN_SEED = 3, MC_SEED = 4
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744046750950585, 18446744048764216505, 
+
+   Replica 1: SPIN_SEED = 4, MC_SEED = 5
+   Minimum energy reached = -82.000000
+   Minimum energy configurations: 18446744039036160848, 
+
+   Replica 2: SPIN_SEED = 5, MC_SEED = 6
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744051707088825, 18446744051975458745, 
+
+   Replica 3: SPIN_SEED = 6, MC_SEED = 7
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744026779210359, 
+
+   Replica 4: SPIN_SEED = 7, MC_SEED = 8
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744042876084277, 
+
+   Replica 5: SPIN_SEED = 8, MC_SEED = 9
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744051975458745, 18446744051707088825, 
+
+   Replica 6: SPIN_SEED = 9, MC_SEED = 10
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 7: SPIN_SEED = 10, MC_SEED = 11
+   Minimum energy reached = -89.000000
+   Minimum energy configurations: 18446744031881568070, 
+
+   Replica 8: SPIN_SEED = 11, MC_SEED = 12
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744042328057019, 
+
+   Replica 9: SPIN_SEED = 12, MC_SEED = 13
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744033374204231, 
+
+   Replica 10: SPIN_SEED = 13, MC_SEED = 14
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744045549020351, 
+
+   Replica 11: SPIN_SEED = 14, MC_SEED = 15
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744048755820219, 
+
+   Replica 12: SPIN_SEED = 15, MC_SEED = 16
+   Minimum energy reached = -86.000000
+   Minimum energy configurations: 18446744039883788614, 
+
+   Replica 13: SPIN_SEED = 16, MC_SEED = 17
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744035823542218, 
+
+   Replica 14: SPIN_SEED = 17, MC_SEED = 18
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744030232006366, 18446744028084653790, 
+
+   Replica 15: SPIN_SEED = 18, MC_SEED = 19
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 16: SPIN_SEED = 19, MC_SEED = 20
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744026779210599, 18446744026779210359, 
+
+   Replica 17: SPIN_SEED = 20, MC_SEED = 21
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744029943806276, 
+
+   Replica 18: SPIN_SEED = 21, MC_SEED = 22
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744051151810849, 
+
+   Replica 19: SPIN_SEED = 22, MC_SEED = 23
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744028084653790, 18446744030232006366, 
+
+   Replica 20: SPIN_SEED = 23, MC_SEED = 24
+   Minimum energy reached = -85.500000
+   Minimum energy configurations: 18446744049754741272, 
+
+   Replica 21: SPIN_SEED = 24, MC_SEED = 25
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744033374204231, 
+
+   Replica 22: SPIN_SEED = 25, MC_SEED = 26
+   Minimum energy reached = -87.500000
+   Minimum energy configurations: 18446744042511561899, 18446744044675818665, 18446744042511558315, 
+
+   Replica 23: SPIN_SEED = 26, MC_SEED = 27
+   Minimum energy reached = -87.000000
+   Minimum energy configurations: 18446744034431682502, 
+
+   Replica 24: SPIN_SEED = 27, MC_SEED = 28
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744051723627705, 
+
+   Replica 25: SPIN_SEED = 28, MC_SEED = 29
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744048764216505, 
+
+   Replica 26: SPIN_SEED = 29, MC_SEED = 30
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 27: SPIN_SEED = 30, MC_SEED = 31
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744051151810849, 
+
+   Replica 28: SPIN_SEED = 31, MC_SEED = 32
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 29: SPIN_SEED = 32, MC_SEED = 33
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744028084653790, 18446744030232006366, 
+
+   Replica 30: SPIN_SEED = 33, MC_SEED = 34
+   Minimum energy reached = -86.000000
+   Minimum energy configurations: 18446744033340573639, 
+
+   Replica 31: SPIN_SEED = 34, MC_SEED = 35
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 32: SPIN_SEED = 35, MC_SEED = 36
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744049619840697, 
+
+   Replica 33: SPIN_SEED = 36, MC_SEED = 37
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744026779210359, 18446744026779210599, 
+
+   Replica 34: SPIN_SEED = 37, MC_SEED = 38
+   Minimum energy reached = -89.000000
+   Minimum energy configurations: 18446744051922514184, 
+
+   Replica 35: SPIN_SEED = 38, MC_SEED = 39
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 36: SPIN_SEED = 39, MC_SEED = 40
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744048755820219, 
+
+   Replica 37: SPIN_SEED = 40, MC_SEED = 41
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744028084653790, 18446744030232006366, 
+
+   Replica 38: SPIN_SEED = 41, MC_SEED = 42
+   Minimum energy reached = -85.500000
+   Minimum energy configurations: 18446744045292064440, 18446744043144515256, 
+
+   Replica 39: SPIN_SEED = 42, MC_SEED = 43
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 40: SPIN_SEED = 43, MC_SEED = 44
+   Minimum energy reached = -93.000000
+   Minimum energy configurations: 18446744034011073623, 
+
+   Replica 41: SPIN_SEED = 44, MC_SEED = 45
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 42: SPIN_SEED = 45, MC_SEED = 46
+   Minimum energy reached = -86.000000
+   Minimum energy configurations: 18446744047834916059, 18446744045553216735, 
+
+   Replica 43: SPIN_SEED = 46, MC_SEED = 47
+   Minimum energy reached = -93.000000
+   Minimum energy configurations: 18446744030002366439, 
+
+   Replica 44: SPIN_SEED = 47, MC_SEED = 48
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744051975458745, 18446744051707088825, 
+
+   Replica 45: SPIN_SEED = 48, MC_SEED = 49
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744036371569476, 
+
+   Replica 46: SPIN_SEED = 49, MC_SEED = 50
+   Minimum energy reached = -85.500000
+   Minimum energy configurations: 18446744028944885223, 
+
+   Replica 47: SPIN_SEED = 50, MC_SEED = 51
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 48: SPIN_SEED = 51, MC_SEED = 52
+   Minimum energy reached = -82.500000
+   Minimum energy configurations: 18446744037516112103, 
+
+   Replica 49: SPIN_SEED = 52, MC_SEED = 53
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 50: SPIN_SEED = 53, MC_SEED = 54
+   Minimum energy reached = -85.500000
+   Minimum energy configurations: 18446744028944885223, 
+
+   Replica 51: SPIN_SEED = 54, MC_SEED = 55
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744033374204231, 
+
+   Replica 52: SPIN_SEED = 55, MC_SEED = 56
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744031003120486, 
+
+   Replica 53: SPIN_SEED = 56, MC_SEED = 57
+   Minimum energy reached = -93.000000
+   Minimum energy configurations: 18446744030002366439, 
+
+   Replica 54: SPIN_SEED = 57, MC_SEED = 58
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744050614936993, 
+
+   Replica 55: SPIN_SEED = 58, MC_SEED = 59
+   Minimum energy reached = -93.000000
+   Minimum energy configurations: 18446744030002366439, 
+
+   Replica 56: SPIN_SEED = 59, MC_SEED = 60
+   Minimum energy reached = -80.500000
+   Minimum energy configurations: 18446744038650439589, 
+
+   Replica 57: SPIN_SEED = 60, MC_SEED = 61
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744043385351359, 18446744041237868223, 
+
+   Replica 58: SPIN_SEED = 61, MC_SEED = 62
+   Minimum energy reached = -85.500000
+   Minimum energy configurations: 18446744035092566902, 18446744037240052598, 
+
+   Replica 59: SPIN_SEED = 62, MC_SEED = 63
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744051151810849, 
+
+   Replica 60: SPIN_SEED = 63, MC_SEED = 64
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 61: SPIN_SEED = 64, MC_SEED = 65
+   Minimum energy reached = -93.500000
+   Minimum energy configurations: 18446744046584377408, 
+
+   Replica 62: SPIN_SEED = 65, MC_SEED = 66
+   Minimum energy reached = -93.000000
+   Minimum energy configurations: 18446744048697260056, 
+
+   Replica 63: SPIN_SEED = 66, MC_SEED = 67
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744026724167750, 18446744026992537670, 
+
+   Replica 64: SPIN_SEED = 67, MC_SEED = 68
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744026975998790, 
+
+   Replica 65: SPIN_SEED = 68, MC_SEED = 69
+   Minimum energy reached = -93.000000
+   Minimum energy configurations: 18446744034011073623, 
+
+   Replica 66: SPIN_SEED = 69, MC_SEED = 70
+   Minimum energy reached = -79.000000
+   Minimum energy configurations: 18446744040191732469, 
+
+   Replica 67: SPIN_SEED = 70, MC_SEED = 71
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 68: SPIN_SEED = 71, MC_SEED = 72
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744048764216505, 18446744046750950585, 
+
+   Replica 69: SPIN_SEED = 72, MC_SEED = 73
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744043385351359, 18446744041237868223, 18446744041237343423, 18446744041237278399, 
+
+   Replica 70: SPIN_SEED = 73, MC_SEED = 74
+   Minimum energy reached = -81.500000
+   Minimum energy configurations: 18446744041494177193, 
+
+   Replica 71: SPIN_SEED = 74, MC_SEED = 75
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744041237868223, 18446744041237343423, 18446744041237278399, 
+
+   Replica 72: SPIN_SEED = 75, MC_SEED = 76
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744028084653790, 18446744030232006366, 
+
+   Replica 73: SPIN_SEED = 76, MC_SEED = 77
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 74: SPIN_SEED = 77, MC_SEED = 78
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744051723627705, 
+
+   Replica 75: SPIN_SEED = 78, MC_SEED = 79
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 76: SPIN_SEED = 79, MC_SEED = 80
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 77: SPIN_SEED = 80, MC_SEED = 81
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744043385351359, 18446744041237343423, 18446744041237868223, 
+
+   Replica 78: SPIN_SEED = 81, MC_SEED = 82
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744037462283072, 18446744037462348096, 
+
+   Replica 79: SPIN_SEED = 82, MC_SEED = 83
+   Minimum energy reached = -86.000000
+   Minimum energy configurations: 18446744038787166245, 
+
+   Replica 80: SPIN_SEED = 83, MC_SEED = 84
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744041237278399, 18446744041237343423, 18446744043385351359, 18446744041237868223, 
+
+   Replica 81: SPIN_SEED = 84, MC_SEED = 85
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744041237278399, 18446744041237343423, 18446744043385351359, 18446744041237868223, 
+
+   Replica 82: SPIN_SEED = 85, MC_SEED = 86
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744050614972705, 18446744048467620129, 
+
+   Replica 83: SPIN_SEED = 86, MC_SEED = 87
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744051151810849, 
+
+   Replica 84: SPIN_SEED = 87, MC_SEED = 88
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744029945377092, 
+
+   Replica 85: SPIN_SEED = 88, MC_SEED = 89
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 86: SPIN_SEED = 89, MC_SEED = 90
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744042328057019, 
+
+   Replica 87: SPIN_SEED = 90, MC_SEED = 91
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744026779210359, 18446744026779210599, 
+
+   Replica 88: SPIN_SEED = 91, MC_SEED = 92
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744029945377092, 
+
+   Replica 89: SPIN_SEED = 92, MC_SEED = 93
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744026779210599, 18446744031074173687, 
+
+   Replica 90: SPIN_SEED = 93, MC_SEED = 94
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 91: SPIN_SEED = 94, MC_SEED = 95
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744042328057019, 
+
+   Replica 92: SPIN_SEED = 95, MC_SEED = 96
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744041237278399, 18446744041237343423, 18446744041237868223, 
+
+   Replica 93: SPIN_SEED = 96, MC_SEED = 97
+   Minimum energy reached = -82.500000
+   Minimum energy configurations: 18446744035359894069, 
+
+   Replica 94: SPIN_SEED = 97, MC_SEED = 98
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744050614972705, 18446744048467620129, 
+
+   Replica 95: SPIN_SEED = 98, MC_SEED = 99
+   Minimum energy reached = -85.500000
+   Minimum energy configurations: 18446744045331680953, 18446744045323292344, 18446744047470775976, 18446744045457510056, 
+
+   Replica 96: SPIN_SEED = 99, MC_SEED = 100
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744051707088825, 
+
+   Replica 97: SPIN_SEED = 100, MC_SEED = 101
+   Minimum energy reached = -89.000000
+   Minimum energy configurations: 18446744026777112311, 
+
+   Replica 98: SPIN_SEED = 101, MC_SEED = 102
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 99: SPIN_SEED = 102, MC_SEED = 103
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744053871094969, 18446744051723627705, 
+
+Trial 2: N = 64, M = 200, J_SEED = 2, B = 5.000000
+
+   Replica 0: SPIN_SEED = 4, MC_SEED = 5
+   Minimum energy reached = -82.000000
+   Minimum energy configurations: 18446744039036160848, 
+
+   Replica 1: SPIN_SEED = 5, MC_SEED = 6
+   Minimum energy reached = -82.000000
+   Minimum energy configurations: 18446744047422646329, 18446744049553352761, 18446744043110901821, 
+
+   Replica 2: SPIN_SEED = 6, MC_SEED = 7
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744026779210599, 18446744026779210359, 
+
+   Replica 3: SPIN_SEED = 7, MC_SEED = 8
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744048467620129, 18446744050614972705, 
+
+   Replica 4: SPIN_SEED = 8, MC_SEED = 9
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744051707088825, 18446744051975458745, 
+
+   Replica 5: SPIN_SEED = 9, MC_SEED = 10
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 6: SPIN_SEED = 10, MC_SEED = 11
+   Minimum energy reached = -84.000000
+   Minimum energy configurations: 18446744031871076916, 18446744029722544692, 18446744031870028308, 
+
+   Replica 7: SPIN_SEED = 11, MC_SEED = 12
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744048764216505, 18446744046750950585, 
+
+   Replica 8: SPIN_SEED = 12, MC_SEED = 13
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744033374204231, 
+
+   Replica 9: SPIN_SEED = 13, MC_SEED = 14
+   Minimum energy reached = -93.000000
+   Minimum energy configurations: 18446744030002366439, 
+
+   Replica 10: SPIN_SEED = 14, MC_SEED = 15
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744043385351359, 
+
+   Replica 11: SPIN_SEED = 15, MC_SEED = 16
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744026992537670, 18446744026724167750, 
+
+   Replica 12: SPIN_SEED = 16, MC_SEED = 17
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744035823542218, 
+
+   Replica 13: SPIN_SEED = 17, MC_SEED = 18
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744027547815646, 
+
+   Replica 14: SPIN_SEED = 18, MC_SEED = 19
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 15: SPIN_SEED = 19, MC_SEED = 20
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744026779210599, 18446744026779210359, 
+
+   Replica 16: SPIN_SEED = 20, MC_SEED = 21
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744029935409990, 
+
+   Replica 17: SPIN_SEED = 21, MC_SEED = 22
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744051151810849, 
+
+   Replica 18: SPIN_SEED = 22, MC_SEED = 23
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744028084653790, 18446744030232006366, 
+
+   Replica 19: SPIN_SEED = 23, MC_SEED = 24
+   Minimum energy reached = -85.000000
+   Minimum energy configurations: 18446744043111029304, 18446744043111026232, 
+
+   Replica 20: SPIN_SEED = 24, MC_SEED = 25
+   Minimum energy reached = -86.000000
+   Minimum energy configurations: 18446744039883788614, 
+
+   Replica 21: SPIN_SEED = 25, MC_SEED = 26
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744046750950585, 18446744042328057019, 
+
+   Replica 22: SPIN_SEED = 26, MC_SEED = 27
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 23: SPIN_SEED = 27, MC_SEED = 28
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744041237343423, 18446744043385351359, 18446744041237868223, 18446744041237278399, 
+
+   Replica 24: SPIN_SEED = 28, MC_SEED = 29
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744048764216505, 18446744046750950585, 
+
+   Replica 25: SPIN_SEED = 29, MC_SEED = 30
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744041237868223, 18446744041237343423, 18446744041237278399, 18446744043385351359, 
+
+   Replica 26: SPIN_SEED = 30, MC_SEED = 31
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744050614972705, 18446744048467620129, 
+
+   Replica 27: SPIN_SEED = 31, MC_SEED = 32
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 28: SPIN_SEED = 32, MC_SEED = 33
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744030232006366, 18446744028084653790, 
+
+   Replica 29: SPIN_SEED = 33, MC_SEED = 34
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 30: SPIN_SEED = 34, MC_SEED = 35
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 31: SPIN_SEED = 35, MC_SEED = 36
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744049619840697, 
+
+   Replica 32: SPIN_SEED = 36, MC_SEED = 37
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744026779210599, 18446744026779210359, 
+
+   Replica 33: SPIN_SEED = 37, MC_SEED = 38
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744051920416136, 18446744051920415896, 
+
+   Replica 34: SPIN_SEED = 38, MC_SEED = 39
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744051151810849, 
+
+   Replica 35: SPIN_SEED = 39, MC_SEED = 40
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744048754249403, 
+
+   Replica 36: SPIN_SEED = 40, MC_SEED = 41
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744028084689502, 
+
+   Replica 37: SPIN_SEED = 41, MC_SEED = 42
+   Minimum energy reached = -85.000000
+   Minimum energy configurations: 18446744043111026232, 18446744045292064312, 
+
+   Replica 38: SPIN_SEED = 42, MC_SEED = 43
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 39: SPIN_SEED = 43, MC_SEED = 44
+   Minimum energy reached = -93.000000
+   Minimum energy configurations: 18446744034011073623, 
+
+   Replica 40: SPIN_SEED = 44, MC_SEED = 45
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 41: SPIN_SEED = 45, MC_SEED = 46
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744035823542218, 
+
+   Replica 42: SPIN_SEED = 46, MC_SEED = 47
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 43: SPIN_SEED = 47, MC_SEED = 48
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744051975458745, 18446744051707088825, 
+
+   Replica 44: SPIN_SEED = 48, MC_SEED = 49
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744037462348096, 18446744037462283072, 18446744037461758272, 18446744035314275136, 
+
+   Replica 45: SPIN_SEED = 49, MC_SEED = 50
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 46: SPIN_SEED = 50, MC_SEED = 51
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 47: SPIN_SEED = 51, MC_SEED = 52
+   Minimum energy reached = -82.500000
+   Minimum energy configurations: 18446744037516112103, 
+
+   Replica 48: SPIN_SEED = 52, MC_SEED = 53
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 49: SPIN_SEED = 53, MC_SEED = 54
+   Minimum energy reached = -93.000000
+   Minimum energy configurations: 18446744030002366439, 
+
+   Replica 50: SPIN_SEED = 54, MC_SEED = 55
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744026724167750, 18446744026992537670, 
+
+   Replica 51: SPIN_SEED = 55, MC_SEED = 56
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744026975998790, 18446744024828531526, 18446744026724167750, 18446744026992537670, 
+
+   Replica 52: SPIN_SEED = 56, MC_SEED = 57
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 53: SPIN_SEED = 57, MC_SEED = 58
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744050614972705, 18446744048467620129, 
+
+   Replica 54: SPIN_SEED = 58, MC_SEED = 59
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 55: SPIN_SEED = 59, MC_SEED = 60
+   Minimum energy reached = -80.500000
+   Minimum energy configurations: 18446744038650439589, 18446744040798054309, 18446744036503087013, 
+
+   Replica 56: SPIN_SEED = 60, MC_SEED = 61
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744043385351359, 
+
+   Replica 57: SPIN_SEED = 61, MC_SEED = 62
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744029935409990, 
+
+   Replica 58: SPIN_SEED = 62, MC_SEED = 63
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744051151810849, 
+
+   Replica 59: SPIN_SEED = 63, MC_SEED = 64
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 60: SPIN_SEED = 64, MC_SEED = 65
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 61: SPIN_SEED = 65, MC_SEED = 66
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 62: SPIN_SEED = 66, MC_SEED = 67
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744026975998790, 18446744024828531526, 
+
+   Replica 63: SPIN_SEED = 67, MC_SEED = 68
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744037462283072, 18446744037461758272, 18446744035314275136, 18446744037462348096, 
+
+   Replica 64: SPIN_SEED = 68, MC_SEED = 69
+   Minimum energy reached = -93.000000
+   Minimum energy configurations: 18446744034011073623, 
+
+   Replica 65: SPIN_SEED = 69, MC_SEED = 70
+   Minimum energy reached = -79.000000
+   Minimum energy configurations: 18446744040191732469, 
+
+   Replica 66: SPIN_SEED = 70, MC_SEED = 71
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 67: SPIN_SEED = 71, MC_SEED = 72
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744048764216505, 18446744046750950585, 
+
+   Replica 68: SPIN_SEED = 72, MC_SEED = 73
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744041237868223, 18446744043385351359, 18446744041237343423, 
+
+   Replica 69: SPIN_SEED = 73, MC_SEED = 74
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744051151810849, 
+
+   Replica 70: SPIN_SEED = 74, MC_SEED = 75
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744048754249403, 
+
+   Replica 71: SPIN_SEED = 75, MC_SEED = 76
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 72: SPIN_SEED = 76, MC_SEED = 77
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 73: SPIN_SEED = 77, MC_SEED = 78
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744051723627705, 18446744053871094969, 
+
+   Replica 74: SPIN_SEED = 78, MC_SEED = 79
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744051920415896, 18446744051920416136, 
+
+   Replica 75: SPIN_SEED = 79, MC_SEED = 80
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744030232006366, 18446744028084653790, 
+
+   Replica 76: SPIN_SEED = 80, MC_SEED = 81
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744043385351359, 18446744041237868223, 18446744041237343423, 18446744041237278399, 
+
+   Replica 77: SPIN_SEED = 81, MC_SEED = 82
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744029935409990, 18446744031948675910, 
+
+   Replica 78: SPIN_SEED = 82, MC_SEED = 83
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 79: SPIN_SEED = 83, MC_SEED = 84
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744041237343423, 18446744041237868223, 18446744043385351359, 18446744041237278399, 
+
+   Replica 80: SPIN_SEED = 84, MC_SEED = 85
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744041237278399, 18446744041237343423, 18446744041237868223, 18446744043385351359, 
+
+   Replica 81: SPIN_SEED = 85, MC_SEED = 86
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744050614972705, 18446744048467620129, 
+
+   Replica 82: SPIN_SEED = 86, MC_SEED = 87
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744051151810849, 
+
+   Replica 83: SPIN_SEED = 87, MC_SEED = 88
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744035314275136, 18446744037462283072, 18446744037461758272, 18446744037462348096, 
+
+   Replica 84: SPIN_SEED = 88, MC_SEED = 89
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 85: SPIN_SEED = 89, MC_SEED = 90
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744046750950585, 18446744048764216505, 
+
+   Replica 86: SPIN_SEED = 90, MC_SEED = 91
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 87: SPIN_SEED = 91, MC_SEED = 92
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744035314275136, 18446744037462283072, 18446744037461758272, 18446744037462348096, 
+
+   Replica 88: SPIN_SEED = 92, MC_SEED = 93
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744026779210359, 18446744026779210599, 
+
+   Replica 89: SPIN_SEED = 93, MC_SEED = 94
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 90: SPIN_SEED = 94, MC_SEED = 95
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744048764216505, 18446744046750950585, 
+
+   Replica 91: SPIN_SEED = 95, MC_SEED = 96
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744041237278399, 18446744041237343423, 18446744043385351359, 18446744041237868223, 
+
+   Replica 92: SPIN_SEED = 96, MC_SEED = 97
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744042876084277, 
+
+   Replica 93: SPIN_SEED = 97, MC_SEED = 98
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744050614972705, 18446744048467620129, 
+
+   Replica 94: SPIN_SEED = 98, MC_SEED = 99
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744045325422264, 
+
+   Replica 95: SPIN_SEED = 99, MC_SEED = 100
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744051707088825, 18446744051723627705, 
+
+   Replica 96: SPIN_SEED = 100, MC_SEED = 101
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 97: SPIN_SEED = 101, MC_SEED = 102
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 98: SPIN_SEED = 102, MC_SEED = 103
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744051707088825, 18446744051975458745, 
+
+   Replica 99: SPIN_SEED = 103, MC_SEED = 104
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+Trial 3: N = 64, M = 400, J_SEED = 2, B = 5.000000
+
+   Replica 0: SPIN_SEED = 5, MC_SEED = 6
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 1: SPIN_SEED = 6, MC_SEED = 7
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744026779210359, 18446744026779210599, 
+
+   Replica 2: SPIN_SEED = 7, MC_SEED = 8
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744042876084277, 
+
+   Replica 3: SPIN_SEED = 8, MC_SEED = 9
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744051707088825, 18446744051975458745, 
+
+   Replica 4: SPIN_SEED = 9, MC_SEED = 10
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 5: SPIN_SEED = 10, MC_SEED = 11
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744031948675910, 18446744029935409990, 
+
+   Replica 6: SPIN_SEED = 11, MC_SEED = 12
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744048764216505, 18446744046750950585, 
+
+   Replica 7: SPIN_SEED = 12, MC_SEED = 13
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744026992537670, 18446744024828531526, 18446744026975998790, 
+
+   Replica 8: SPIN_SEED = 13, MC_SEED = 14
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 9: SPIN_SEED = 14, MC_SEED = 15
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744048764216505, 18446744046750950585, 18446744042328057019, 
+
+   Replica 10: SPIN_SEED = 15, MC_SEED = 16
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744035314275136, 18446744037461758272, 18446744037462283072, 
+
+   Replica 11: SPIN_SEED = 16, MC_SEED = 17
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744035823542218, 
+
+   Replica 12: SPIN_SEED = 17, MC_SEED = 18
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744027547815646, 
+
+   Replica 13: SPIN_SEED = 18, MC_SEED = 19
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 14: SPIN_SEED = 19, MC_SEED = 20
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744026779210599, 18446744026779210359, 18446744031074173687, 
+
+   Replica 15: SPIN_SEED = 20, MC_SEED = 21
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744046365817400, 
+
+   Replica 16: SPIN_SEED = 21, MC_SEED = 22
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744051151810849, 
+
+   Replica 17: SPIN_SEED = 22, MC_SEED = 23
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744027547815646, 
+
+   Replica 18: SPIN_SEED = 23, MC_SEED = 24
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 19: SPIN_SEED = 24, MC_SEED = 25
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744029079785798, 
+
+   Replica 20: SPIN_SEED = 25, MC_SEED = 26
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744048764216505, 18446744046750950585, 
+
+   Replica 21: SPIN_SEED = 26, MC_SEED = 27
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 22: SPIN_SEED = 27, MC_SEED = 28
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744041237343423, 18446744041237278399, 18446744041237868223, 18446744043385351359, 
+
+   Replica 23: SPIN_SEED = 28, MC_SEED = 29
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744048764216505, 18446744046750950585, 
+
+   Replica 24: SPIN_SEED = 29, MC_SEED = 30
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 25: SPIN_SEED = 30, MC_SEED = 31
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744050614972705, 18446744048467620129, 
+
+   Replica 26: SPIN_SEED = 31, MC_SEED = 32
+   Minimum energy reached = -85.000000
+   Minimum energy configurations: 18446744043111029304, 18446744043111026232, 
+
+   Replica 27: SPIN_SEED = 32, MC_SEED = 33
+   Minimum energy reached = -93.000000
+   Minimum energy configurations: 18446744034011073623, 
+
+   Replica 28: SPIN_SEED = 33, MC_SEED = 34
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 29: SPIN_SEED = 34, MC_SEED = 35
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 30: SPIN_SEED = 35, MC_SEED = 36
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744049619840697, 18446744045325422264, 
+
+   Replica 31: SPIN_SEED = 36, MC_SEED = 37
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744035314275136, 18446744037461758272, 18446744037462283072, 18446744037462348096, 
+
+   Replica 32: SPIN_SEED = 37, MC_SEED = 38
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 33: SPIN_SEED = 38, MC_SEED = 39
+   Minimum energy reached = -89.000000
+   Minimum energy configurations: 18446744051922514184, 
+
+   Replica 34: SPIN_SEED = 39, MC_SEED = 40
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744042328057019, 18446744046750950585, 
+
+   Replica 35: SPIN_SEED = 40, MC_SEED = 41
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744028084653790, 18446744030232006366, 
+
+   Replica 36: SPIN_SEED = 41, MC_SEED = 42
+   Minimum energy reached = -85.000000
+   Minimum energy configurations: 18446744043111026232, 18446744043111029304, 
+
+   Replica 37: SPIN_SEED = 42, MC_SEED = 43
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744036371569476, 18446744033167121216, 18446744033150606144, 
+
+   Replica 38: SPIN_SEED = 43, MC_SEED = 44
+   Minimum energy reached = -93.000000
+   Minimum energy configurations: 18446744034011073623, 
+
+   Replica 39: SPIN_SEED = 44, MC_SEED = 45
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 40: SPIN_SEED = 45, MC_SEED = 46
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744035823542218, 
+
+   Replica 41: SPIN_SEED = 46, MC_SEED = 47
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 42: SPIN_SEED = 47, MC_SEED = 48
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744051707088825, 18446744051975458745, 
+
+   Replica 43: SPIN_SEED = 48, MC_SEED = 49
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744037461758272, 18446744035314275136, 18446744037462283072, 18446744037462348096, 
+
+   Replica 44: SPIN_SEED = 49, MC_SEED = 50
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 45: SPIN_SEED = 50, MC_SEED = 51
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 46: SPIN_SEED = 51, MC_SEED = 52
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744043385351359, 18446744041237343423, 
+
+   Replica 47: SPIN_SEED = 52, MC_SEED = 53
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 48: SPIN_SEED = 53, MC_SEED = 54
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 49: SPIN_SEED = 54, MC_SEED = 55
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744033374204231, 18446744032333809095, 
+
+   Replica 50: SPIN_SEED = 55, MC_SEED = 56
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744026779210599, 18446744026779210359, 
+
+   Replica 51: SPIN_SEED = 56, MC_SEED = 57
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 52: SPIN_SEED = 57, MC_SEED = 58
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744051151810849, 
+
+   Replica 53: SPIN_SEED = 58, MC_SEED = 59
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 54: SPIN_SEED = 59, MC_SEED = 60
+   Minimum energy reached = -80.500000
+   Minimum energy configurations: 18446744038650439589, 18446744040798054309, 18446744036503087013, 
+
+   Replica 55: SPIN_SEED = 60, MC_SEED = 61
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744043385351359, 18446744041237343423, 18446744041237868223, 18446744041237278399, 
+
+   Replica 56: SPIN_SEED = 61, MC_SEED = 62
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744024828531526, 18446744026975998790, 
+
+   Replica 57: SPIN_SEED = 62, MC_SEED = 63
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744050614972705, 18446744048467620129, 
+
+   Replica 58: SPIN_SEED = 63, MC_SEED = 64
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 59: SPIN_SEED = 64, MC_SEED = 65
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 60: SPIN_SEED = 65, MC_SEED = 66
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 61: SPIN_SEED = 66, MC_SEED = 67
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744029935409990, 18446744031948675910, 18446744036371569476, 
+
+   Replica 62: SPIN_SEED = 67, MC_SEED = 68
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744037462348096, 18446744037461758272, 18446744037462283072, 18446744035314275136, 
+
+   Replica 63: SPIN_SEED = 68, MC_SEED = 69
+   Minimum energy reached = -93.000000
+   Minimum energy configurations: 18446744034011073623, 
+
+   Replica 64: SPIN_SEED = 69, MC_SEED = 70
+   Minimum energy reached = -93.000000
+   Minimum energy configurations: 18446744044688552872, 
+
+   Replica 65: SPIN_SEED = 70, MC_SEED = 71
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 66: SPIN_SEED = 71, MC_SEED = 72
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744048764216505, 18446744046750950585, 18446744042328057019, 
+
+   Replica 67: SPIN_SEED = 72, MC_SEED = 73
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744041237278399, 18446744041237343423, 18446744041237868223, 18446744043385351359, 
+
+   Replica 68: SPIN_SEED = 73, MC_SEED = 74
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 69: SPIN_SEED = 74, MC_SEED = 75
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744048754249403, 
+
+   Replica 70: SPIN_SEED = 75, MC_SEED = 76
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744030232006366, 18446744028084653790, 
+
+   Replica 71: SPIN_SEED = 76, MC_SEED = 77
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 72: SPIN_SEED = 77, MC_SEED = 78
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744041237868223, 18446744041237278399, 18446744043385351359, 18446744041237343423, 
+
+   Replica 73: SPIN_SEED = 78, MC_SEED = 79
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 74: SPIN_SEED = 79, MC_SEED = 80
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 75: SPIN_SEED = 80, MC_SEED = 81
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744043385351359, 18446744041237343423, 18446744041237278399, 18446744041237868223, 
+
+   Replica 76: SPIN_SEED = 81, MC_SEED = 82
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744035314275136, 18446744037461758272, 18446744037462348096, 18446744037462283072, 
+
+   Replica 77: SPIN_SEED = 82, MC_SEED = 83
+   Minimum energy reached = -93.000000
+   Minimum energy configurations: 18446744044688552872, 
+
+   Replica 78: SPIN_SEED = 83, MC_SEED = 84
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744043385351359, 18446744041237343423, 18446744041237278399, 
+
+   Replica 79: SPIN_SEED = 84, MC_SEED = 85
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744041237278399, 18446744041237868223, 18446744041237343423, 18446744043385351359, 
+
+   Replica 80: SPIN_SEED = 85, MC_SEED = 86
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744051151810849, 
+
+   Replica 81: SPIN_SEED = 86, MC_SEED = 87
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744051151810849, 
+
+   Replica 82: SPIN_SEED = 87, MC_SEED = 88
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744035314275136, 18446744037461758272, 18446744037462283072, 18446744037462348096, 
+
+   Replica 83: SPIN_SEED = 88, MC_SEED = 89
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744032111054527, 
+
+   Replica 84: SPIN_SEED = 89, MC_SEED = 90
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744042328057019, 
+
+   Replica 85: SPIN_SEED = 90, MC_SEED = 91
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744026779210359, 18446744026779210599, 
+
+   Replica 86: SPIN_SEED = 91, MC_SEED = 92
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744037462348096, 18446744037462283072, 18446744037461758272, 18446744035314275136, 
+
+   Replica 87: SPIN_SEED = 92, MC_SEED = 93
+   Minimum energy reached = -88.500000
+   Minimum energy configurations: 18446744026779210599, 18446744026779210359, 
+
+   Replica 88: SPIN_SEED = 93, MC_SEED = 94
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744051151810849, 
+
+   Replica 89: SPIN_SEED = 94, MC_SEED = 95
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744042328057019, 
+
+   Replica 90: SPIN_SEED = 95, MC_SEED = 96
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744041237278399, 18446744041237868223, 18446744043385351359, 18446744041237343423, 
+
+   Replica 91: SPIN_SEED = 96, MC_SEED = 97
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744048467620129, 18446744050614972705, 
+
+   Replica 92: SPIN_SEED = 97, MC_SEED = 98
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 93: SPIN_SEED = 98, MC_SEED = 99
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744045325422264, 
+
+   Replica 94: SPIN_SEED = 99, MC_SEED = 100
+   Minimum energy reached = -91.500000
+   Minimum energy configurations: 18446744041237278399, 18446744041237343423, 18446744043385351359, 18446744041237868223, 
+
+   Replica 95: SPIN_SEED = 100, MC_SEED = 101
+   Minimum energy reached = -89.000000
+   Minimum energy configurations: 18446744026777112311, 
+
+   Replica 96: SPIN_SEED = 101, MC_SEED = 102
+   Minimum energy reached = -97.500000
+   Minimum energy configurations: 18446744046588571968, 
+
+   Replica 97: SPIN_SEED = 102, MC_SEED = 103
+   Minimum energy reached = -89.500000
+   Minimum energy configurations: 18446744051975458745, 18446744051723627705, 18446744053871094969, 
+
+   Replica 98: SPIN_SEED = 103, MC_SEED = 104
+   Minimum energy reached = -86.500000
+   Minimum energy configurations: 18446744045325422264, 
+
+   Replica 99: SPIN_SEED = 104, MC_SEED = 105
+   Minimum energy reached = -90.000000
+   Minimum energy configurations: 18446744046750950585, 18446744048764216505, 
+
+Trial 4: N = 64, M = 100, J_SEED = 2, B = 0.000000
+
+   Replica 0: SPIN_SEED = 3, MC_SEED = 4
+   Minimum energy reached = -41.500000
+   Minimum energy configurations: 18446744044715323736, 
+
+   Replica 1: SPIN_SEED = 4, MC_SEED = 5
+   Minimum energy reached = -38.500000
+   Minimum energy configurations: 18446744050485606411, 
+
+   Replica 2: SPIN_SEED = 5, MC_SEED = 6
+   Minimum energy reached = -37.500000
+   Minimum energy configurations: 18446744041930810103, 
+
+   Replica 3: SPIN_SEED = 6, MC_SEED = 7
+   Minimum energy reached = -36.500000
+   Minimum energy configurations: 18446744038719537852, 
+
+   Replica 4: SPIN_SEED = 7, MC_SEED = 8
+   Minimum energy reached = -35.000000
+   Minimum energy configurations: 18446744034045065301, 
+
+   Replica 5: SPIN_SEED = 8, MC_SEED = 9
+   Minimum energy reached = -41.500000
+   Minimum energy configurations: 18446744040023412645, 
+
+   Replica 6: SPIN_SEED = 9, MC_SEED = 10
+   Minimum energy reached = -40.500000
+   Minimum energy configurations: 18446744048580612035, 
+
+   Replica 7: SPIN_SEED = 10, MC_SEED = 11
+   Minimum energy reached = -35.000000
+   Minimum energy configurations: 18446744035988015782, 
+
+   Replica 8: SPIN_SEED = 11, MC_SEED = 12
+   Minimum energy reached = -40.000000
+   Minimum energy configurations: 18446744041065932130, 
+
+   Replica 9: SPIN_SEED = 12, MC_SEED = 13
+   Minimum energy reached = -35.000000
+   Minimum energy configurations: 18446744031374151159, 18446744031374150911, 
+
+   Replica 10: SPIN_SEED = 13, MC_SEED = 14
+   Minimum energy reached = -37.000000
+   Minimum energy configurations: 18446744036997540766, 
+
+   Replica 11: SPIN_SEED = 14, MC_SEED = 15
+   Minimum energy reached = -42.000000
+   Minimum energy configurations: 18446744048580799414, 
+
+   Replica 12: SPIN_SEED = 15, MC_SEED = 16
+   Minimum energy reached = -33.000000
+   Minimum energy configurations: 18446744027066757058, 18446744043330969030, 
+
+   Replica 13: SPIN_SEED = 16, MC_SEED = 17
+   Minimum energy reached = -42.000000
+   Minimum energy configurations: 18446744033145650592, 
+
+   Replica 14: SPIN_SEED = 17, MC_SEED = 18
+   Minimum energy reached = -36.500000
+   Minimum energy configurations: 18446744030064319486, 18446744041893254383, 
+
+   Replica 15: SPIN_SEED = 18, MC_SEED = 19
+   Minimum energy reached = -50.000000
+   Minimum energy configurations: 18446744038229333824, 
+
+   Replica 16: SPIN_SEED = 19, MC_SEED = 20
+   Minimum energy reached = -37.000000
+   Minimum energy configurations: 18446744035907420102, 18446744047873112101, 
+
+   Replica 17: SPIN_SEED = 20, MC_SEED = 21
+   Minimum energy reached = -45.000000
+   Minimum energy configurations: 18446744036442099893, 
+
+   Replica 18: SPIN_SEED = 21, MC_SEED = 22
+   Minimum energy reached = -46.000000
+   Minimum energy configurations: 18446744044677279970, 
+
+   Replica 19: SPIN_SEED = 22, MC_SEED = 23
+   Minimum energy reached = -49.000000
+   Minimum energy configurations: 18446744029730390086, 18446744031875776582, 
+
+   Replica 20: SPIN_SEED = 23, MC_SEED = 24
+   Minimum energy reached = -39.500000
+   Minimum energy configurations: 18446744042131243418, 
+
+   Replica 21: SPIN_SEED = 24, MC_SEED = 25
+   Minimum energy reached = -36.500000
+   Minimum energy configurations: 18446744042525174348, 
+
+   Replica 22: SPIN_SEED = 25, MC_SEED = 26
+   Minimum energy reached = -41.000000
+   Minimum energy configurations: 18446744048043025443, 
+
+   Replica 23: SPIN_SEED = 26, MC_SEED = 27
+   Minimum energy reached = -42.000000
+   Minimum energy configurations: 18446744038304895862, 
+
+   Replica 24: SPIN_SEED = 27, MC_SEED = 28
+   Minimum energy reached = -48.000000
+   Minimum energy configurations: 18446744033490104311, 
+
+   Replica 25: SPIN_SEED = 28, MC_SEED = 29
+   Minimum energy reached = -36.500000
+   Minimum energy configurations: 18446744033183637191, 
+
+   Replica 26: SPIN_SEED = 29, MC_SEED = 30
+   Minimum energy reached = -42.500000
+   Minimum energy configurations: 18446744042973186453, 
+
+   Replica 27: SPIN_SEED = 30, MC_SEED = 31
+   Minimum energy reached = -41.500000
+   Minimum energy configurations: 18446744044110993782, 
+
+   Replica 28: SPIN_SEED = 31, MC_SEED = 32
+   Minimum energy reached = -43.000000
+   Minimum energy configurations: 18446744038918024261, 
+
+   Replica 29: SPIN_SEED = 32, MC_SEED = 33
+   Minimum energy reached = -40.000000
+   Minimum energy configurations: 18446744041450048024, 
+
+   Replica 30: SPIN_SEED = 33, MC_SEED = 34
+   Minimum energy reached = -42.000000
+   Minimum energy configurations: 18446744033204748629, 
+
+   Replica 31: SPIN_SEED = 34, MC_SEED = 35
+   Minimum energy reached = -35.000000
+   Minimum energy configurations: 18446744037800381266, 
+
+   Replica 32: SPIN_SEED = 35, MC_SEED = 36
+   Minimum energy reached = -41.500000
+   Minimum energy configurations: 18446744036408279359, 
+
+   Replica 33: SPIN_SEED = 36, MC_SEED = 37
+   Minimum energy reached = -41.500000
+   Minimum energy configurations: 18446744044133822489, 
+
+   Replica 34: SPIN_SEED = 37, MC_SEED = 38
+   Minimum energy reached = -38.000000
+   Minimum energy configurations: 18446744035257724450, 
+
+   Replica 35: SPIN_SEED = 38, MC_SEED = 39
+   Minimum energy reached = -34.500000
+   Minimum energy configurations: 18446744030842975662, 18446744030842975526, 
+
+   Replica 36: SPIN_SEED = 39, MC_SEED = 40
+   Minimum energy reached = -39.500000
+   Minimum energy configurations: 18446744039696474034, 
+
+   Replica 37: SPIN_SEED = 40, MC_SEED = 41
+   Minimum energy reached = -34.500000
+   Minimum energy configurations: 18446744037289784321, 
+
+   Replica 38: SPIN_SEED = 41, MC_SEED = 42
+   Minimum energy reached = -50.500000
+   Minimum energy configurations: 18446744040323333260, 
+
+   Replica 39: SPIN_SEED = 42, MC_SEED = 43
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744048602025416, 
+
+   Replica 40: SPIN_SEED = 43, MC_SEED = 44
+   Minimum energy reached = -39.500000
+   Minimum energy configurations: 18446744034128515430, 
+
+   Replica 41: SPIN_SEED = 44, MC_SEED = 45
+   Minimum energy reached = -35.500000
+   Minimum energy configurations: 18446744039868249036, 18446744035573281740, 
+
+   Replica 42: SPIN_SEED = 45, MC_SEED = 46
+   Minimum energy reached = -36.000000
+   Minimum energy configurations: 18446744053926023050, 
+
+   Replica 43: SPIN_SEED = 46, MC_SEED = 47
+   Minimum energy reached = -42.000000
+   Minimum energy configurations: 18446744033737930937, 
+
+   Replica 44: SPIN_SEED = 47, MC_SEED = 48
+   Minimum energy reached = -36.000000
+   Minimum energy configurations: 18446744035907006108, 
+
+   Replica 45: SPIN_SEED = 48, MC_SEED = 49
+   Minimum energy reached = -57.000000
+   Minimum energy configurations: 18446744048735957408, 
+
+   Replica 46: SPIN_SEED = 49, MC_SEED = 50
+   Minimum energy reached = -36.500000
+   Minimum energy configurations: 18446744027046583014, 
+
+   Replica 47: SPIN_SEED = 50, MC_SEED = 51
+   Minimum energy reached = -38.000000
+   Minimum energy configurations: 18446744038588001727, 
+
+   Replica 48: SPIN_SEED = 51, MC_SEED = 52
+   Minimum energy reached = -46.000000
+   Minimum energy configurations: 18446744046650953536, 
+
+   Replica 49: SPIN_SEED = 52, MC_SEED = 53
+   Minimum energy reached = -40.500000
+   Minimum energy configurations: 18446744037206245950, 
+
+   Replica 50: SPIN_SEED = 53, MC_SEED = 54
+   Minimum energy reached = -40.000000
+   Minimum energy configurations: 18446744039554169512, 
+
+   Replica 51: SPIN_SEED = 54, MC_SEED = 55
+   Minimum energy reached = -47.000000
+   Minimum energy configurations: 18446744038893496200, 
+
+   Replica 52: SPIN_SEED = 55, MC_SEED = 56
+   Minimum energy reached = -41.000000
+   Minimum energy configurations: 18446744042830440792, 
+
+   Replica 53: SPIN_SEED = 56, MC_SEED = 57
+   Minimum energy reached = -43.000000
+   Minimum energy configurations: 18446744044839084338, 
+
+   Replica 54: SPIN_SEED = 57, MC_SEED = 58
+   Minimum energy reached = -51.000000
+   Minimum energy configurations: 18446744036428179429, 
+
+   Replica 55: SPIN_SEED = 58, MC_SEED = 59
+   Minimum energy reached = -36.500000
+   Minimum energy configurations: 18446744037506976924, 18446744033212009628, 
+
+   Replica 56: SPIN_SEED = 59, MC_SEED = 60
+   Minimum energy reached = -42.000000
+   Minimum energy configurations: 18446744031547790294, 
+
+   Replica 57: SPIN_SEED = 60, MC_SEED = 61
+   Minimum energy reached = -33.000000
+   Minimum energy configurations: 18446744035171885127, 
+
+   Replica 58: SPIN_SEED = 61, MC_SEED = 62
+   Minimum energy reached = -37.500000
+   Minimum energy configurations: 18446744053437239577, 
+
+   Replica 59: SPIN_SEED = 62, MC_SEED = 63
+   Minimum energy reached = -37.500000
+   Minimum energy configurations: 18446744029954828853, 
+
+   Replica 60: SPIN_SEED = 63, MC_SEED = 64
+   Minimum energy reached = -35.500000
+   Minimum energy configurations: 18446744026938069799, 
+
+   Replica 61: SPIN_SEED = 64, MC_SEED = 65
+   Minimum energy reached = -36.000000
+   Minimum energy configurations: 18446744039976995728, 
+
+   Replica 62: SPIN_SEED = 65, MC_SEED = 66
+   Minimum energy reached = -34.500000
+   Minimum energy configurations: 18446744027964018244, 18446744041470894405, 
+
+   Replica 63: SPIN_SEED = 66, MC_SEED = 67
+   Minimum energy reached = -43.000000
+   Minimum energy configurations: 18446744033751760554, 
+
+   Replica 64: SPIN_SEED = 67, MC_SEED = 68
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744029782819975, 
+
+   Replica 65: SPIN_SEED = 68, MC_SEED = 69
+   Minimum energy reached = -40.000000
+   Minimum energy configurations: 18446744033691634338, 
+
+   Replica 66: SPIN_SEED = 69, MC_SEED = 70
+   Minimum energy reached = -34.500000
+   Minimum energy configurations: 18446744031926492491, 
+
+   Replica 67: SPIN_SEED = 70, MC_SEED = 71
+   Minimum energy reached = -36.500000
+   Minimum energy configurations: 18446744045455735131, 
+
+   Replica 68: SPIN_SEED = 71, MC_SEED = 72
+   Minimum energy reached = -41.500000
+   Minimum energy configurations: 18446744033240895818, 
+
+   Replica 69: SPIN_SEED = 72, MC_SEED = 73
+   Minimum energy reached = -36.500000
+   Minimum energy configurations: 18446744025933002342, 18446744039729426681, 
+
+   Replica 70: SPIN_SEED = 73, MC_SEED = 74
+   Minimum energy reached = -41.500000
+   Minimum energy configurations: 18446744053135766065, 
+
+   Replica 71: SPIN_SEED = 74, MC_SEED = 75
+   Minimum energy reached = -39.500000
+   Minimum energy configurations: 18446744042347247935, 
+
+   Replica 72: SPIN_SEED = 75, MC_SEED = 76
+   Minimum energy reached = -39.500000
+   Minimum energy configurations: 18446744042017076994, 
+
+   Replica 73: SPIN_SEED = 76, MC_SEED = 77
+   Minimum energy reached = -32.500000
+   Minimum energy configurations: 18446744046672514950, 
+
+   Replica 74: SPIN_SEED = 77, MC_SEED = 78
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744036560782341, 
+
+   Replica 75: SPIN_SEED = 78, MC_SEED = 79
+   Minimum energy reached = -38.500000
+   Minimum energy configurations: 18446744041718996456, 
+
+   Replica 76: SPIN_SEED = 79, MC_SEED = 80
+   Minimum energy reached = -42.500000
+   Minimum energy configurations: 18446744047396610549, 
+
+   Replica 77: SPIN_SEED = 80, MC_SEED = 81
+   Minimum energy reached = -32.500000
+   Minimum energy configurations: 18446744045017008765, 18446744034645127235, 
+
+   Replica 78: SPIN_SEED = 81, MC_SEED = 82
+   Minimum energy reached = -47.500000
+   Minimum energy configurations: 18446744030756361025, 
+
+   Replica 79: SPIN_SEED = 82, MC_SEED = 83
+   Minimum energy reached = -34.500000
+   Minimum energy configurations: 18446744043913060733, 
+
+   Replica 80: SPIN_SEED = 83, MC_SEED = 84
+   Minimum energy reached = -41.000000
+   Minimum energy configurations: 18446744034518232092, 
+
+   Replica 81: SPIN_SEED = 84, MC_SEED = 85
+   Minimum energy reached = -33.000000
+   Minimum energy configurations: 18446744050096107181, 
+
+   Replica 82: SPIN_SEED = 85, MC_SEED = 86
+   Minimum energy reached = -43.000000
+   Minimum energy configurations: 18446744036941874855, 
+
+   Replica 83: SPIN_SEED = 86, MC_SEED = 87
+   Minimum energy reached = -40.500000
+   Minimum energy configurations: 18446744038357048911, 
+
+   Replica 84: SPIN_SEED = 87, MC_SEED = 88
+   Minimum energy reached = -44.000000
+   Minimum energy configurations: 18446744039111493726, 
+
+   Replica 85: SPIN_SEED = 88, MC_SEED = 89
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744025329471118, 18446744038828379290, 
+
+   Replica 86: SPIN_SEED = 89, MC_SEED = 90
+   Minimum energy reached = -36.500000
+   Minimum energy configurations: 18446744037513918685, 
+
+   Replica 87: SPIN_SEED = 90, MC_SEED = 91
+   Minimum energy reached = -38.500000
+   Minimum energy configurations: 18446744047597498525, 
+
+   Replica 88: SPIN_SEED = 91, MC_SEED = 92
+   Minimum energy reached = -40.500000
+   Minimum energy configurations: 18446744047403045435, 
+
+   Replica 89: SPIN_SEED = 92, MC_SEED = 93
+   Minimum energy reached = -37.000000
+   Minimum energy configurations: 18446744040906535381, 
+
+   Replica 90: SPIN_SEED = 93, MC_SEED = 94
+   Minimum energy reached = -39.000000
+   Minimum energy configurations: 18446744034413314066, 
+
+   Replica 91: SPIN_SEED = 94, MC_SEED = 95
+   Minimum energy reached = -35.500000
+   Minimum energy configurations: 18446744037474231389, 18446744035075220573, 18446744035368237563, 
+
+   Replica 92: SPIN_SEED = 95, MC_SEED = 96
+   Minimum energy reached = -40.500000
+   Minimum energy configurations: 18446744044672667363, 
+
+   Replica 93: SPIN_SEED = 96, MC_SEED = 97
+   Minimum energy reached = -35.500000
+   Minimum energy configurations: 18446744045397359706, 18446744047544841306, 
+
+   Replica 94: SPIN_SEED = 97, MC_SEED = 98
+   Minimum energy reached = -38.000000
+   Minimum energy configurations: 18446744028593084360, 
+
+   Replica 95: SPIN_SEED = 98, MC_SEED = 99
+   Minimum energy reached = -33.000000
+   Minimum energy configurations: 18446744036410279909, 18446744048461203433, 
+
+   Replica 96: SPIN_SEED = 99, MC_SEED = 100
+   Minimum energy reached = -38.000000
+   Minimum energy configurations: 18446744038261727361, 
+
+   Replica 97: SPIN_SEED = 100, MC_SEED = 101
+   Minimum energy reached = -36.500000
+   Minimum energy configurations: 18446744038622940255, 
+
+   Replica 98: SPIN_SEED = 101, MC_SEED = 102
+   Minimum energy reached = -42.500000
+   Minimum energy configurations: 18446744026881545582, 
+
+   Replica 99: SPIN_SEED = 102, MC_SEED = 103
+   Minimum energy reached = -40.000000
+   Minimum energy configurations: 18446744038298371895, 
+
+Trial 5: N = 64, M = 200, J_SEED = 2, B = 0.000000
+
+   Replica 0: SPIN_SEED = 4, MC_SEED = 5
+   Minimum energy reached = -38.500000
+   Minimum energy configurations: 18446744050485606411, 18446744040112975873, 
+
+   Replica 1: SPIN_SEED = 5, MC_SEED = 6
+   Minimum energy reached = -37.500000
+   Minimum energy configurations: 18446744041930810103, 
+
+   Replica 2: SPIN_SEED = 6, MC_SEED = 7
+   Minimum energy reached = -37.500000
+   Minimum energy configurations: 18446744043929289955, 
+
+   Replica 3: SPIN_SEED = 7, MC_SEED = 8
+   Minimum energy reached = -35.000000
+   Minimum energy configurations: 18446744034045065301, 
+
+   Replica 4: SPIN_SEED = 8, MC_SEED = 9
+   Minimum energy reached = -41.500000
+   Minimum energy configurations: 18446744040023412645, 
+
+   Replica 5: SPIN_SEED = 9, MC_SEED = 10
+   Minimum energy reached = -48.000000
+   Minimum energy configurations: 18446744047671748117, 
+
+   Replica 6: SPIN_SEED = 10, MC_SEED = 11
+   Minimum energy reached = -36.000000
+   Minimum energy configurations: 18446744025501091770, 
+
+   Replica 7: SPIN_SEED = 11, MC_SEED = 12
+   Minimum energy reached = -40.000000
+   Minimum energy configurations: 18446744041065932130, 
+
+   Replica 8: SPIN_SEED = 12, MC_SEED = 13
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744048646924200, 
+
+   Replica 9: SPIN_SEED = 13, MC_SEED = 14
+   Minimum energy reached = -37.500000
+   Minimum energy configurations: 18446744032863348178, 
+
+   Replica 10: SPIN_SEED = 14, MC_SEED = 15
+   Minimum energy reached = -56.000000
+   Minimum energy configurations: 18446744037863111432, 18446744035715627848, 
+
+   Replica 11: SPIN_SEED = 15, MC_SEED = 16
+   Minimum energy reached = -36.500000
+   Minimum energy configurations: 18446744043136053689, 18446744046098305122, 18446744041891201910, 
+
+   Replica 12: SPIN_SEED = 16, MC_SEED = 17
+   Minimum energy reached = -42.000000
+   Minimum energy configurations: 18446744033145650592, 
+
+   Replica 13: SPIN_SEED = 17, MC_SEED = 18
+   Minimum energy reached = -40.000000
+   Minimum energy configurations: 18446744035471705304, 
+
+   Replica 14: SPIN_SEED = 18, MC_SEED = 19
+   Minimum energy reached = -50.000000
+   Minimum energy configurations: 18446744038229333824, 
+
+   Replica 15: SPIN_SEED = 19, MC_SEED = 20
+   Minimum energy reached = -39.000000
+   Minimum energy configurations: 18446744042332188729, 
+
+   Replica 16: SPIN_SEED = 20, MC_SEED = 21
+   Minimum energy reached = -45.000000
+   Minimum energy configurations: 18446744036442099893, 
+
+   Replica 17: SPIN_SEED = 21, MC_SEED = 22
+   Minimum energy reached = -46.000000
+   Minimum energy configurations: 18446744044677279970, 
+
+   Replica 18: SPIN_SEED = 22, MC_SEED = 23
+   Minimum energy reached = -49.000000
+   Minimum energy configurations: 18446744029730390086, 18446744031875776582, 
+
+   Replica 19: SPIN_SEED = 23, MC_SEED = 24
+   Minimum energy reached = -39.500000
+   Minimum energy configurations: 18446744042131243418, 
+
+   Replica 20: SPIN_SEED = 24, MC_SEED = 25
+   Minimum energy reached = -36.500000
+   Minimum energy configurations: 18446744042525174348, 
+
+   Replica 21: SPIN_SEED = 25, MC_SEED = 26
+   Minimum energy reached = -41.000000
+   Minimum energy configurations: 18446744048043025443, 
+
+   Replica 22: SPIN_SEED = 26, MC_SEED = 27
+   Minimum energy reached = -55.000000
+   Minimum energy configurations: 18446744035058497626, 
+
+   Replica 23: SPIN_SEED = 27, MC_SEED = 28
+   Minimum energy reached = -48.000000
+   Minimum energy configurations: 18446744033490104311, 
+
+   Replica 24: SPIN_SEED = 28, MC_SEED = 29
+   Minimum energy reached = -44.500000
+   Minimum energy configurations: 18446744040146608906, 
+
+   Replica 25: SPIN_SEED = 29, MC_SEED = 30
+   Minimum energy reached = -44.500000
+   Minimum energy configurations: 18446744049669974037, 
+
+   Replica 26: SPIN_SEED = 30, MC_SEED = 31
+   Minimum energy reached = -41.500000
+   Minimum energy configurations: 18446744044110993782, 
+
+   Replica 27: SPIN_SEED = 31, MC_SEED = 32
+   Minimum energy reached = -43.000000
+   Minimum energy configurations: 18446744038918024261, 
+
+   Replica 28: SPIN_SEED = 32, MC_SEED = 33
+   Minimum energy reached = -40.000000
+   Minimum energy configurations: 18446744041450048024, 
+
+   Replica 29: SPIN_SEED = 33, MC_SEED = 34
+   Minimum energy reached = -43.000000
+   Minimum energy configurations: 18446744029980676029, 
+
+   Replica 30: SPIN_SEED = 34, MC_SEED = 35
+   Minimum energy reached = -38.500000
+   Minimum energy configurations: 18446744037407292014, 
+
+   Replica 31: SPIN_SEED = 35, MC_SEED = 36
+   Minimum energy reached = -41.500000
+   Minimum energy configurations: 18446744036408279359, 
+
+   Replica 32: SPIN_SEED = 36, MC_SEED = 37
+   Minimum energy reached = -41.500000
+   Minimum energy configurations: 18446744044133822489, 
+
+   Replica 33: SPIN_SEED = 37, MC_SEED = 38
+   Minimum energy reached = -42.500000
+   Minimum energy configurations: 18446744034497593559, 
+
+   Replica 34: SPIN_SEED = 38, MC_SEED = 39
+   Minimum energy reached = -41.000000
+   Minimum energy configurations: 18446744038693109522, 
+
+   Replica 35: SPIN_SEED = 39, MC_SEED = 40
+   Minimum energy reached = -43.000000
+   Minimum energy configurations: 18446744032013828669, 
+
+   Replica 36: SPIN_SEED = 40, MC_SEED = 41
+   Minimum energy reached = -38.000000
+   Minimum energy configurations: 18446744035895406695, 
+
+   Replica 37: SPIN_SEED = 41, MC_SEED = 42
+   Minimum energy reached = -50.500000
+   Minimum energy configurations: 18446744040323333260, 
+
+   Replica 38: SPIN_SEED = 42, MC_SEED = 43
+   Minimum energy reached = -47.000000
+   Minimum energy configurations: 18446744041568583170, 
+
+   Replica 39: SPIN_SEED = 43, MC_SEED = 44
+   Minimum energy reached = -39.500000
+   Minimum energy configurations: 18446744034128515430, 
+
+   Replica 40: SPIN_SEED = 44, MC_SEED = 45
+   Minimum energy reached = -42.500000
+   Minimum energy configurations: 18446744050678344273, 
+
+   Replica 41: SPIN_SEED = 45, MC_SEED = 46
+   Minimum energy reached = -52.000000
+   Minimum energy configurations: 18446744040124183592, 
+
+   Replica 42: SPIN_SEED = 46, MC_SEED = 47
+   Minimum energy reached = -42.000000
+   Minimum energy configurations: 18446744033737930937, 
+
+   Replica 43: SPIN_SEED = 47, MC_SEED = 48
+   Minimum energy reached = -39.500000
+   Minimum energy configurations: 18446744031229112675, 
+
+   Replica 44: SPIN_SEED = 48, MC_SEED = 49
+   Minimum energy reached = -57.000000
+   Minimum energy configurations: 18446744048735957408, 
+
+   Replica 45: SPIN_SEED = 49, MC_SEED = 50
+   Minimum energy reached = -39.500000
+   Minimum energy configurations: 18446744043765813545, 
+
+   Replica 46: SPIN_SEED = 50, MC_SEED = 51
+   Minimum energy reached = -38.000000
+   Minimum energy configurations: 18446744038588001727, 
+
+   Replica 47: SPIN_SEED = 51, MC_SEED = 52
+   Minimum energy reached = -46.000000
+   Minimum energy configurations: 18446744046650953536, 
+
+   Replica 48: SPIN_SEED = 52, MC_SEED = 53
+   Minimum energy reached = -42.500000
+   Minimum energy configurations: 18446744044306204752, 18446744025857139148, 
+
+   Replica 49: SPIN_SEED = 53, MC_SEED = 54
+   Minimum energy reached = -40.000000
+   Minimum energy configurations: 18446744039554169512, 
+
+   Replica 50: SPIN_SEED = 54, MC_SEED = 55
+   Minimum energy reached = -47.000000
+   Minimum energy configurations: 18446744038893496200, 
+
+   Replica 51: SPIN_SEED = 55, MC_SEED = 56
+   Minimum energy reached = -41.000000
+   Minimum energy configurations: 18446744042830440792, 
+
+   Replica 52: SPIN_SEED = 56, MC_SEED = 57
+   Minimum energy reached = -45.000000
+   Minimum energy configurations: 18446744033344113381, 
+
+   Replica 53: SPIN_SEED = 57, MC_SEED = 58
+   Minimum energy reached = -51.000000
+   Minimum energy configurations: 18446744036428179429, 
+
+   Replica 54: SPIN_SEED = 58, MC_SEED = 59
+   Minimum energy reached = -49.000000
+   Minimum energy configurations: 18446744043080020391, 
+
+   Replica 55: SPIN_SEED = 59, MC_SEED = 60
+   Minimum energy reached = -42.000000
+   Minimum energy configurations: 18446744031547790294, 
+
+   Replica 56: SPIN_SEED = 60, MC_SEED = 61
+   Minimum energy reached = -38.500000
+   Minimum energy configurations: 18446744038058455849, 
+
+   Replica 57: SPIN_SEED = 61, MC_SEED = 62
+   Minimum energy reached = -54.500000
+   Minimum energy configurations: 18446744041804810023, 
+
+   Replica 58: SPIN_SEED = 62, MC_SEED = 63
+   Minimum energy reached = -40.500000
+   Minimum energy configurations: 18446744038813990453, 
+
+   Replica 59: SPIN_SEED = 63, MC_SEED = 64
+   Minimum energy reached = -41.000000
+   Minimum energy configurations: 18446744046193488193, 18446744037337438828, 
+
+   Replica 60: SPIN_SEED = 64, MC_SEED = 65
+   Minimum energy reached = -39.500000
+   Minimum energy configurations: 18446744036931768654, 
+
+   Replica 61: SPIN_SEED = 65, MC_SEED = 66
+   Minimum energy reached = -35.000000
+   Minimum energy configurations: 18446744029405393356, 
+
+   Replica 62: SPIN_SEED = 66, MC_SEED = 67
+   Minimum energy reached = -43.000000
+   Minimum energy configurations: 18446744033751760554, 
+
+   Replica 63: SPIN_SEED = 67, MC_SEED = 68
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744029782819975, 
+
+   Replica 64: SPIN_SEED = 68, MC_SEED = 69
+   Minimum energy reached = -40.000000
+   Minimum energy configurations: 18446744033691634338, 
+
+   Replica 65: SPIN_SEED = 69, MC_SEED = 70
+   Minimum energy reached = -42.500000
+   Minimum energy configurations: 18446744038111831471, 
+
+   Replica 66: SPIN_SEED = 70, MC_SEED = 71
+   Minimum energy reached = -36.500000
+   Minimum energy configurations: 18446744045455735131, 
+
+   Replica 67: SPIN_SEED = 71, MC_SEED = 72
+   Minimum energy reached = -41.500000
+   Minimum energy configurations: 18446744033240895818, 
+
+   Replica 68: SPIN_SEED = 72, MC_SEED = 73
+   Minimum energy reached = -36.500000
+   Minimum energy configurations: 18446744025933002342, 18446744039729426681, 
+
+   Replica 69: SPIN_SEED = 73, MC_SEED = 74
+   Minimum energy reached = -41.500000
+   Minimum energy configurations: 18446744053135766065, 
+
+   Replica 70: SPIN_SEED = 74, MC_SEED = 75
+   Minimum energy reached = -40.500000
+   Minimum energy configurations: 18446744041045342228, 
+
+   Replica 71: SPIN_SEED = 75, MC_SEED = 76
+   Minimum energy reached = -39.500000
+   Minimum energy configurations: 18446744042017076994, 
+
+   Replica 72: SPIN_SEED = 76, MC_SEED = 77
+   Minimum energy reached = -37.000000
+   Minimum energy configurations: 18446744039739076721, 
+
+   Replica 73: SPIN_SEED = 77, MC_SEED = 78
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744036560782341, 
+
+   Replica 74: SPIN_SEED = 78, MC_SEED = 79
+   Minimum energy reached = -44.000000
+   Minimum energy configurations: 18446744042430882019, 
+
+   Replica 75: SPIN_SEED = 79, MC_SEED = 80
+   Minimum energy reached = -50.500000
+   Minimum energy configurations: 18446744036355760078, 
+
+   Replica 76: SPIN_SEED = 80, MC_SEED = 81
+   Minimum energy reached = -36.500000
+   Minimum energy configurations: 18446744028891406286, 
+
+   Replica 77: SPIN_SEED = 81, MC_SEED = 82
+   Minimum energy reached = -47.500000
+   Minimum energy configurations: 18446744030756361025, 
+
+   Replica 78: SPIN_SEED = 82, MC_SEED = 83
+   Minimum energy reached = -46.000000
+   Minimum energy configurations: 18446744036303894553, 
+
+   Replica 79: SPIN_SEED = 83, MC_SEED = 84
+   Minimum energy reached = -41.000000
+   Minimum energy configurations: 18446744034518232092, 
+
+   Replica 80: SPIN_SEED = 84, MC_SEED = 85
+   Minimum energy reached = -37.000000
+   Minimum energy configurations: 18446744043262029630, 
+
+   Replica 81: SPIN_SEED = 85, MC_SEED = 86
+   Minimum energy reached = -43.000000
+   Minimum energy configurations: 18446744036941874855, 
+
+   Replica 82: SPIN_SEED = 86, MC_SEED = 87
+   Minimum energy reached = -40.500000
+   Minimum energy configurations: 18446744038357048911, 
+
+   Replica 83: SPIN_SEED = 87, MC_SEED = 88
+   Minimum energy reached = -44.000000
+   Minimum energy configurations: 18446744039111493726, 
+
+   Replica 84: SPIN_SEED = 88, MC_SEED = 89
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744025329471118, 18446744038828379290, 
+
+   Replica 85: SPIN_SEED = 89, MC_SEED = 90
+   Minimum energy reached = -38.000000
+   Minimum energy configurations: 18446744035329925735, 
+
+   Replica 86: SPIN_SEED = 90, MC_SEED = 91
+   Minimum energy reached = -45.500000
+   Minimum energy configurations: 18446744036292889756, 
+
+   Replica 87: SPIN_SEED = 91, MC_SEED = 92
+   Minimum energy reached = -40.500000
+   Minimum energy configurations: 18446744047403045435, 
+
+   Replica 88: SPIN_SEED = 92, MC_SEED = 93
+   Minimum energy reached = -40.000000
+   Minimum energy configurations: 18446744047406986029, 
+
+   Replica 89: SPIN_SEED = 93, MC_SEED = 94
+   Minimum energy reached = -42.000000
+   Minimum energy configurations: 18446744048736049106, 
+
+   Replica 90: SPIN_SEED = 94, MC_SEED = 95
+   Minimum energy reached = -35.500000
+   Minimum energy configurations: 18446744037474231389, 18446744035075220573, 18446744035368237563, 
+
+   Replica 91: SPIN_SEED = 95, MC_SEED = 96
+   Minimum energy reached = -53.500000
+   Minimum energy configurations: 18446744024452521530, 
+
+   Replica 92: SPIN_SEED = 96, MC_SEED = 97
+   Minimum energy reached = -35.500000
+   Minimum energy configurations: 18446744045397359706, 18446744047544841306, 
+
+   Replica 93: SPIN_SEED = 97, MC_SEED = 98
+   Minimum energy reached = -38.500000
+   Minimum energy configurations: 18446744032951488409, 
+
+   Replica 94: SPIN_SEED = 98, MC_SEED = 99
+   Minimum energy reached = -35.000000
+   Minimum energy configurations: 18446744043316488222, 
+
+   Replica 95: SPIN_SEED = 99, MC_SEED = 100
+   Minimum energy reached = -38.500000
+   Minimum energy configurations: 18446744034003759453, 
+
+   Replica 96: SPIN_SEED = 100, MC_SEED = 101
+   Minimum energy reached = -39.000000
+   Minimum energy configurations: 18446744036227787550, 
+
+   Replica 97: SPIN_SEED = 101, MC_SEED = 102
+   Minimum energy reached = -42.500000
+   Minimum energy configurations: 18446744026881545582, 
+
+   Replica 98: SPIN_SEED = 102, MC_SEED = 103
+   Minimum energy reached = -44.000000
+   Minimum energy configurations: 18446744054041124919, 
+
+   Replica 99: SPIN_SEED = 103, MC_SEED = 104
+   Minimum energy reached = -40.000000
+   Minimum energy configurations: 18446744040907367857, 
+
+Trial 6: N = 64, M = 400, J_SEED = 2, B = 0.000000
+
+   Replica 0: SPIN_SEED = 5, MC_SEED = 6
+   Minimum energy reached = -47.000000
+   Minimum energy configurations: 18446744037925784216, 
+
+   Replica 1: SPIN_SEED = 6, MC_SEED = 7
+   Minimum energy reached = -43.000000
+   Minimum energy configurations: 18446744044408947650, 
+
+   Replica 2: SPIN_SEED = 7, MC_SEED = 8
+   Minimum energy reached = -40.500000
+   Minimum energy configurations: 18446744024534763170, 18446744046449539365, 
+
+   Replica 3: SPIN_SEED = 8, MC_SEED = 9
+   Minimum energy reached = -41.500000
+   Minimum energy configurations: 18446744040023412645, 
+
+   Replica 4: SPIN_SEED = 9, MC_SEED = 10
+   Minimum energy reached = -48.000000
+   Minimum energy configurations: 18446744047671748117, 
+
+   Replica 5: SPIN_SEED = 10, MC_SEED = 11
+   Minimum energy reached = -39.000000
+   Minimum energy configurations: 18446744041997530883, 
+
+   Replica 6: SPIN_SEED = 11, MC_SEED = 12
+   Minimum energy reached = -40.000000
+   Minimum energy configurations: 18446744041065932130, 
+
+   Replica 7: SPIN_SEED = 12, MC_SEED = 13
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744048646924200, 
+
+   Replica 8: SPIN_SEED = 13, MC_SEED = 14
+   Minimum energy reached = -37.500000
+   Minimum energy configurations: 18446744032863348178, 18446744054345813386, 18446744043603736694, 
+
+   Replica 9: SPIN_SEED = 14, MC_SEED = 15
+   Minimum energy reached = -56.000000
+   Minimum energy configurations: 18446744037863111432, 18446744035715627848, 
+
+   Replica 10: SPIN_SEED = 15, MC_SEED = 16
+   Minimum energy reached = -43.000000
+   Minimum energy configurations: 18446744045337479048, 
+
+   Replica 11: SPIN_SEED = 16, MC_SEED = 17
+   Minimum energy reached = -42.000000
+   Minimum energy configurations: 18446744033145650592, 
+
+   Replica 12: SPIN_SEED = 17, MC_SEED = 18
+   Minimum energy reached = -44.000000
+   Minimum energy configurations: 18446744031846815706, 
+
+   Replica 13: SPIN_SEED = 18, MC_SEED = 19
+   Minimum energy reached = -50.000000
+   Minimum energy configurations: 18446744038229333824, 
+
+   Replica 14: SPIN_SEED = 19, MC_SEED = 20
+   Minimum energy reached = -40.500000
+   Minimum energy configurations: 18446744049272721737, 18446744042971486022, 18446744031993731899, 
+
+   Replica 15: SPIN_SEED = 20, MC_SEED = 21
+   Minimum energy reached = -45.000000
+   Minimum energy configurations: 18446744036442099893, 
+
+   Replica 16: SPIN_SEED = 21, MC_SEED = 22
+   Minimum energy reached = -46.000000
+   Minimum energy configurations: 18446744044677279970, 
+
+   Replica 17: SPIN_SEED = 22, MC_SEED = 23
+   Minimum energy reached = -49.000000
+   Minimum energy configurations: 18446744029730390086, 18446744031875776582, 
+
+   Replica 18: SPIN_SEED = 23, MC_SEED = 24
+   Minimum energy reached = -39.500000
+   Minimum energy configurations: 18446744042131243418, 18446744051147125737, 18446744048932532841, 
+
+   Replica 19: SPIN_SEED = 24, MC_SEED = 25
+   Minimum energy reached = -37.500000
+   Minimum energy configurations: 18446744023474197986, 
+
+   Replica 20: SPIN_SEED = 25, MC_SEED = 26
+   Minimum energy reached = -41.000000
+   Minimum energy configurations: 18446744048043025443, 
+
+   Replica 21: SPIN_SEED = 26, MC_SEED = 27
+   Minimum energy reached = -55.000000
+   Minimum energy configurations: 18446744035058497626, 
+
+   Replica 22: SPIN_SEED = 27, MC_SEED = 28
+   Minimum energy reached = -48.000000
+   Minimum energy configurations: 18446744033490104311, 18446744041487794978, 
+
+   Replica 23: SPIN_SEED = 28, MC_SEED = 29
+   Minimum energy reached = -44.500000
+   Minimum energy configurations: 18446744040146608906, 
+
+   Replica 24: SPIN_SEED = 29, MC_SEED = 30
+   Minimum energy reached = -44.500000
+   Minimum energy configurations: 18446744049669974037, 
+
+   Replica 25: SPIN_SEED = 30, MC_SEED = 31
+   Minimum energy reached = -48.500000
+   Minimum energy configurations: 18446744043958555366, 
+
+   Replica 26: SPIN_SEED = 31, MC_SEED = 32
+   Minimum energy reached = -47.500000
+   Minimum energy configurations: 18446744044303201222, 
+
+   Replica 27: SPIN_SEED = 32, MC_SEED = 33
+   Minimum energy reached = -44.500000
+   Minimum energy configurations: 18446744043681775025, 
+
+   Replica 28: SPIN_SEED = 33, MC_SEED = 34
+   Minimum energy reached = -43.000000
+   Minimum energy configurations: 18446744029980676029, 
+
+   Replica 29: SPIN_SEED = 34, MC_SEED = 35
+   Minimum energy reached = -46.000000
+   Minimum energy configurations: 18446744040142364722, 18446744038016863455, 
+
+   Replica 30: SPIN_SEED = 35, MC_SEED = 36
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744048597640520, 
+
+   Replica 31: SPIN_SEED = 36, MC_SEED = 37
+   Minimum energy reached = -46.000000
+   Minimum energy configurations: 18446744039651405639, 
+
+   Replica 32: SPIN_SEED = 37, MC_SEED = 38
+   Minimum energy reached = -42.500000
+   Minimum energy configurations: 18446744034497593559, 
+
+   Replica 33: SPIN_SEED = 38, MC_SEED = 39
+   Minimum energy reached = -41.000000
+   Minimum energy configurations: 18446744038693109522, 
+
+   Replica 34: SPIN_SEED = 39, MC_SEED = 40
+   Minimum energy reached = -44.000000
+   Minimum energy configurations: 18446744055223221413, 
+
+   Replica 35: SPIN_SEED = 40, MC_SEED = 41
+   Minimum energy reached = -45.000000
+   Minimum energy configurations: 18446744040724055287, 
+
+   Replica 36: SPIN_SEED = 41, MC_SEED = 42
+   Minimum energy reached = -50.500000
+   Minimum energy configurations: 18446744040323333260, 
+
+   Replica 37: SPIN_SEED = 42, MC_SEED = 43
+   Minimum energy reached = -47.000000
+   Minimum energy configurations: 18446744041568583170, 
+
+   Replica 38: SPIN_SEED = 43, MC_SEED = 44
+   Minimum energy reached = -42.000000
+   Minimum energy configurations: 18446744031088276339, 
+
+   Replica 39: SPIN_SEED = 44, MC_SEED = 45
+   Minimum energy reached = -42.500000
+   Minimum energy configurations: 18446744050678344273, 
+
+   Replica 40: SPIN_SEED = 45, MC_SEED = 46
+   Minimum energy reached = -52.000000
+   Minimum energy configurations: 18446744040124183592, 
+
+   Replica 41: SPIN_SEED = 46, MC_SEED = 47
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744040947802130, 
+
+   Replica 42: SPIN_SEED = 47, MC_SEED = 48
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744036623008695, 
+
+   Replica 43: SPIN_SEED = 48, MC_SEED = 49
+   Minimum energy reached = -57.000000
+   Minimum energy configurations: 18446744048735957408, 
+
+   Replica 44: SPIN_SEED = 49, MC_SEED = 50
+   Minimum energy reached = -39.500000
+   Minimum energy configurations: 18446744043765813545, 
+
+   Replica 45: SPIN_SEED = 50, MC_SEED = 51
+   Minimum energy reached = -42.000000
+   Minimum energy configurations: 18446744037239421990, 
+
+   Replica 46: SPIN_SEED = 51, MC_SEED = 52
+   Minimum energy reached = -46.000000
+   Minimum energy configurations: 18446744046650953536, 
+
+   Replica 47: SPIN_SEED = 52, MC_SEED = 53
+   Minimum energy reached = -42.500000
+   Minimum energy configurations: 18446744044306204752, 18446744025857139148, 18446744034079392583, 
+
+   Replica 48: SPIN_SEED = 53, MC_SEED = 54
+   Minimum energy reached = -40.000000
+   Minimum energy configurations: 18446744039554169512, 
+
+   Replica 49: SPIN_SEED = 54, MC_SEED = 55
+   Minimum energy reached = -49.500000
+   Minimum energy configurations: 18446744032115256521, 
+
+   Replica 50: SPIN_SEED = 55, MC_SEED = 56
+   Minimum energy reached = -41.000000
+   Minimum energy configurations: 18446744042830440792, 
+
+   Replica 51: SPIN_SEED = 56, MC_SEED = 57
+   Minimum energy reached = -45.000000
+   Minimum energy configurations: 18446744033344113381, 
+
+   Replica 52: SPIN_SEED = 57, MC_SEED = 58
+   Minimum energy reached = -51.000000
+   Minimum energy configurations: 18446744036428179429, 
+
+   Replica 53: SPIN_SEED = 58, MC_SEED = 59
+   Minimum energy reached = -49.000000
+   Minimum energy configurations: 18446744043080020391, 
+
+   Replica 54: SPIN_SEED = 59, MC_SEED = 60
+   Minimum energy reached = -42.000000
+   Minimum energy configurations: 18446744031547790294, 
+
+   Replica 55: SPIN_SEED = 60, MC_SEED = 61
+   Minimum energy reached = -40.500000
+   Minimum energy configurations: 18446744044123475385, 
+
+   Replica 56: SPIN_SEED = 61, MC_SEED = 62
+   Minimum energy reached = -54.500000
+   Minimum energy configurations: 18446744041804810023, 
+
+   Replica 57: SPIN_SEED = 62, MC_SEED = 63
+   Minimum energy reached = -40.500000
+   Minimum energy configurations: 18446744038813990453, 
+
+   Replica 58: SPIN_SEED = 63, MC_SEED = 64
+   Minimum energy reached = -45.500000
+   Minimum energy configurations: 18446744035849933192, 
+
+   Replica 59: SPIN_SEED = 64, MC_SEED = 65
+   Minimum energy reached = -44.000000
+   Minimum energy configurations: 18446744041121036374, 
+
+   Replica 60: SPIN_SEED = 65, MC_SEED = 66
+   Minimum energy reached = -42.000000
+   Minimum energy configurations: 18446744039179083655, 
+
+   Replica 61: SPIN_SEED = 66, MC_SEED = 67
+   Minimum energy reached = -43.000000
+   Minimum energy configurations: 18446744033751760554, 
+
+   Replica 62: SPIN_SEED = 67, MC_SEED = 68
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744029782819975, 
+
+   Replica 63: SPIN_SEED = 68, MC_SEED = 69
+   Minimum energy reached = -60.500000
+   Minimum energy configurations: 18446744052690117177, 
+
+   Replica 64: SPIN_SEED = 69, MC_SEED = 70
+   Minimum energy reached = -42.500000
+   Minimum energy configurations: 18446744038111831471, 
+
+   Replica 65: SPIN_SEED = 70, MC_SEED = 71
+   Minimum energy reached = -41.500000
+   Minimum energy configurations: 18446744025394541175, 
+
+   Replica 66: SPIN_SEED = 71, MC_SEED = 72
+   Minimum energy reached = -41.500000
+   Minimum energy configurations: 18446744033240895818, 
+
+   Replica 67: SPIN_SEED = 72, MC_SEED = 73
+   Minimum energy reached = -42.500000
+   Minimum energy configurations: 18446744036933374750, 
+
+   Replica 68: SPIN_SEED = 73, MC_SEED = 74
+   Minimum energy reached = -41.500000
+   Minimum energy configurations: 18446744053135766065, 
+
+   Replica 69: SPIN_SEED = 74, MC_SEED = 75
+   Minimum energy reached = -43.000000
+   Minimum energy configurations: 18446744038114862259, 
+
+   Replica 70: SPIN_SEED = 75, MC_SEED = 76
+   Minimum energy reached = -50.000000
+   Minimum energy configurations: 18446744031845800574, 
+
+   Replica 71: SPIN_SEED = 76, MC_SEED = 77
+   Minimum energy reached = -39.500000
+   Minimum energy configurations: 18446744031844739261, 
+
+   Replica 72: SPIN_SEED = 77, MC_SEED = 78
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744036560782341, 
+
+   Replica 73: SPIN_SEED = 78, MC_SEED = 79
+   Minimum energy reached = -47.500000
+   Minimum energy configurations: 18446744033207874997, 
+
+   Replica 74: SPIN_SEED = 79, MC_SEED = 80
+   Minimum energy reached = -50.500000
+   Minimum energy configurations: 18446744036355760078, 
+
+   Replica 75: SPIN_SEED = 80, MC_SEED = 81
+   Minimum energy reached = -37.000000
+   Minimum energy configurations: 18446744027582385814, 
+
+   Replica 76: SPIN_SEED = 81, MC_SEED = 82
+   Minimum energy reached = -48.500000
+   Minimum energy configurations: 18446744038044282036, 
+
+   Replica 77: SPIN_SEED = 82, MC_SEED = 83
+   Minimum energy reached = -46.000000
+   Minimum energy configurations: 18446744036303894553, 
+
+   Replica 78: SPIN_SEED = 83, MC_SEED = 84
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744048913463468, 
+
+   Replica 79: SPIN_SEED = 84, MC_SEED = 85
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744043989981002, 
+
+   Replica 80: SPIN_SEED = 85, MC_SEED = 86
+   Minimum energy reached = -47.500000
+   Minimum energy configurations: 18446744050887791592, 
+
+   Replica 81: SPIN_SEED = 86, MC_SEED = 87
+   Minimum energy reached = -40.500000
+   Minimum energy configurations: 18446744038357048911, 
+
+   Replica 82: SPIN_SEED = 87, MC_SEED = 88
+   Minimum energy reached = -44.000000
+   Minimum energy configurations: 18446744039111493726, 18446744034993996494, 
+
+   Replica 83: SPIN_SEED = 88, MC_SEED = 89
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744025329471118, 18446744038828379290, 
+
+   Replica 84: SPIN_SEED = 89, MC_SEED = 90
+   Minimum energy reached = -47.000000
+   Minimum energy configurations: 18446744032146118473, 
+
+   Replica 85: SPIN_SEED = 90, MC_SEED = 91
+   Minimum energy reached = -45.500000
+   Minimum energy configurations: 18446744036292889756, 
+
+   Replica 86: SPIN_SEED = 91, MC_SEED = 92
+   Minimum energy reached = -40.500000
+   Minimum energy configurations: 18446744047403045435, 
+
+   Replica 87: SPIN_SEED = 92, MC_SEED = 93
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744053301286282, 
+
+   Replica 88: SPIN_SEED = 93, MC_SEED = 94
+   Minimum energy reached = -46.000000
+   Minimum energy configurations: 18446744050613916642, 
+
+   Replica 89: SPIN_SEED = 94, MC_SEED = 95
+   Minimum energy reached = -39.500000
+   Minimum energy configurations: 18446744041231851035, 
+
+   Replica 90: SPIN_SEED = 95, MC_SEED = 96
+   Minimum energy reached = -53.500000
+   Minimum energy configurations: 18446744024452521530, 
+
+   Replica 91: SPIN_SEED = 96, MC_SEED = 97
+   Minimum energy reached = -43.500000
+   Minimum energy configurations: 18446744047259755573, 
+
+   Replica 92: SPIN_SEED = 97, MC_SEED = 98
+   Minimum energy reached = -44.000000
+   Minimum energy configurations: 18446744037073497735, 
+
+   Replica 93: SPIN_SEED = 98, MC_SEED = 99
+   Minimum energy reached = -37.000000
+   Minimum energy configurations: 18446744045352715865, 
+
+   Replica 94: SPIN_SEED = 99, MC_SEED = 100
+   Minimum energy reached = -45.500000
+   Minimum energy configurations: 18446744046190628656, 
+
+   Replica 95: SPIN_SEED = 100, MC_SEED = 101
+   Minimum energy reached = -51.000000
+   Minimum energy configurations: 18446744023391100047, 
+
+   Replica 96: SPIN_SEED = 101, MC_SEED = 102
+   Minimum energy reached = -42.500000
+   Minimum energy configurations: 18446744026881545582, 
+
+   Replica 97: SPIN_SEED = 102, MC_SEED = 103
+   Minimum energy reached = -48.500000
+   Minimum energy configurations: 18446744044285233978, 
+
+   Replica 98: SPIN_SEED = 103, MC_SEED = 104
+   Minimum energy reached = -41.500000
+   Minimum energy configurations: 18446744036668185158, 
+
+   Replica 99: SPIN_SEED = 104, MC_SEED = 105
+   Minimum energy reached = -50.000000
+   Minimum energy configurations: 18446744036452468996, 
+

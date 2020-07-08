@@ -1,11 +1,12 @@
 // Brendan Philbin
 // 29 June 2020
 // Simple Ising Model MC Simulation
-// min_energy analysis with several seeds and simulated annealing
+// min_energy analysis with several seeds and thermal annealing
 
 #include <stdlib.h>
 #include <time.h>
 #include <random>
+#include <math.h>
 #include <algorithm>
 #include <iostream>
 #include <fstream>
@@ -21,13 +22,11 @@ class SpinConfiguration {
 
         // Constructor
         // "num_spins" = Number of particles in desired configuration
-        // "spins_seed" = RAND seed for random initialization of spins
-        SpinConfiguration(int num_spins, int spins_seed) {
+        SpinConfiguration(int num_spins, mt19937& rng) {
             N = num_spins;
             spins.resize(N);
-            srand(spins_seed);
             for(int i = 0; i < N; i++) {
-                int random_spin = rand() % 2;
+                int random_spin = (int)(rng() % 2);
                 if(random_spin == 0)
                     spins[i] = 1;
                 else
@@ -78,11 +77,10 @@ class JijMatrix {
         bool ferromagnetic;
 
         // Constructor
-        JijMatrix(int num_spins, int j_seed, bool ferro) {
+        JijMatrix(int num_spins, mt19937& rng, bool ferro) {
             N = num_spins;
             ferromagnetic = ferro;
             j_values.resize(N, vector<double>(N));
-            srand(j_seed);
 
             for(int i = 0; i < N; i++) {
                 for(int j = i+1; j < N; j++) {
@@ -92,7 +90,7 @@ class JijMatrix {
                         if(ferromagnetic)
                             j_values[i][j] = 1 / (double) N;
                         else {
-                            int random_j = rand() % 2;
+                            int random_j = (int)(rng() % 2);
                             if(random_j == 0)
                                 j_values[i][j] = 1 / sqrt(N);
                             else
@@ -129,9 +127,9 @@ class JijMatrix {
 
 // Implicit method declarations
 double computeEnergy(SpinConfiguration spin_config, JijMatrix jij);
-double attemptFlip(SpinConfiguration& spin_config, JijMatrix jij, double beta_value);
-void anneal(vector<SpinConfiguration>& configs, vector<double> energies, double beta);
+double attemptFlip(SpinConfiguration& spin_config, JijMatrix jij, double beta_value, mt19937& rng);
 double randfrom(double min, double max);
+bool areEqual(double a, double b);
 
 // Returns the energy as a double given a spin configuration and Jij matrix
 double computeEnergy(SpinConfiguration spin_config, JijMatrix jij) {
@@ -162,10 +160,10 @@ double computeEnergy(SpinConfiguration spin_config, JijMatrix jij) {
 // Returns change in energy, dE, if particle was flipped. Returns DOUBLE_MAX if not.
 // TO DO: CHANGE TO ONLY TAKE IN ONE ROW OF jij
 
-double attemptFlip(SpinConfiguration& spin_config, JijMatrix jij, double beta_value) {
+double attemptFlip(SpinConfiguration& spin_config, JijMatrix jij, double beta_value, mt19937& rng) {
 
     double current_energy = computeEnergy(spin_config, jij);
-    int random_particle = rand() % spin_config.size();
+    int random_particle = (int)(rng() % spin_config.size());
     spin_config.flip(random_particle);
     double new_energy = computeEnergy(spin_config, jij);
     double dE = new_energy - current_energy;
@@ -185,35 +183,32 @@ double attemptFlip(SpinConfiguration& spin_config, JijMatrix jij, double beta_va
     }
 }
 
-void anneal(vector<SpinConfiguration>& configs, vector<double> energies, double beta) {
-
-    /*
-    int min_index = min_element(energies.begin(), energies.end()) - v.begin();
-    int min_energy = *min_element(energies.begin(), energies.end());
-    */
-}
-
 // Returns a random double in range [min,max]
 double randfrom(double min, double max) {
 
+    srand(time(NULL));
     double range = (max - min); 
     double div = RAND_MAX / range;
     return min + (rand() / div);
+}
+
+bool areEqual(double a, double b) {
+    double epsilon = 0.0000001;
+    return fabs(a - b) < epsilon;
 }
 
 int main(int argc, char** argv) {
 
     // Declare parameters
     
-    int num_spins, iterations, replicas, j_seed, trial, anneal;
-    vector<int> mc_seeds;
-    vector<int> spin_seeds;
+    int num_spins, iterations, replicas, j_seed, trial, mc_seed, spin_seed;
     double beta;
     bool ferro = false;
+    bool annealing = false;
 
     // Parse parameters
 
-    cxxopts::Options options("IsingMinEnergy", "Performs single replica minimum energy analysis");
+    cxxopts::Options options("IsingAnnealing", "Performs multiple replica minimum energy analysis with annealing");
 
     options.add_options()
         ("n", "number of spins", cxxopts::value<int>()->default_value("-1"))
@@ -221,9 +216,9 @@ int main(int argc, char** argv) {
         ("r", "number of replicas", cxxopts::value<int>()->default_value("1"))
         ("t", "trial number", cxxopts::value<int>()->default_value("-1"))
         ("j", "Jij matrix seed", cxxopts::value<int>()->default_value("-1"))
-        ("c", "MC sweep seed(s)", cxxopts::value<vector<int>>()->default_value("-1"))
-        ("s", "initial spin seed(s)", cxxopts::value<vector<int>>()->default_value("-1"))
-        ("a", "iterations per annealing", cxxopts::value<int>()->default_value("-1"))
+        ("c", "MC sweep seed(s)", cxxopts::value<int>()->default_value("-1"))
+        ("s", "initial spin seed(s)", cxxopts::value<int>()->default_value("-1"))
+        ("a", "toggle temperature annealing")
         ("b", "beta value", cxxopts::value<double>()->default_value("-1"))
         ("f", "ferromagnetic or not");
 
@@ -234,37 +229,51 @@ int main(int argc, char** argv) {
     replicas = parameters["r"].as<int>();
     trial = parameters["t"].as<int>();
     j_seed = parameters["j"].as<int>();
-    mc_seeds = parameters["c"].as<vector<int>>();
-    spin_seeds = parameters["s"].as<vector<int>>();
-    anneal = parameters["a"].as<int>();
+    mc_seed = parameters["c"].as<int>();
+    spin_seed = parameters["s"].as<int>();
+    annealing = parameters["a"].as<bool>();
     beta = parameters["b"].as<double>();
     ferro = parameters["f"].as<bool>();
 
-    if(num_spins == -1 || iterations == -1 || trial == -1 || j_seed == -1 || mc_seeds.empty() || spin_seeds.empty() || beta == -1 || anneal == -1) {
+    if(num_spins == -1 || iterations == -1 || trial == -1 || j_seed == -1 || mc_seed == -1 || spin_seed == -1 || beta == -1) {
         printf("ERROR: missing one or more required arguments\n");
-        printf("Required options:\n");
+        printf("Required arguments:\n");
         printf("    -n : number of spins\n");
         printf("    -m : number of sweeps\n");
         printf("    -r : number of replicas\n");
         printf("    -t : trial number\n");
         printf("    -j : Jij matrix seed\n");
-        printf("    -c : MC sweep seed(s)\n");
-        printf("    -s : initial spin seed(s)\n");
-        printf("    -a : number of sweeps per annealing (set to a number > M for no annealing)\n");
+        printf("    -c : MC sweep seed\n");
+        printf("    -s : initial spin seed\n");
+        printf("    -a : toggle annealing\n");
         printf("    -b : beta value\n");
-        printf("    -f : add if ferromagnetic\n");
+        printf("    -f : toggle ferromagnetic\n");
     }
 
-    if(mc_seeds.size() != replicas || spin_seeds.size() != replicas)
-        printf("ERROR: number of SpinConfig seeds not equal to number of replicas\n");
+    // Handle the annealing setup
+    int increment = beta / iterations;
+    if(annealing) {
+        beta = 0;
+    }
+
+    
+    // Create vector of mc_seed and spin_seed rngs from provided integer
+    vector<mt19937> mc_rngs;
+    vector<mt19937> spin_rngs;
+    for(int i = 0; i < replicas; i++) {
+        mc_rngs.push_back( mt19937(mc_seed + i) );
+        spin_rngs.push_back( mt19937(spin_seed + i) );
+    }
 
     // Create initial SpinConfiguration vector of replicas
+    // Seed first config with provided spin_seed and increment for subsequent configs
     vector<SpinConfiguration> spin_configs;
-    for(int seed : spin_seeds)
-        spin_configs.push_back(SpinConfiguration(num_spins, seed));
+    for(int i = 0; i < replicas; i++)
+        spin_configs.push_back( SpinConfiguration(num_spins, spin_rngs[i]) );
 
     // Create Jij matrix
-    JijMatrix j_values(num_spins, j_seed, ferro);
+    mt19937 j_rng(j_seed);
+    JijMatrix j_values(num_spins, j_rng, ferro);
 
     // For each replica, declare minimum energy as current energy and create long long int vector of min energy configurations
     // NOTE: energy configurations can only encompass up to N = 64 particles
@@ -272,9 +281,20 @@ int main(int argc, char** argv) {
     vector<double> current_energies;
     vector<vector<unsigned long long int>> min_configs;
 
-    ofstream testfile;
+    // Create a vector of ofstream objects for each replica
+    vector<ofstream> streams;
+    for(int i = 0; i < replicas; i++) {
+        streams.push_back(ofstream());
+        streams[i].open("../annealing/annealing_output" + to_string(trial) + "_r" + to_string(i) + ".csv", ios_base::app);
+    }
 
-    for(int i = 0; i < spin_configs.size(); i++) {
+    // Create ofstreams for the results file and the histogram file
+    ofstream results;
+    results.open("../annealing/results.txt", ios_base::app);
+    ofstream histogram;
+    histogram.open("../annealing/histogram" + to_string(trial) + ".csv");
+
+    for(int i = 0; i < replicas; i++) {
         double current_energy = computeEnergy(spin_configs[i], j_values);
         min_energies.push_back(current_energy);
         current_energies.push_back(current_energy);
@@ -283,9 +303,7 @@ int main(int argc, char** argv) {
 
         // Write initial energy information to CSV
         // NOTE: RESULTS MUST BE CLEANED BEFORE EACH RUN: use "make cleanResults"
-        testfile.open("../several_seeds/several_seeds_output" + to_string(trial) + "_r" + to_string(i) + ".csv", ios_base::app);
-        testfile << current_energies[i] << ",";
-        testfile.close();
+        streams[i] << current_energies[i] << ",";
     }
 
     // Monte Carlo loop
@@ -293,22 +311,18 @@ int main(int argc, char** argv) {
     // Iteration over "-m", number of sweeps
     for(int i = 1; i < iterations + 1; i++) {
 
+        if(annealing)
+            beta += increment;
+
         // Iteration over "-r", number of replicas
-        for(int r = 0; r < spin_configs.size(); r++) {
-            
-            // Re-seed each replica on every iteration to avoid same flips being chosen
-            // Re-seeding with same seed results in same string of random numbers
-            srand(mc_seeds[r]+i);
-
-            testfile.open("../several_seeds/several_seeds_output" + to_string(trial) + "_r" + to_string(r) + ".csv", ios_base::app);
-
+        for(int r = 0; r < replicas; r++) {
             // Iteration over "-n", number of spins
             for(int j = 0; j < num_spins; j++) {
 
                 // Attempt to flip one spin
                 // Calculate energy after attempted flip
                 // Convert spin configuration to a long long int
-                attemptFlip(spin_configs[r], j_values, beta);
+                attemptFlip(spin_configs[r], j_values, beta, mc_rngs[r]);
                 current_energies[r] = computeEnergy(spin_configs[r], j_values);
                 unsigned long long int conf_int = spin_configs[r].toInt();
 
@@ -321,40 +335,45 @@ int main(int argc, char** argv) {
                 }
 
                 // If current energy is same as minimum energy, push this configuration to the vector
-                else if(current_energies[r] == min_energies[r]) {
+                else if( areEqual(current_energies[r], min_energies[r]) ) {
                     if( find(min_configs[r].begin(), min_configs[r].end(), conf_int) == min_configs[r].end() )
                         min_configs[r].push_back(conf_int);
                 }
             }
 
            if(i == iterations)
-              testfile << current_energies[r];
+              streams[r] << current_energies[r];
            else
-              testfile << current_energies[r] << ","; 
-           testfile.close();
+              streams[r] << current_energies[r] << ","; 
 
         }
-
-        // THIS IS WHERE REPLICA COMPARISON WILL GO
-        // REACHED AFTER EACH ITERATION COMPLETES ON ALL REPLICAS
-        // if( (i != 0) && (i % anneal == 0) )
-        //     anneal(spin_configs, current_energies, beta);
-
     }
 
     // Write results file w/ minimum energy information
-    
-    testfile.open("../several_seeds/results.txt", ios_base::app);
-    testfile << "Trial " + to_string(trial) + ": N = " + to_string(num_spins) + ", M = " + to_string(iterations) + ", J_SEED = " + to_string(j_seed) + ", B = " + to_string(beta) + "\n\n";
-    for(int i = 0; i < spin_configs.size(); i++) {
-        testfile << "   Replica " + to_string(i) + ": SPIN_SEED = " + to_string(spin_seeds[i]) + ", MC_SEED = " + to_string(mc_seeds[i]) + "\n";
-        testfile << "   Minimum energy reached = " + to_string(min_energies[i]) + "\n";
-        testfile << "   Minimum energy configurations: ";
+    results << "Trial " + to_string(trial) + ": N = " + to_string(num_spins) + ", M = " + to_string(iterations) + ", J_SEED = " + to_string(j_seed) + ", B = " + to_string(beta) + "\n\n";
+    for(int i = 0; i < replicas; i++) {
+        results << "   Replica " + to_string(i) + ": SPIN_SEED = " + to_string(spin_seed+i) + ", MC_SEED = " + to_string(mc_seed+i) + "\n";
+        results << "   Minimum energy reached = " + to_string(min_energies[i]) + "\n";
+        results << "   Minimum energy configurations: ";
         for(int j = 0; j < min_configs[i].size(); j++)
-            testfile << to_string(min_configs[i][j]) + ", ";
-        testfile << "\n\n";
+            results << to_string(min_configs[i][j]) + ", ";
+        results << "\n\n";
     }
-    testfile.close();
+
+    // Write minimum energy values to histogram file
+    for(int i = 0; i < replicas; i++) {
+        if(i == replicas - 1)
+            histogram << to_string(min_energies[i]);
+        else
+            histogram << to_string(min_energies[i]) + ",";
+    }
+
+    // Close all file streams
+    for(int i = 0; i < replicas; i++)
+        streams[i].close();
+    results.close();
+    histogram.close();
+
 
     // Print trial status to the command line
     printf("Trial #%d completed and stored to disk.\n", trial);
