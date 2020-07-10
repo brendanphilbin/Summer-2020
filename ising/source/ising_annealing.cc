@@ -25,8 +25,9 @@ class SpinConfiguration {
         SpinConfiguration(int num_spins, mt19937& rng) {
             N = num_spins;
             spins.resize(N);
+            int random_spin;
             for(int i = 0; i < N; i++) {
-                int random_spin = (int)(rng() % 2);
+                random_spin = (int)(rng() % 2);
                 if(random_spin == 0)
                     spins[i] = 1;
                 else
@@ -35,19 +36,13 @@ class SpinConfiguration {
         }
 
         // Flip spin at index specified by "index"
-        void flip(int index) {
-            spins[index] *= -1;
-        }
+        void flip(int index) { spins[index] *= -1; }
 
         // Return spin value at index specified by "index"
-        double get(int index) {
-            return spins[index];
-        }
+        double get(int index) { return spins[index]; }
 
         // Return number of particles present in the configuration
-        int size() {
-            return N;
-        }
+        int size() { return N; }
 
         // Print the spin configuration in CSV form
         void printSpins() {
@@ -81,6 +76,7 @@ class JijMatrix {
             N = num_spins;
             ferromagnetic = ferro;
             j_values.resize(N, vector<double>(N));
+            int random_j;
 
             for(int i = 0; i < N; i++) {
                 for(int j = i+1; j < N; j++) {
@@ -88,13 +84,13 @@ class JijMatrix {
                         j_values[i][j] = 0;
                     else {
                         if(ferromagnetic)
-                            j_values[i][j] = 1 / (double) N;
+                            j_values[i][j] = (double)1 / (double)N;
                         else {
-                            int random_j = (int)(rng() % 2);
+                            random_j = (int)(rng() % 2);
                             if(random_j == 0)
-                                j_values[i][j] = 1 / sqrt(N);
+                                j_values[i][j] = (double)1 / sqrt(N);
                             else
-                                j_values[i][j] = -1 / sqrt(N);
+                                j_values[i][j] = (double)-1 / sqrt(N);
                         }
                         j_values[j][i] = j_values[i][j];
                     }
@@ -102,15 +98,14 @@ class JijMatrix {
             }
         }
 
+        // Return row "i" of J values 
+        vector<double> row(int i) { return j_values[i]; }
+
         // Returns a specific J values at index {i,j}
-        double get(int i, int j) {
-            return j_values[i][j];
-        }
+        double get(int i, int j) { return j_values[i][j]; }
 
         // Returns side length of the Matrix, the number of particles present
-        int size() {
-            return N;
-        }
+        int size() { return N; }
 
         // Print the matrix
         void printMatrix() {
@@ -122,12 +117,11 @@ class JijMatrix {
             }
             printf("\n");
         }
-
 };
 
 // Implicit method declarations
 double computeEnergy(SpinConfiguration spin_config, JijMatrix jij);
-double attemptFlip(SpinConfiguration& spin_config, JijMatrix jij, double beta_value, mt19937& rng);
+double attemptFlip(SpinConfiguration& spin_config, JijMatrix jij, double beta_value, double energy, mt19937& rng);
 double randfrom(double min, double max);
 bool areEqual(double a, double b);
 
@@ -137,32 +131,24 @@ double computeEnergy(SpinConfiguration spin_config, JijMatrix jij) {
     vector<double> spin_values = spin_config.spins;
     vector<vector<double>> jij_values = jij.j_values;
     int N = spin_config.size();
-
     double energy = 0;
-
     vector<double> temp_vector;
     temp_vector.assign(N, 0);
-
     for(int i = 0; i < N; i++) {
-        for(int j = 0; j < N; j++)
+        for(int j = i+1; j < N; j++)
             temp_vector[i] += spin_values[j] * jij_values[i][j];
     }
-
     for(int i = 0; i < N; i++)
         energy += spin_values[i] * temp_vector[i];
-
-    energy *= -1;
-
+    energy *= -2;
     return energy;
 }
 
-// Attempt to flip a random spin, seeded in the MC loop, depending on the acceptance algorithm
+// Attempt to flip a random spin depending on the acceptance algorithm
 // Returns change in energy, dE, if particle was flipped. Returns DOUBLE_MAX if not.
-// TO DO: CHANGE TO ONLY TAKE IN ONE ROW OF jij
+double attemptFlip(SpinConfiguration& spin_config, JijMatrix jij, double beta_value, double energy, mt19937& rng) {
 
-double attemptFlip(SpinConfiguration& spin_config, JijMatrix jij, double beta_value, mt19937& rng) {
-
-    double current_energy = computeEnergy(spin_config, jij);
+    double current_energy = energy;
     int random_particle = (int)(rng() % spin_config.size());
     spin_config.flip(random_particle);
     double new_energy = computeEnergy(spin_config, jij);
@@ -185,7 +171,6 @@ double attemptFlip(SpinConfiguration& spin_config, JijMatrix jij, double beta_va
 
 // Returns a random double in range [min,max]
 double randfrom(double min, double max) {
-
     srand(time(NULL));
     double range = (max - min); 
     double div = RAND_MAX / range;
@@ -193,14 +178,13 @@ double randfrom(double min, double max) {
 }
 
 bool areEqual(double a, double b) {
-    double epsilon = 0.0000001;
+    double epsilon = 0.0000000001;
     return fabs(a - b) < epsilon;
 }
 
 int main(int argc, char** argv) {
 
     // Declare parameters
-    
     int num_spins, iterations, replicas, j_seed, trial, mc_seed, spin_seed;
     double beta;
     bool ferro = false;
@@ -248,28 +232,26 @@ int main(int argc, char** argv) {
         printf("    -a : toggle annealing\n");
         printf("    -b : beta value\n");
         printf("    -f : toggle ferromagnetic\n");
+        return 0;
     }
 
     // Handle the annealing setup
-    int increment = beta / iterations;
+    double increment = beta / iterations;
     if(annealing) {
         beta = 0;
     }
 
-    
-    // Create vector of mc_seed and spin_seed rngs from provided integer
-    vector<mt19937> mc_rngs;
-    vector<mt19937> spin_rngs;
-    for(int i = 0; i < replicas; i++) {
-        mc_rngs.push_back( mt19937(mc_seed + i) );
-        spin_rngs.push_back( mt19937(spin_seed + i) );
-    }
-
+    // Create vector of RNGs
     // Create initial SpinConfiguration vector of replicas
     // Seed first config with provided spin_seed and increment for subsequent configs
+    // Re-seed RNGs with mc_seeds after creating each replicas
+    vector<mt19937> rngs;
     vector<SpinConfiguration> spin_configs;
-    for(int i = 0; i < replicas; i++)
-        spin_configs.push_back( SpinConfiguration(num_spins, spin_rngs[i]) );
+    for(int i = 0; i < replicas; i++) {
+        rngs.push_back( mt19937(spin_seed + i) );
+        spin_configs.push_back( SpinConfiguration(num_spins, rngs[i]) );
+        rngs[i].seed(mc_seed + i);
+    }
 
     // Create Jij matrix
     mt19937 j_rng(j_seed);
@@ -307,6 +289,7 @@ int main(int argc, char** argv) {
     }
 
     // Monte Carlo loop
+    double dE;
 
     // Iteration over "-m", number of sweeps
     for(int i = 1; i < iterations + 1; i++) {
@@ -316,25 +299,21 @@ int main(int argc, char** argv) {
 
         // Iteration over "-r", number of replicas
         for(int r = 0; r < replicas; r++) {
+
             // Iteration over "-n", number of spins
             for(int j = 0; j < num_spins; j++) {
 
-                // Attempt to flip one spin
-                // Calculate energy after attempted flip
-                // Convert spin configuration to a long long int
-                attemptFlip(spin_configs[r], j_values, beta, mc_rngs[r]);
-                current_energies[r] = computeEnergy(spin_configs[r], j_values);
+                dE = attemptFlip(spin_configs[r], j_values, beta, current_energies[r], rngs[r]);
+                if(dE != numeric_limits<double>::max())
+                    current_energies[r] += dE;
                 unsigned long long int conf_int = spin_configs[r].toInt();
 
-                // If current energy is less than minimum energy to this point, update min_energy,
-                // clear configuration vector, and push configuration to the vector
                 if(current_energies[r] < min_energies[r]) {
                     min_energies[r] = current_energies[r];
                     min_configs[r].clear();
                     min_configs[r].push_back(conf_int);
                 }
 
-                // If current energy is same as minimum energy, push this configuration to the vector
                 else if( areEqual(current_energies[r], min_energies[r]) ) {
                     if( find(min_configs[r].begin(), min_configs[r].end(), conf_int) == min_configs[r].end() )
                         min_configs[r].push_back(conf_int);
@@ -347,6 +326,9 @@ int main(int argc, char** argv) {
               streams[r] << current_energies[r] << ","; 
 
         }
+
+        // This is where I put population annealing 
+
     }
 
     // Write results file w/ minimum energy information
@@ -374,10 +356,8 @@ int main(int argc, char** argv) {
     results.close();
     histogram.close();
 
-
     // Print trial status to the command line
     printf("Trial #%d completed and stored to disk.\n", trial);
     
     return 1;
-
 }
