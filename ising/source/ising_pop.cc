@@ -14,24 +14,6 @@
 
 using namespace std;
 
-// Implicit method declarations
-double randfrom(double min, double max);
-bool areEqual(double a, double b);
-
-// Returns a random double in range [min,max]
-double randfrom(double min, double max) {
-    srand(time(NULL));
-    double range = (max - min); 
-    double div = RAND_MAX / range;
-    return min + (rand() / div);
-}
-
-// Returns whether a and b are equal within an error range
-bool areEqual(double a, double b) {
-    double epsilon = 0.0000000001;
-    return fabs(a - b) < epsilon;
-}
-
 // Jij Matrix class
 class JijMatrix {
 
@@ -78,6 +60,23 @@ class JijMatrix {
         }
 };
 
+// Implicit method declarations
+double randfrom(double min, double max);
+bool areEqual(double a, double b);
+
+// Returns a random double in range [min,max]
+double randfrom(double min, double max) {
+    srand(time(NULL));
+    double range = (max - min); 
+    double div = RAND_MAX / range;
+    return min + (rand() / div);
+}
+
+// Returns whether a and b are equal within an error range
+bool areEqual(double a, double b) {
+    double epsilon = 0.0000000001;
+    return fabs(a - b) < epsilon;
+}
 
 // Replica class
 class Replica {
@@ -87,15 +86,17 @@ class Replica {
         int N, spin_seed, mc_seed;
         mt19937 spin_rng;
         mt19937 mc_rng;
-        double beta, previous_beta, energy, min_energy;
+        mt19937 poisson_rng;
+        double beta, beta_increment, energy, min_energy, tau;
         vector<double> spins;
         vector<unsigned long long int> min_configs;
         JijMatrix jij;
 
         // Constructor for a Replica object
-        Replica(int num_spins, int spin_seed_param, int mc_seed_param, double beta_param, JijMatrix jij_param) {
+        Replica(int num_spins, int spin_seed_param, int mc_seed_param, double beta_param, double beta_increment_param, JijMatrix jij_param) {
             N = num_spins;
             beta = beta_param;
+            beta_increment = beta_increment_param;
             jij = jij_param;
             spin_seed = spin_seed_param;
             mc_seed = mc_seed_param;
@@ -135,13 +136,10 @@ class Replica {
         void setBeta(double beta_param) { beta = beta_param; }
 
         // Returns previous beta value
-        double getPreviousBeta() { return previous_beta; }
+        double getBetaIncrement() { return beta_increment; }
 
         // Increments beta by a defined amount
-        void incrementBeta(double dBeta) {
-            previous_beta = beta;
-            beta += dBeta;
-        }
+        void incrementBeta() { beta += beta_increment; }
 
         // Returns total system energy
         double getEnergy() { return energy; }
@@ -188,10 +186,6 @@ class Replica {
 
         // Performs a single Monte Carlo sweep on the system
         void performSweep() {
-            // Loop over N attempted flips
-                // Attempt flip on a random particle
-                // Use acceptance algorithm to retain or undo flip
-                // Update energy values
             int random_particle;
             double dE;
             for(int i = 0; i < N; i++) {
@@ -210,6 +204,23 @@ class Replica {
             }
         }
 
+        // Compute normalized weight, tau
+        // Assigns to member variable and returns value
+        double computeTau(double q) {
+            tau = ( exp( -1 * beta_increment * energy) / q );
+            return tau;
+        }
+
+        double getTau() { return tau; }
+
+        int numCopies() {
+            // See Matcha (2010) page 2 - under equation (2)
+            poisson_rng.seed(time(NULL));
+            double mean = tau; // divided by (R_B'/R~_B)
+            poisson_distribution<int> poisson(mean);
+            return poisson(poisson_rng);
+        }
+
         // Returns int value representing binary version of configuration
         // -1 -> 0 , 1 -> 1
         unsigned long long int toInt() {
@@ -223,6 +234,38 @@ class Replica {
 
 };
 
+// Implicit method declarations
+double computeQ(vector<Replica> replicas);
+void anneal(vector<Replica>& replicas);
+
+double computeQ(vector<Replica> replicas) {
+    double numerator = 0;
+    double dBeta = replicas[0].getBetaIncrement();
+    double denominator = (double) replicas.size();
+    for(int i = 0; i < replicas.size(); i++)
+        numerator += exp( -1 * dBeta * replicas[i].getEnergy() );
+    return numerator / denominator;
+} 
+
+void anneal(vector<Replica>& replicas, int& mc_seed) {
+    vector<Replica> replicaCopies;
+    double q = computeQ(replicas);
+    for(int r = 0; r < replicas.size(); r++) {
+        replicas[r].computeTau(q);
+        int copies = replicas[r].numCopies();
+        if(copies == 0) {
+            replicas.erase(replicas.begin() + r);
+            r--;
+        }
+        else {
+            for(int i = 0; i < copies; i++) {
+                replicaCopies.push_back(replicas[r]);
+                replicaCopies[replicaCopies.size() - 1].setMCSeed(mc_seed++);
+            }
+        }
+    }
+    replicas.insert(replicas.end(), replicaCopies.begin(), replicaCopies.end());
+}
 
 // Main function
 int main(int argc, char** argv) {
@@ -282,42 +325,49 @@ int main(int argc, char** argv) {
         return 0;
     }
 
+    if(pop_annealing && !temp_annealing) {
+        printf("ERROR: Population annealing enabled without thermal annealing\n");
+        return 0;
+    }
+
     // Create Jij Matrix
     JijMatrix jij(num_spins, ferro, j_seed); 
+
+    // Set beta incrementation
+    double increment = 0;
+    if(temp_annealing)
+        increment = beta / (double) iterations;
 
     // Create vector of replicas
     vector<Replica> replicas;
     for(int i = 0; i < num_replicas; i++) {
-        replicas.push_back( Replica(num_spins, spin_seed + i, mc_seed + i, beta, jij) );
-    }
-
-    // Create replica output streams
-    vector<ofstream> streams;
-    for(int i = 0; i < replicas.size(); i++) {
-        streams.push_back(ofstream());
-        streams[i].open("../pop/pop_output" + to_string(trial) + "_r" + to_string(i) + ".csv");
+        replicas.push_back( Replica(num_spins, spin_seed++, mc_seed++, beta, increment, jij) );
     }
 
     // Handle thermal annealing incrementation
-    double increment;
     if(temp_annealing) {
-        increment = beta / (double) iterations;
         for(int r = 0; r < replicas.size(); r++)
             replicas[r].setBeta(0);
     }
     
     // Monte Carlo loop
     for(int i = 0; i < iterations; i++) {
+        anneal(replicas, mc_seed); 
         for(int r = 0; r < replicas.size(); r++) {
             if(temp_annealing)
-                replicas[r].incrementBeta(increment);
+                replicas[r].incrementBeta();
             replicas[r].performSweep();
+            /*
             if(i != iterations - 1)
                 streams[r] << to_string(replicas[r].getEnergy()) + ",";
             else
                 streams[r] << to_string(replicas[r].getEnergy());
+            */
         }
+        printf("After %d sweeps, population size = %lu\n", i + 1, replicas.size());
     }
+
+    /*
 
     // Create streams for results and histogram files
     ofstream results, histogram;
@@ -342,6 +392,10 @@ int main(int argc, char** argv) {
         streams[i].close();
     results.close();
     histogram.close();
+
+    */
+
+    printf("Trial #%d has completed and stored to disk.\n", trial);
 
     return 1;
 }
