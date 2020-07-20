@@ -213,10 +213,10 @@ class Replica {
 
         double getTau() { return tau; }
 
-        int numCopies() {
+        int numCopies(int targetPop, int size) {
             // See Matcha (2010) page 2 - under equation (2)
             poisson_rng.seed(time(NULL));
-            double mean = tau; // divided by (R_B'/R~_B)
+            double mean = tau * targetPop / size;
             poisson_distribution<int> poisson(mean);
             return poisson(poisson_rng);
         }
@@ -238,6 +238,7 @@ class Replica {
 double computeQ(vector<Replica> replicas);
 void anneal(vector<Replica>& replicas);
 
+// Compute the normalization function
 double computeQ(vector<Replica> replicas) {
     double numerator = 0;
     double dBeta = replicas[0].getBetaIncrement();
@@ -247,12 +248,13 @@ double computeQ(vector<Replica> replicas) {
     return numerator / denominator;
 } 
 
-void anneal(vector<Replica>& replicas, int& mc_seed) {
+// Population annealing function
+void anneal(vector<Replica>& replicas, int targetPop, int& mc_seed) {
     vector<Replica> replicaCopies;
     double q = computeQ(replicas);
     for(int r = 0; r < replicas.size(); r++) {
         replicas[r].computeTau(q);
-        int copies = replicas[r].numCopies();
+        int copies = replicas[r].numCopies(targetPop, replicas.size());
         if(copies == 0) {
             replicas.erase(replicas.begin() + r);
             r--;
@@ -352,19 +354,13 @@ int main(int argc, char** argv) {
     
     // Monte Carlo loop
     for(int i = 0; i < iterations; i++) {
-        anneal(replicas, mc_seed); 
+        anneal(replicas, num_replicas, mc_seed); 
         for(int r = 0; r < replicas.size(); r++) {
             if(temp_annealing)
                 replicas[r].incrementBeta();
             replicas[r].performSweep();
-            /*
-            if(i != iterations - 1)
-                streams[r] << to_string(replicas[r].getEnergy()) + ",";
-            else
-                streams[r] << to_string(replicas[r].getEnergy());
-            */
         }
-        printf("After %d sweeps, population size = %lu\n", i + 1, replicas.size());
+        printf("After %d sweeps, population size = %lu\n", i+1, replicas.size());
     }
 
     /*
