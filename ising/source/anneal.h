@@ -1,3 +1,6 @@
+// Population annealing header file
+// Brendan Philbin
+
 #include "replica.h"
 
 // Compute the normalization function
@@ -11,7 +14,7 @@ double computeQ(vector<Replica> replicas) {
 } 
 
 // Population annealing function
-void anneal(vector<Replica>& replicas, int targetPop, int& mc_seed) {
+void anneal(vector<Replica>& replicas, int targetPop, int& mc_seed, int& poisson_seed) {
     vector<Replica> replicaCopies;
     double q = computeQ(replicas);
     for(int r = 0; r < replicas.size(); r++) {
@@ -25,6 +28,7 @@ void anneal(vector<Replica>& replicas, int targetPop, int& mc_seed) {
             for(int i = 0; i < copies; i++) {
                 replicaCopies.push_back(replicas[r]);
                 replicaCopies[replicaCopies.size() - 1].setMCSeed(mc_seed++);
+                replicaCopies[replicaCopies.size() - 1].setPoissonSeed(poisson_seed++);
             }
         }
     }

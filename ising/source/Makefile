@@ -1,4 +1,4 @@
-all: min_energy ising_simple several_seeds annealing ising_pop
+all: min_energy ising_simple several_seeds annealing main
 
 min_energy: ising_min_energy.cc
 	g++ ising_min_energy.cc -o min_energy
@@ -15,10 +15,13 @@ annealing: ising_annealing.cc
 ising_pop: ising_pop.cc
 	g++ ising_pop.cc -o ising_pop
 
+main: main.cc
+	g++ main.cc -o main
+
 cleanAll: cleanSource cleanResults
 
 cleanSource:
-	rm -f min_energy ising_simple several_seeds annealing ising_pop
+	rm -f min_energy ising_simple several_seeds annealing ising_pop main
 
 cleanResults:
 	rm -f ../simple/ising_output*.csv

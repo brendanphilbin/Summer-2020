@@ -1,14 +1,14 @@
-// Replica class
+// Replica class header file
+// Brendan Philbin
 
 #include "aux.h"
 
-using namespace std;
 
 class Replica {  
     public:
 
-	// Instance Variables
-        int N, spin_seed, mc_seed;
+	    // Instance Variables
+        int N, spin_seed, mc_seed, poisson_seed;
         mt19937 spin_rng;
         mt19937 mc_rng;
         mt19937 poisson_rng;
@@ -17,36 +17,39 @@ class Replica {
         vector<unsigned long long int> min_configs;
         JijMatrix jij;
 
-	// Member functions
-	Replica(int num_spins, int spin_seed_param, int mc_seed_param, double beta_param, double beta_increment_param, JijMatrix jij_param);
-	int size();
-	void setMCSeed(int seed);
-	double getBeta();
-	void setBeta(double beta_param);
-	double getBetaIncrement();
-    	void incrementBeta();
-	double getEnergy();
-	double getMinEnergy();
-	double attemptFlip(int index);
-	double computeEnergy();
-	void performSweep();
-	double computeTau(double q);
-	double getTau();
-	int numCopies(int targetPop, int size);
-	unsigned long long int toInt();
+        // Member functions
+        Replica(int num_spins, int spin_seed_param, int mc_seed_param, int poisson_seed_param, double beta_param, double beta_increment_param, JijMatrix jij_param);
+        int size();
+        void setMCSeed(int seed);
+        void setPoissonSeed(int seed);
+        double getBeta();
+        void setBeta(double beta_param);
+        double getBetaIncrement();
+        void incrementBeta();
+        double getEnergy();
+        double getMinEnergy();
+        double attemptFlip(int index);
+        double computeEnergy();
+        void performSweep();
+        double computeTau(double q);
+        double getTau();
+        int numCopies(int targetPop, int size);
+        unsigned long long int toInt();
 
 };
 
 // Constructor for a Replica object
-Replica::Replica(int num_spins, int spin_seed_param, int mc_seed_param, double beta_param, double beta_increment_param, JijMatrix jij_param) {
+Replica::Replica(int num_spins, int spin_seed_param, int mc_seed_param, int poisson_seed_param, double beta_param, double beta_increment_param, JijMatrix jij_param) {
     N = num_spins;
     beta = beta_param;
     beta_increment = beta_increment_param;
     jij = jij_param;
     spin_seed = spin_seed_param;
     mc_seed = mc_seed_param;
+    poisson_seed = poisson_seed_param;
     spin_rng.seed(spin_seed);
     mc_rng.seed(mc_seed);
+    poisson_rng.seed(poisson_seed);
     int random_spin;
     for(int i = 0; i < N; i++) {
         random_spin = (int)(this->spin_rng() % 2);
@@ -63,10 +66,16 @@ Replica::Replica(int num_spins, int spin_seed_param, int mc_seed_param, double b
 // Returns # of particles in system
 int Replica::size() { return N; }
 
-//Sets the Monte Carlo sweep seed and re-seeds RNG
+// Sets the Monte Carlo sweep seed and re-seeds RNG
 void Replica::setMCSeed(int seed) {
     mc_seed = seed;
     mc_rng.seed(mc_seed);
+}
+
+// Sets the Poisson distribution seed and re-seeds RNG
+void Replica::setPoissonSeed(int seed) {
+    poisson_seed = seed;
+    poisson_rng.seed(poisson_seed);
 }
 
 // Returns current beta value
@@ -155,7 +164,6 @@ double Replica::getTau() { return tau; }
 
 int Replica::numCopies(int targetPop, int size) {
     // See Matcha (2010) page 2 - under equation (2)
-    poisson_rng.seed(time(NULL));
     double mean = tau * targetPop / size;
     poisson_distribution<int> poisson(mean);
     return poisson(poisson_rng);

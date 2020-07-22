@@ -1,14 +1,11 @@
 // Auxillary functions header file
+// Brendan Philbin
 
 #include "jij.h"
-
-using namespace std;
 
 // Implicit method declarations
 double randfrom(double min, double max);
 bool areEqual(double a, double b);
-double computeQ(vector<Replica> replicas);
-void anneal(vector<Replica>& replicas);
 
 // Returns a random double in range [min,max]
 double randfrom(double min, double max) {
