@@ -25,4 +25,4 @@ cleanResults:
 	rm -f ../min_energy/min_energy_output*.csv ../min_energy/results.txt
 	rm -f ../several_seeds/several_seeds_output* ../several_seeds/results.txt
 	rm -f ../annealing/annealing_output* ../annealing/results.txt ../annealing/histogram*
-	rm -f ../pop/pop_output* ../pop/results* ../pop/histogram*
+	rm -f ../pop/hist*
