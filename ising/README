@@ -1,12 +1,6 @@
 Simple Ising Model Simulations
 Root Directory
 
-Program Files
-
-    Makefile : Makefile for all subdirectories
-
 Subdirectories
-
-    source : source code
-	initial_tests : simulation correctness trials
-    min_energy : minimum energy analysis trials
+    source : simulation source code
+    results : simulation results files
