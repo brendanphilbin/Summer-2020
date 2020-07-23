@@ -1,25 +1,19 @@
 Simple Ising Model Simulations
 Source Code Directory
 
-Source Files
+Header Files:
+    anneal.h : population annealing helper functions
+    aux.h : math helper functions
+    jij.h : J_{ij} matrix class
+    replica.h : replica class
 
-    ising_simple.cc : simple source code
-    ising_min_energy.cc : source code w/ minimum energy analysis
-    ising_several_seeds.cc : source code w/ multiple concurrent replicas
-    Makefile : project Makefile
+Source Files:
+    main.cc : main file for simulation
+    main : executable for above file
+    Makefile : program Makefile
 
-Executable Files
-
-    ising_simple
-    min_energy
-    several_seeds
-
-Test Scripts
-
-    ising_test.sh : simple ising test
-    test_min_energy.sh : minimum energy analysis test
-    test_several_seeds.sh : multiple replica analysis test
-
-Information Files
-
+Information Files:
     README : this document
+
+Subdirectories:
+    old_source : contains previous simulation versions

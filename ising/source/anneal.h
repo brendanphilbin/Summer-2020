@@ -18,7 +18,7 @@ void anneal(vector<Replica>& replicas, int targetPop, int& mc_seed, int& poisson
     vector<Replica> replicaCopies;
     double q = computeQ(replicas);
     for(int r = 0; r < replicas.size(); r++) {
-        replicas[r].computeTau(q);
+        replicas[r].computeTau(q, targetPop, replicas.size());
         int copies = replicas[r].numCopies(targetPop, replicas.size());
         if(copies == 0) {
             replicas.erase(replicas.begin() + r);

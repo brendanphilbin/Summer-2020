@@ -3,7 +3,6 @@
 
 #include "aux.h"
 
-
 class Replica {  
     public:
 
@@ -31,7 +30,7 @@ class Replica {
         double attemptFlip(int index);
         double computeEnergy();
         void performSweep();
-        double computeTau(double q);
+        double computeTau(double q, int targetPop, int size);
         double getTau();
         int numCopies(int targetPop, int size);
         unsigned long long int toInt();
@@ -155,8 +154,8 @@ void Replica::performSweep() {
 
 // Compute normalized weight, tau
 // Assigns to member variable and returns value
-double Replica::computeTau(double q) {
-    tau = ( exp( -1 * beta_increment * energy) / q );
+double Replica::computeTau(double q, int targetPop, int size) {
+    tau = (targetPop / size) * ( exp( -1 * beta_increment * energy) / q );
     return tau;
 }
 
