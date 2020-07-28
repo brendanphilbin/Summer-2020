@@ -8,12 +8,10 @@ class Replica {
 
 	    // Instance Variables
         int N, spin_seed, mc_seed, poisson_seed;
-        mt19937 spin_rng;
-        mt19937 mc_rng;
-        mt19937 poisson_rng;
+        mt19937 spin_rng, mc_rng, poisson_rng;
         double beta, beta_increment, energy, min_energy, tau;
         vector<double> spins;
-        vector<unsigned long long int> min_configs;
+        // vector<unsigned long long int> min_configs;
         JijMatrix jij;
 
         // Member functions
@@ -33,7 +31,7 @@ class Replica {
         double computeTau(double q, int targetPop, int size);
         double getTau();
         int numCopies(int targetPop, int size);
-        unsigned long long int toInt();
+        // unsigned long long int toInt();
 
 };
 
@@ -59,7 +57,7 @@ Replica::Replica(int num_spins, int spin_seed_param, int mc_seed_param, int pois
     }
     energy = computeEnergy();
     min_energy = energy;
-    min_configs.push_back(toInt());
+    // min_configs.push_back(toInt());
 }
 
 // Returns # of particles in system
@@ -143,11 +141,11 @@ void Replica::performSweep() {
             energy += dE;
             if(energy < min_energy) {
                 min_energy = energy;
-                min_configs.clear();
-                min_configs.push_back(toInt());
+                // min_configs.clear();
+                // min_configs.push_back(toInt());
             }
-            else if(areEqual(energy, min_energy))
-                min_configs.push_back(toInt());
+            // else if(areEqual(energy, min_energy))
+                // min_configs.push_back(toInt());
         }
     }
 }
@@ -170,6 +168,7 @@ int Replica::numCopies(int targetPop, int size) {
 
 // Returns int value representing binary version of configuration
 // -1 -> 0 , 1 -> 1
+/*
 unsigned long long int Replica::toInt() {
     unsigned long long int configuration = 0;
     for(int i = 0; i < N; i++) {
@@ -178,3 +177,4 @@ unsigned long long int Replica::toInt() {
     }
     return configuration;
 }
+*/

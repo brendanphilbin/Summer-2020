@@ -1,10 +1,10 @@
-all: main
+all: ising 
 
-main: main.cc
-	g++ main.cc -o main
+ising: main.cc
+	g++ main.cc -o ising
 
 clean:
-	rm -f main
+	rm -f ising
 
 cleanResults:
 	rm -f ../results/*

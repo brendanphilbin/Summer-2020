@@ -44,19 +44,24 @@ int main(int argc, char** argv) {
     ferro = parameters["f"].as<bool>();
 
     if(num_spins == -1 || sweeps == -1 || trial == -1 || j_seed == -1 || mc_seed == -1 || spin_seed == -1 || poisson_seed == -1 || beta == -1 || steps == -1) {
+        printf("\n");
         printf("ERROR: missing one or more required arguments\n");
+        printf("\n");
         printf("Required arguments:\n");
         printf("    -n : number of spins\n");
+        printf("    -r : initial / target population size\n");
         printf("    -m : number of MC sweeps per temperature step\n");
-        printf("    -r : number of replicas\n");
+        printf("    -k : number of temperature steps\n");
+        printf("    -b : target beta value\n");
         printf("    -t : trial number\n");
+        printf("Required seeds:\n");
         printf("    -j : Jij matrix seed\n");
         printf("    -c : MC sweep seed\n");
         printf("    -s : initial spin seed\n");
         printf("    -p : poisson distribution seed\n");
-        printf("    -b : beta value\n");
-        printf("    -k : number of temperature steps\n");
+        printf("Optional arguments:\n");
         printf("    -f : toggle ferromagnetic interaction\n");
+        printf("\n");
         return 0;
     }
 
