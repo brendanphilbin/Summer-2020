@@ -3,6 +3,7 @@
 
 // Recursively includes all header files
 #include "anneal.h"
+#include "cxxopts.hpp"
 
 int main(int argc, char** argv) {
 
