@@ -8,11 +8,10 @@ double randfrom(double min, double max);
 bool areEqual(double a, double b);
 
 // Returns a random double in range [min,max]
-double randfrom(double min, double max) {
-    srand(time(NULL));
+double randfrom(double min, double max, mt19937& rng) {
     double range = (max - min); 
     double div = RAND_MAX / range;
-    return min + (rand() / div);
+    return min + (rng() / div);
 }
 
 // Returns whether a and b are equal within an error range

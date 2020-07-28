@@ -7,4 +7,4 @@ clean:
 	rm -f ising
 
 cleanResults:
-	rm -f ../results/*
+	rm -f ../results/*.csv

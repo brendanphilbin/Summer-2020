@@ -7,18 +7,19 @@ class Replica {
     public:
 
 	    // Instance Variables
-        int N, spin_seed, mc_seed, poisson_seed;
-        mt19937 spin_rng, mc_rng, poisson_rng;
+        int N, spin_seed, flip_seed, mc_seed, poisson_seed;
+        mt19937 spin_rng, flip_rng, mc_rng, poisson_rng;
         double beta, beta_increment, energy, min_energy, tau;
         vector<double> spins;
         // vector<unsigned long long int> min_configs;
         JijMatrix jij;
 
         // Member functions
-        Replica(int num_spins, int spin_seed_param, int mc_seed_param, int poisson_seed_param, double beta_param, double beta_increment_param, JijMatrix jij_param);
+        Replica(int num_spins, int spin_seed_param, int flip_seed_param, int mc_seed_param, int poisson_seed_param, double beta_param, double beta_increment_param, JijMatrix jij_param);
         int size();
         void setMCSeed(int seed);
         void setPoissonSeed(int seed);
+        void setFlipSeed(int seed);
         double getBeta();
         void setBeta(double beta_param);
         double getBetaIncrement();
@@ -36,15 +37,17 @@ class Replica {
 };
 
 // Constructor for a Replica object
-Replica::Replica(int num_spins, int spin_seed_param, int mc_seed_param, int poisson_seed_param, double beta_param, double beta_increment_param, JijMatrix jij_param) {
+Replica::Replica(int num_spins, int spin_seed_param, int flip_seed_param, int mc_seed_param, int poisson_seed_param, double beta_param, double beta_increment_param, JijMatrix jij_param) {
     N = num_spins;
     beta = beta_param;
     beta_increment = beta_increment_param;
     jij = jij_param;
     spin_seed = spin_seed_param;
+    flip_seed = flip_seed_param;
     mc_seed = mc_seed_param;
     poisson_seed = poisson_seed_param;
     spin_rng.seed(spin_seed);
+    flip_rng.seed(flip_seed);
     mc_rng.seed(mc_seed);
     poisson_rng.seed(poisson_seed);
     int random_spin;
@@ -75,6 +78,12 @@ void Replica::setPoissonSeed(int seed) {
     poisson_rng.seed(poisson_seed);
 }
 
+// Sets the [0,1] seed for acceptance algorithm
+void Replica::setFlipSeed(int seed) {
+    flip_seed = seed;
+    flip_rng.seed(flip_seed);
+}
+
 // Returns current beta value
 double Replica::getBeta() { return beta; }
 
@@ -103,7 +112,7 @@ double Replica::attemptFlip(int index) {
         return dE;
     else {
         double comparison = exp(-1 * dE * beta);
-        double random_d = randfrom(0, 1);
+        double random_d = randfrom(0, 1, flip_rng);
         
         if(random_d >= comparison) {
             spins[index] *= -1;

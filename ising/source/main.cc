@@ -8,7 +8,7 @@
 int main(int argc, char** argv) {
 
     // Declare parameters
-    int num_spins, sweeps, num_replicas, j_seed, trial, mc_seed, spin_seed, poisson_seed, steps;
+    int num_spins, sweeps, num_replicas, j_seed, trial, mc_seed, spin_seed, flip_seed, poisson_seed, steps;
     double beta;
     bool ferro = false;
 
@@ -25,6 +25,7 @@ int main(int argc, char** argv) {
         ("c", "MC sweep seed(s)", cxxopts::value<int>()->default_value("-1"))
         ("s", "initial spin seed(s)", cxxopts::value<int>()->default_value("-1"))
         ("p", "poisson seed(s)", cxxopts::value<int>()->default_value("-1"))
+        ("l", "flip [0,1] seed", cxxopts::value<int>()->default_value("-1"))
         ("b", "target beta value", cxxopts::value<double>()->default_value("-1"))
         ("k", "number of temperature steps", cxxopts::value<int>()->default_value("-1"))
         ("f", "ferromagnetic or not");
@@ -38,12 +39,13 @@ int main(int argc, char** argv) {
     j_seed = parameters["j"].as<int>();
     mc_seed = parameters["c"].as<int>();
     spin_seed = parameters["s"].as<int>();
+    flip_seed = parameters["l"].as<int>();
     poisson_seed = parameters["p"].as<int>();
     beta = parameters["b"].as<double>();
     steps = parameters["k"].as<int>();
     ferro = parameters["f"].as<bool>();
 
-    if(num_spins == -1 || sweeps == -1 || trial == -1 || j_seed == -1 || mc_seed == -1 || spin_seed == -1 || poisson_seed == -1 || beta == -1 || steps == -1) {
+    if(num_spins == -1 || sweeps == -1 || trial == -1 || j_seed == -1 || mc_seed == -1 || flip_seed == -1 ||spin_seed == -1 || poisson_seed == -1 || beta == -1 || steps == -1) {
         printf("\n");
         printf("ERROR: missing one or more required arguments\n");
         printf("\n");
@@ -59,6 +61,7 @@ int main(int argc, char** argv) {
         printf("    -c : MC sweep seed\n");
         printf("    -s : initial spin seed\n");
         printf("    -p : poisson distribution seed\n");
+        printf("    -l : flip [0,1] distribution seed\n");
         printf("Optional arguments:\n");
         printf("    -f : toggle ferromagnetic interaction\n");
         printf("\n");
@@ -75,19 +78,19 @@ int main(int argc, char** argv) {
     // Create vector of replicas
     vector<Replica> replicas;
     for(int i = 0; i < num_replicas; i++) {
-        replicas.push_back( Replica(num_spins, spin_seed++, mc_seed++, poisson_seed++, beta, increment, jij) );
+        replicas.push_back( Replica(num_spins, spin_seed++, flip_seed++, mc_seed++, poisson_seed++, beta, increment, jij) );
     }
 
     // Create stream for each histogram
     vector<ofstream> histograms;
     for(int i = 0; i < sweeps * steps; i++) {
         histograms.push_back(ofstream());
-        histograms[i].open("../pop/hist_t" + to_string(trial) + "_s" + to_string(i) + ".csv");
+        histograms[i].open("../results/hist_t" + to_string(trial) + "_s" + to_string(i) + ".csv");
     }
 
     // Monte Carlo loop
     for(int k = 0; k < steps; k++) {
-        anneal(replicas, num_replicas, mc_seed, poisson_seed);
+        anneal(replicas, num_replicas, mc_seed, flip_seed, poisson_seed);
         for(int i = 0; i < sweeps; i++) {
             for(int r = 0; r < replicas.size(); r++) {
                 replicas[r].incrementBeta();
