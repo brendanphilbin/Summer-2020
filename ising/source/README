@@ -9,7 +9,7 @@ Header Files:
 
 Source Files:
     main.cc : main file for simulation
-    main : executable for above file
+    ising : executable for above file
     Makefile : program Makefile
 
 Information Files:

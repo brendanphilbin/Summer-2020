@@ -7,18 +7,17 @@ class Replica {
     public:
 
 	    // Instance Variables
-        int N, spin_seed, flip_seed, mc_seed, poisson_seed;
-        mt19937 spin_rng, flip_rng, mc_rng, poisson_rng;
+        int N, spin_seed, flip_seed, mc_seed;
+        mt19937 spin_rng, flip_rng, mc_rng;
         double beta, beta_increment, energy, min_energy, tau;
         vector<double> spins;
         // vector<unsigned long long int> min_configs;
         JijMatrix jij;
 
         // Member functions
-        Replica(int num_spins, int spin_seed_param, int flip_seed_param, int mc_seed_param, int poisson_seed_param, double beta_param, double beta_increment_param, JijMatrix jij_param);
+        Replica(int num_spins, int spin_seed_param, int flip_seed_param, int mc_seed_param, double beta_param, double beta_increment_param, JijMatrix jij_param);
         int size();
         void setMCSeed(int seed);
-        void setPoissonSeed(int seed);
         void setFlipSeed(int seed);
         double getBeta();
         void setBeta(double beta_param);
@@ -31,13 +30,13 @@ class Replica {
         void performSweep();
         double computeTau(double q, int targetPop, int size);
         double getTau();
-        int numCopies(int targetPop, int size);
+        int numCopies();
         // unsigned long long int toInt();
 
 };
 
 // Constructor for a Replica object
-Replica::Replica(int num_spins, int spin_seed_param, int flip_seed_param, int mc_seed_param, int poisson_seed_param, double beta_param, double beta_increment_param, JijMatrix jij_param) {
+Replica::Replica(int num_spins, int spin_seed_param, int flip_seed_param, int mc_seed_param, double beta_param, double beta_increment_param, JijMatrix jij_param) {
     N = num_spins;
     beta = beta_param;
     beta_increment = beta_increment_param;
@@ -45,11 +44,9 @@ Replica::Replica(int num_spins, int spin_seed_param, int flip_seed_param, int mc
     spin_seed = spin_seed_param;
     flip_seed = flip_seed_param;
     mc_seed = mc_seed_param;
-    poisson_seed = poisson_seed_param;
     spin_rng.seed(spin_seed);
     flip_rng.seed(flip_seed);
     mc_rng.seed(mc_seed);
-    poisson_rng.seed(poisson_seed);
     int random_spin;
     for(int i = 0; i < N; i++) {
         random_spin = (int)(this->spin_rng() % 2);
@@ -70,12 +67,6 @@ int Replica::size() { return N; }
 void Replica::setMCSeed(int seed) {
     mc_seed = seed;
     mc_rng.seed(mc_seed);
-}
-
-// Sets the Poisson distribution seed and re-seeds RNG
-void Replica::setPoissonSeed(int seed) {
-    poisson_seed = seed;
-    poisson_rng.seed(poisson_seed);
 }
 
 // Sets the [0,1] seed for acceptance algorithm
@@ -168,16 +159,18 @@ double Replica::computeTau(double q, int targetPop, int size) {
 
 double Replica::getTau() { return tau; }
 
-int Replica::numCopies(int targetPop, int size) {
-    // See Matcha (2010) page 2 - under equation (2)
-    double mean = tau * targetPop / size;
-    poisson_distribution<int> poisson(mean);
-    return poisson(poisson_rng);
+int Replica::numCopies() {
+    double prob_floor = ceil(tau) - tau;
+    double dist = randfrom(0, 1, flip_rng);
+    if(dist < prob_floor)
+        return floor(tau);
+    else
+        return ceil(tau);
 }
 
+/*
 // Returns int value representing binary version of configuration
 // -1 -> 0 , 1 -> 1
-/*
 unsigned long long int Replica::toInt() {
     unsigned long long int configuration = 0;
     for(int i = 0; i < N; i++) {

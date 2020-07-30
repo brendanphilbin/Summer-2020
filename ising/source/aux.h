@@ -10,7 +10,7 @@ bool areEqual(double a, double b);
 // Returns a random double in range [min,max]
 double randfrom(double min, double max, mt19937& rng) {
     double range = (max - min); 
-    double div = RAND_MAX / range;
+    double div = rng.max() / range;
     return min + (rng() / div);
 }
 

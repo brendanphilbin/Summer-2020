@@ -8,9 +8,10 @@
 int main(int argc, char** argv) {
 
     // Declare parameters
-    int num_spins, sweeps, num_replicas, j_seed, trial, mc_seed, spin_seed, flip_seed, poisson_seed, steps;
+    int num_spins, sweeps, num_replicas, j_seed, trial, mc_seed, spin_seed, flip_seed, steps;
     double beta;
     bool ferro = false;
+    //
 
     // Parse parameters
 
@@ -24,7 +25,6 @@ int main(int argc, char** argv) {
         ("j", "Jij matrix seed", cxxopts::value<int>()->default_value("-1"))
         ("c", "MC sweep seed(s)", cxxopts::value<int>()->default_value("-1"))
         ("s", "initial spin seed(s)", cxxopts::value<int>()->default_value("-1"))
-        ("p", "poisson seed(s)", cxxopts::value<int>()->default_value("-1"))
         ("l", "flip [0,1] seed", cxxopts::value<int>()->default_value("-1"))
         ("b", "target beta value", cxxopts::value<double>()->default_value("-1"))
         ("k", "number of temperature steps", cxxopts::value<int>()->default_value("-1"))
@@ -40,12 +40,11 @@ int main(int argc, char** argv) {
     mc_seed = parameters["c"].as<int>();
     spin_seed = parameters["s"].as<int>();
     flip_seed = parameters["l"].as<int>();
-    poisson_seed = parameters["p"].as<int>();
     beta = parameters["b"].as<double>();
     steps = parameters["k"].as<int>();
     ferro = parameters["f"].as<bool>();
 
-    if(num_spins == -1 || sweeps == -1 || trial == -1 || j_seed == -1 || mc_seed == -1 || flip_seed == -1 ||spin_seed == -1 || poisson_seed == -1 || beta == -1 || steps == -1) {
+    if(num_spins == -1 || sweeps == -1 || trial == -1 || j_seed == -1 || mc_seed == -1 || flip_seed == -1 ||spin_seed == -1 || beta == -1 || steps == -1) {
         printf("\n");
         printf("ERROR: missing one or more required arguments\n");
         printf("\n");
@@ -60,7 +59,6 @@ int main(int argc, char** argv) {
         printf("    -j : Jij matrix seed\n");
         printf("    -c : MC sweep seed\n");
         printf("    -s : initial spin seed\n");
-        printf("    -p : poisson distribution seed\n");
         printf("    -l : flip [0,1] distribution seed\n");
         printf("Optional arguments:\n");
         printf("    -f : toggle ferromagnetic interaction\n");
@@ -78,35 +76,55 @@ int main(int argc, char** argv) {
     // Create vector of replicas
     vector<Replica> replicas;
     for(int i = 0; i < num_replicas; i++) {
-        replicas.push_back( Replica(num_spins, spin_seed++, flip_seed++, mc_seed++, poisson_seed++, beta, increment, jij) );
+        replicas.push_back( Replica(num_spins, spin_seed++, flip_seed++, mc_seed++, beta, increment, jij) );
     }
 
     // Create stream for each histogram
+    /*
     vector<ofstream> histograms;
     for(int i = 0; i < sweeps * steps; i++) {
         histograms.push_back(ofstream());
         histograms[i].open("../results/hist_t" + to_string(trial) + "_s" + to_string(i) + ".csv");
     }
+    */
+
+    // Create stream for energies CSV
+    ofstream energies;
+    energies.open("../results/energies_t" + to_string(trial) + ".csv");
+
+    // Create stream for population size analysis
+    ofstream pop_size;
+    pop_size.open("../results/pop_size_t" + to_string(trial) + ".csv");
 
     // Monte Carlo loop
     for(int k = 0; k < steps; k++) {
-        anneal(replicas, num_replicas, mc_seed, flip_seed, poisson_seed);
+        anneal(replicas, num_replicas, mc_seed, flip_seed);
         for(int i = 0; i < sweeps; i++) {
             for(int r = 0; r < replicas.size(); r++) {
                 replicas[r].incrementBeta();
                 replicas[r].performSweep();
-                if(r != replicas.size() - 1)
-                    histograms[k * sweeps + i] << to_string(replicas[r].getEnergy()) + ",";
-                else
-                    histograms[k * sweeps + i] << to_string(replicas[r].getEnergy());
+                if(r != replicas.size() - 1) {
+                    // histograms[k * sweeps + i] << to_string(replicas[r].getEnergy()) + ",";
+                    energies << to_string(replicas[r].getEnergy()) + ",";
+                }
+                else {
+                    // histograms[k * sweeps + i] << to_string(replicas[r].getEnergy());
+                    energies << to_string(replicas[r].getEnergy());
+                }
             }
+            energies << "\n";
         }
-        printf("After %d temperature steps, population size = %lu\n", k+1, replicas.size());
+        if(k != steps - 1)
+            pop_size << to_string(replicas.size()) + ",";
+        else
+            pop_size << to_string(replicas.size());
     }
 
     // Close all streams
-    for(int i = 0; i < sweeps * steps; i++)
-        histograms[i].close();
+    // for(int i = 0; i < sweeps * steps; i++)
+        // histograms[i].close();
+    energies.close();
+    pop_size.close();
 
     printf("Trial #%d has completed and stored to disk.\n", trial);
 
