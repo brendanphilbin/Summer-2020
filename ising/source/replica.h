@@ -31,6 +31,14 @@ class Replica {
         double computeTau(double q, int targetPop, int size);
         double getTau();
         int numCopies();
+
+        // Fixed population size
+        double weight;
+        double computeWeight();
+        double getWeight();
+        double probability;
+        double computeProb(double normalization);
+
         // unsigned long long int toInt();
 
 };
@@ -56,6 +64,7 @@ Replica::Replica(int num_spins, int spin_seed_param, int flip_seed_param, int mc
             spins.push_back(-1);
     }
     energy = computeEnergy();
+    weight = 1;
     min_energy = energy;
     // min_configs.push_back(toInt());
 }
@@ -166,6 +175,21 @@ int Replica::numCopies() {
         return floor(tau);
     else
         return ceil(tau);
+}
+
+// Computes weight for fixed population size
+double Replica::computeWeight() {
+    double new_weight = weight * exp(-1 * beta_increment * energy);
+    weight = new_weight;
+    return weight;
+}
+
+double Replica::getWeight() { return weight; }
+
+double Replica::computeProb(double normalization) {
+   double prob = weight / normalization;
+   probability = prob;
+   return probability; 
 }
 
 /*

@@ -2,7 +2,8 @@
 // Main file
 
 // Recursively includes all header files
-#include "anneal.h"
+// #include "anneal.h"
+#include "fixed_anneal.h"
 #include "cxxopts.hpp"
 
 int main(int argc, char** argv) {
@@ -11,7 +12,6 @@ int main(int argc, char** argv) {
     int num_spins, sweeps, num_replicas, j_seed, trial, mc_seed, spin_seed, flip_seed, steps;
     double beta;
     bool ferro = false;
-    //
 
     // Parse parameters
 
@@ -79,15 +79,6 @@ int main(int argc, char** argv) {
         replicas.push_back( Replica(num_spins, spin_seed++, flip_seed++, mc_seed++, beta, increment, jij) );
     }
 
-    // Create stream for each histogram
-    /*
-    vector<ofstream> histograms;
-    for(int i = 0; i < sweeps * steps; i++) {
-        histograms.push_back(ofstream());
-        histograms[i].open("../results/hist_t" + to_string(trial) + "_s" + to_string(i) + ".csv");
-    }
-    */
-
     // Create stream for energies CSV
     ofstream energies;
     energies.open("../results/energies_t" + to_string(trial) + ".csv");
@@ -96,19 +87,22 @@ int main(int argc, char** argv) {
     ofstream pop_size;
     pop_size.open("../results/pop_size_t" + to_string(trial) + ".csv");
 
+    // TEST
+    mt19937 test_rng;
+    test_rng.seed(1);
+
     // Monte Carlo loop
     for(int k = 0; k < steps; k++) {
-        anneal(replicas, num_replicas, mc_seed, flip_seed);
+        // anneal(replicas, num_replicas, mc_seed, flip_seed);
+        anneal(replicas, test_rng, mc_seed, flip_seed);
         for(int i = 0; i < sweeps; i++) {
             for(int r = 0; r < replicas.size(); r++) {
                 replicas[r].incrementBeta();
                 replicas[r].performSweep();
                 if(r != replicas.size() - 1) {
-                    // histograms[k * sweeps + i] << to_string(replicas[r].getEnergy()) + ",";
                     energies << to_string(replicas[r].getEnergy()) + ",";
                 }
                 else {
-                    // histograms[k * sweeps + i] << to_string(replicas[r].getEnergy());
                     energies << to_string(replicas[r].getEnergy());
                 }
             }
@@ -121,8 +115,6 @@ int main(int argc, char** argv) {
     }
 
     // Close all streams
-    // for(int i = 0; i < sweeps * steps; i++)
-        // histograms[i].close();
     energies.close();
     pop_size.close();
 
