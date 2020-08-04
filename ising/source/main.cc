@@ -1,8 +1,8 @@
 // Ising Model simulation
 // Main file
-
+//
 // Recursively includes all header files
-// #include "anneal.h"
+//#include "anneal.h"
 #include "fixed_anneal.h"
 #include "cxxopts.hpp"
 
@@ -89,7 +89,7 @@ int main(int argc, char** argv) {
 
     // TEST
     mt19937 test_rng;
-    test_rng.seed(1);
+    test_rng.seed(flip_seed++);
 
     // Monte Carlo loop
     for(int k = 0; k < steps; k++) {
@@ -99,12 +99,10 @@ int main(int argc, char** argv) {
             for(int r = 0; r < replicas.size(); r++) {
                 replicas[r].incrementBeta();
                 replicas[r].performSweep();
-                if(r != replicas.size() - 1) {
+                if(r != replicas.size() - 1)
                     energies << to_string(replicas[r].getEnergy()) + ",";
-                }
-                else {
+                else
                     energies << to_string(replicas[r].getEnergy());
-                }
             }
             energies << "\n";
         }

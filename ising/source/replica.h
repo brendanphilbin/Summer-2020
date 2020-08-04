@@ -148,13 +148,8 @@ void Replica::performSweep() {
         dE = attemptFlip(random_particle);
         if(dE != numeric_limits<double>::max()) {
             energy += dE;
-            if(energy < min_energy) {
+            if(energy < min_energy)
                 min_energy = energy;
-                // min_configs.clear();
-                // min_configs.push_back(toInt());
-            }
-            // else if(areEqual(energy, min_energy))
-                // min_configs.push_back(toInt());
         }
     }
 }

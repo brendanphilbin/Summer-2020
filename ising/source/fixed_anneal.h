@@ -24,8 +24,6 @@ int sample(vector<double> prob_dist, double random_double) {
 // Population annealing function
 void anneal(vector<Replica>& replicas, mt19937& rng, int& mc_seed, int& flip_seed) {
     vector<double> prob_dist;
-    vector<Replica> new_replicas;
-
     for(int r = 0; r < replicas.size(); r++)
         replicas[r].computeWeight();
     double normalization = computeNormalization(replicas);
@@ -36,14 +34,13 @@ void anneal(vector<Replica>& replicas, mt19937& rng, int& mc_seed, int& flip_see
         else
             prob_dist.push_back(prob_dist[r-1] + prob);
     }
-
-    for(int r = 0; r < replicas.size(); r++) {
+    int limit = replicas.size();
+    for(int r = 0; r < limit; r++) {
         double random_double = randfrom(0, 1, rng);
         int chosen_replica = sample(prob_dist, random_double);
-        new_replicas.push_back(replicas[r]);
-        new_replicas[new_replicas.size() - 1].setMCSeed(mc_seed++);
-        new_replicas[new_replicas.size() - 1].setFlipSeed(flip_seed++);
+        replicas.push_back(replicas[chosen_replica]);
+        replicas[replicas.size() - 1].setMCSeed(mc_seed++);
+        replicas[replicas.size() - 1].setFlipSeed(flip_seed++);
     }
-
-    replicas = new_replicas;
+    replicas.erase(replicas.begin(), replicas.begin() + limit);
 }

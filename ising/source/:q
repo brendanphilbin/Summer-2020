@@ -1,6 +1,6 @@
 # Test script for population annealing
 
-N=32
+N=64
 R=100
 M=1
 K=100
