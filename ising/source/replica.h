@@ -11,7 +11,6 @@ class Replica {
         mt19937 spin_rng, flip_rng, mc_rng;
         double beta, beta_increment, energy, min_energy, tau;
         vector<double> spins;
-        // vector<unsigned long long int> min_configs;
         JijMatrix jij;
 
         // Member functions
@@ -36,11 +35,10 @@ class Replica {
         double weight;
         double computeWeight();
         double getWeight();
+        void setWeight(double weight_param);
         double probability;
         double computeProb(double normalization);
-
-        // unsigned long long int toInt();
-
+//        double getProb();
 };
 
 // Constructor for a Replica object
@@ -66,7 +64,6 @@ Replica::Replica(int num_spins, int spin_seed_param, int flip_seed_param, int mc
     energy = computeEnergy();
     weight = 1;
     min_energy = energy;
-    // min_configs.push_back(toInt());
 }
 
 // Returns # of particles in system
@@ -181,21 +178,14 @@ double Replica::computeWeight() {
 
 double Replica::getWeight() { return weight; }
 
+void Replica::setWeight(double weight_param) {
+    weight = weight_param;
+}
+
 double Replica::computeProb(double normalization) {
    double prob = weight / normalization;
    probability = prob;
    return probability; 
 }
 
-/*
-// Returns int value representing binary version of configuration
-// -1 -> 0 , 1 -> 1
-unsigned long long int Replica::toInt() {
-    unsigned long long int configuration = 0;
-    for(int i = 0; i < N; i++) {
-        if(spins[i] == 1)
-            configuration += (int) pow(2, N - i - 1);
-    }
-    return configuration;
-}
-*/
+// double getProb() { return probability; }

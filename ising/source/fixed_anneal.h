@@ -22,7 +22,7 @@ int sample(vector<double> prob_dist, double random_double) {
 }
 
 // Population annealing function
-void anneal(vector<Replica>& replicas, mt19937& rng, int& mc_seed, int& flip_seed) {
+void anneal(vector<Replica>& replicas, int& mc_seed, int& flip_seed) {
     vector<double> prob_dist;
     for(int r = 0; r < replicas.size(); r++)
         replicas[r].computeWeight();
@@ -36,11 +36,13 @@ void anneal(vector<Replica>& replicas, mt19937& rng, int& mc_seed, int& flip_see
     }
     int limit = replicas.size();
     for(int r = 0; r < limit; r++) {
-        double random_double = randfrom(0, 1, rng);
+        double random_double = randfrom(0, 1, replicas[r].flip_rng);
         int chosen_replica = sample(prob_dist, random_double);
         replicas.push_back(replicas[chosen_replica]);
         replicas[replicas.size() - 1].setMCSeed(mc_seed++);
         replicas[replicas.size() - 1].setFlipSeed(flip_seed++);
     }
     replicas.erase(replicas.begin(), replicas.begin() + limit);
+    for(int r = 0; r < replicas.size(); r++)
+        replicas[r].setWeight(1);
 }

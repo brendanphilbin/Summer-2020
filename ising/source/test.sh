@@ -1,19 +1,17 @@
-# Test script for population annealing
+# Brendan Philbin
+# Threaded fixed-population annealing test script for Ising Model
 
 N=32
 R=100
-M=1
-K=100
+M=10
+K=10
 B=10
-J=1
-C=2
-S=3
-L=4
+J=2
+C=3
+S=4
+L=5
 
-for T in 1 2 3 4 5
+for T in 1 2 3 4
 do
-    ./ising -n $N -r $R -m $M -k $K -b $B -j $J -c $C -s $S -l $L -t $T
-    ((C++))
-    ((S++))
-    ((L++))
+    ./threaded -n $N -r $R -m $M -k $K -b $B -t $T -j $J -c $C -s $S -l $L -g $T
 done

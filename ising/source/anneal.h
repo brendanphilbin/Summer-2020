@@ -1,7 +1,7 @@
 // Population annealing header file
 // Brendan Philbin
 
-#include "replica.h"
+#include "fixed_anneal.h"
 
 // Compute the normalization function
 double computeQ(vector<Replica> replicas) {

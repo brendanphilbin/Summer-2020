@@ -2,16 +2,20 @@
 // Main file
 //
 // Recursively includes all header files
-//#include "anneal.h"
-#include "fixed_anneal.h"
+#include "anneal.h"
 #include "cxxopts.hpp"
+#include <chrono>
 
 int main(int argc, char** argv) {
 
+    // Start wall clock
+    auto time_begin = chrono::high_resolution_clock::now();
+
     // Declare parameters
-    int num_spins, sweeps, num_replicas, j_seed, trial, mc_seed, spin_seed, flip_seed, steps;
+    int num_spins, sweeps, num_replicas, j_seed, trial, mc_seed, spin_seed, flip_seed, steps, anneal_interval;
     double beta;
     bool ferro = false;
+    bool fixed = false;
 
     // Parse parameters
 
@@ -28,7 +32,8 @@ int main(int argc, char** argv) {
         ("l", "flip [0,1] seed", cxxopts::value<int>()->default_value("-1"))
         ("b", "target beta value", cxxopts::value<double>()->default_value("-1"))
         ("k", "number of temperature steps", cxxopts::value<int>()->default_value("-1"))
-        ("f", "ferromagnetic or not");
+        ("f", "ferromagnetic or not")
+        ("p", "toggle fixed population");
 
     auto parameters = options.parse(argc, argv);
 
@@ -43,6 +48,7 @@ int main(int argc, char** argv) {
     beta = parameters["b"].as<double>();
     steps = parameters["k"].as<int>();
     ferro = parameters["f"].as<bool>();
+    fixed = parameters["p"].as<bool>();
 
     if(num_spins == -1 || sweeps == -1 || trial == -1 || j_seed == -1 || mc_seed == -1 || flip_seed == -1 ||spin_seed == -1 || beta == -1 || steps == -1) {
         printf("\n");
@@ -62,6 +68,7 @@ int main(int argc, char** argv) {
         printf("    -l : flip [0,1] distribution seed\n");
         printf("Optional arguments:\n");
         printf("    -f : toggle ferromagnetic interaction\n");
+        printf("    -p : toggle fixed population size\n");
         printf("\n");
         return 0;
     }
@@ -87,14 +94,12 @@ int main(int argc, char** argv) {
     ofstream pop_size;
     pop_size.open("../results/pop_size_t" + to_string(trial) + ".csv");
 
-    // TEST
-    mt19937 test_rng;
-    test_rng.seed(flip_seed++);
-
     // Monte Carlo loop
     for(int k = 0; k < steps; k++) {
-        // anneal(replicas, num_replicas, mc_seed, flip_seed);
-        anneal(replicas, test_rng, mc_seed, flip_seed);
+        if(fixed)
+            anneal(replicas, mc_seed, flip_seed);
+        else
+            anneal(replicas, num_replicas, mc_seed, flip_seed);
         for(int i = 0; i < sweeps; i++) {
             for(int r = 0; r < replicas.size(); r++) {
                 replicas[r].incrementBeta();
@@ -116,7 +121,11 @@ int main(int argc, char** argv) {
     energies.close();
     pop_size.close();
 
-    printf("Trial #%d has completed and stored to disk.\n", trial);
+    // Stop wall clock
+    auto time_end = chrono::high_resolution_clock::now();
+    auto elapsed = chrono::duration_cast<chrono::microseconds>(time_end - time_begin);
+
+    printf("Trial #%d has completed and stored to disk. Execution time = %f milliseconds\n", trial, elapsed.count() * 1e-3);
 
     return 1;
 }
