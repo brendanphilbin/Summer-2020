@@ -31,6 +31,10 @@ class Replica {
         double getTau();
         int numCopies();
 
+        // Get and set spins
+        vector<double> getSpins();
+        void setSpins(vector<double> spins_param);
+
         // Fixed population size
         double weight;
         double computeWeight();
@@ -38,7 +42,6 @@ class Replica {
         void setWeight(double weight_param);
         double probability;
         double computeProb(double normalization);
-//        double getProb();
 };
 
 // Constructor for a Replica object
@@ -68,6 +71,12 @@ Replica::Replica(int num_spins, int spin_seed_param, int flip_seed_param, int mc
 
 // Returns # of particles in system
 int Replica::size() { return N; }
+
+// Returns spins
+vector<double> Replica::getSpins() { return spins; }
+
+// Set spins
+void Replica::setSpins(vector<double> spins_param) { spins = spins_param; }
 
 // Sets the Monte Carlo sweep seed and re-seeds RNG
 void Replica::setMCSeed(int seed) {
@@ -171,7 +180,8 @@ int Replica::numCopies() {
 
 // Computes weight for fixed population size
 double Replica::computeWeight() {
-    double new_weight = weight * exp(-1 * beta_increment * energy);
+    // edit: add weight *
+    double new_weight = exp(-1 * beta_increment * energy);
     weight = new_weight;
     return weight;
 }
@@ -187,5 +197,3 @@ double Replica::computeProb(double normalization) {
    probability = prob;
    return probability; 
 }
-
-// double getProb() { return probability; }

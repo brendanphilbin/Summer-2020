@@ -1,5 +1,5 @@
 // Ising Model simulation
-// Main file w/ OpenMP
+// Main file w/ OpenMP and shared memory
 
 // Recursively includes all header files
 #include "fixed_anneal.h"
@@ -93,30 +93,21 @@ int main(int argc, char** argv) {
     double increment = beta / (double) steps;
     beta = 0;
 
-    JijMatrix jij(num_spins, ferro, j_seed);
-    vector<Replica> population;
     ofstream energies;
     energies.open("../results/energies_t" + to_string(trial) + ".csv");
+
+    // Create Jij matrix, replica vector, and write initial energy information
+    JijMatrix jij(num_spins, ferro, j_seed);
+    vector<Replica> replicas;
     for(int r = 0; r < num_replicas; r++) {
-        population.push_back( Replica(num_spins, spin_seed++, flip_seed++, mc_seed++, beta, increment, jij) );
-        energies << to_string(population[r].getEnergy()) + ",";
+        replicas.push_back( Replica(num_spins, spin_seed++, flip_seed++, mc_seed++, beta, increment, jij) );
+        energies << to_string(replicas[r].getEnergy()) + ",";
     }
     energies << "\n";
 
     #pragma omp parallel num_threads(threads)
     {
        int thread_id = omp_get_thread_num();
-       vector<Replica> replicas;
-       
-       // Populate private replica vectors on each thread
-       if(thread_id < leftovers) {
-           for(int i = 0; i < min_replicas_per_thread + 1; i++)
-               replicas.push_back( population[ thread_id * (min_replicas_per_thread + 1) + i ] );
-       }
-       else {
-           for(int i = 0; i < min_replicas_per_thread; i++)
-               replicas.push_back( population[ (min_replicas_per_thread + 1) * (leftovers) + (thread_id - leftovers) * (min_replicas_per_thread) + i ] );
-       }
 
        // Monte Carlo loop
        for(int k = 0; k < steps; k++) {
@@ -124,26 +115,15 @@ int main(int argc, char** argv) {
            // Perform fixed-population annealing
            #pragma omp master
            {
-              anneal(population);
+               anneal(replicas);
            }
 
-           // Re-assign private replica vectors
-           if(thread_id < leftovers) {
-             for(int i = 0; i < min_replicas_per_thread + 1; i++)
-                replicas[i] = population[ thread_id * (min_replicas_per_thread + 1) + i ];
-           }
-           else {
-             for(int i = 0; i < min_replicas_per_thread; i++)
-                replicas[i] = population[ (min_replicas_per_thread + 1) * (leftovers) + (thread_id - leftovers) * (min_replicas_per_thread) + i ];
-           }  
-
-           // Monte Carlo loop
            for(int i = 0; i < sweeps; i++) {
-               for(int r = 0; r < replicas.size(); r++) {
+               for(int r = threadStart(thread_id, threads, num_replicas); r < threadEnd(thread_id, threads, num_replicas); r++) {
                    replicas[r].incrementBeta();
                    replicas[r].performSweep();
 
-                   // Write energy information to file
+                   // Write energy to file
                    #pragma omp critical
                    {
                        energies << to_string(replicas[r].getEnergy()) + ",";
@@ -152,20 +132,10 @@ int main(int argc, char** argv) {
                #pragma omp barrier
                #pragma omp master
                {
-                   energies << "\n";
+                   energies << "\n";     
                }
            }
-
-           // Update shared population replica vector
-           if(thread_id < leftovers) {
-               for(int i = 0; i < replicas.size(); i++)
-                   population[ thread_id * (min_replicas_per_thread + 1) + i ] = replicas[i];
-           }
-           else {
-               for(int i = 0; i < replicas.size(); i++)
-                   population[ (min_replicas_per_thread + 1) * (leftovers) + (thread_id - leftovers) * (min_replicas_per_thread) + i ] = replicas[i];
-           }
-       }
+        }
     }
 
     // Close all streams
