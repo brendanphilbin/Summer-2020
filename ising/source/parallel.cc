@@ -2,7 +2,7 @@
 // Main file w/ OpenMP
 
 // Recursively includes all header files
-#include "fixed_anneal.h"
+#include "anneal.h"
 #include "cxxopts.hpp"
 #include <omp.h>
 #include <thread>
@@ -109,6 +109,7 @@ int main(int argc, char** argv) {
        vector<Replica> replicas;
        
        // Populate private replica vectors on each thread
+       /*
        if(thread_id < leftovers) {
            for(int i = 0; i < min_replicas_per_thread + 1; i++)
                replicas.push_back( population[ thread_id * (min_replicas_per_thread + 1) + i ] );
@@ -117,31 +118,43 @@ int main(int argc, char** argv) {
            for(int i = 0; i < min_replicas_per_thread; i++)
                replicas.push_back( population[ (min_replicas_per_thread + 1) * (leftovers) + (thread_id - leftovers) * (min_replicas_per_thread) + i ] );
        }
+       */
 
        // Monte Carlo loop
        for(int k = 0; k < steps; k++) {
 
-           // Perform fixed-population annealing
+           // RECALCULATE REPLICA DISTRIBUTION
+
+           // Perform population annealing
            #pragma omp master
            {
-              anneal(population);
+              if(fixed)
+                  anneal(population);
+              else
+                  anneal(population, num_replicas, population[population.size() - 1].mc_seed, population[population.size() - 1].flip_seed);
+              min_replicas_per_thread = population.size() / threads;
+              leftovers = population.size() % threads;
            }
 
            // Re-assign private replica vectors
+           replicas.clear();
            if(thread_id < leftovers) {
              for(int i = 0; i < min_replicas_per_thread + 1; i++)
-                replicas[i] = population[ thread_id * (min_replicas_per_thread + 1) + i ];
+                replicas.push_back(population[ thread_id * (min_replicas_per_thread + 1) + i ]);
            }
            else {
              for(int i = 0; i < min_replicas_per_thread; i++)
-                replicas[i] = population[ (min_replicas_per_thread + 1) * (leftovers) + (thread_id - leftovers) * (min_replicas_per_thread) + i ];
+                replicas.push_back(population[ (min_replicas_per_thread + 1) * (leftovers) + (thread_id - leftovers) * (min_replicas_per_thread) + i ]);
            }  
 
            // Monte Carlo loop
            for(int i = 0; i < sweeps; i++) {
                for(int r = 0; r < replicas.size(); r++) {
                    replicas[r].incrementBeta();
-                   replicas[r].performSweep();
+                   #pragma omp critical
+                   {
+                       replicas[r].performSweep(thread_id, r);
+                   }
 
                    // Write energy information to file
                    #pragma omp critical
@@ -155,6 +168,8 @@ int main(int argc, char** argv) {
                    energies << "\n";
                }
            }
+
+           printf("Pop size = %ld\n", population.size());
 
            // Update shared population replica vector
            if(thread_id < leftovers) {

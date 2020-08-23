@@ -1,8 +1,8 @@
 # Brendan Philbin
 # Threaded fixed-population annealing test script for Ising Model
 
-N=64
-R=10
+N=32
+R=100
 M=10
 K=10
 B=10

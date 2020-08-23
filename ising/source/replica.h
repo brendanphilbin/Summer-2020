@@ -26,7 +26,12 @@ class Replica {
         double getMinEnergy();
         double attemptFlip(int index);
         double computeEnergy();
-        void performSweep();
+
+        // void performSweep();
+        void performSweep(int thread, int replica);
+        int getFlipSeed();
+        int getMCSeed();
+
         double computeTau(double q, int targetPop, int size);
         double getTau();
         int numCopies();
@@ -68,6 +73,9 @@ Replica::Replica(int num_spins, int spin_seed_param, int flip_seed_param, int mc
     weight = 1;
     min_energy = energy;
 }
+
+int Replica::getFlipSeed() { return flip_seed; }
+int Replica::getMCSeed() { return mc_seed; }
 
 // Returns # of particles in system
 int Replica::size() { return N; }
@@ -146,17 +154,20 @@ double Replica::computeEnergy() {
 }
 
 // Performs a single Monte Carlo sweep on the system
-void Replica::performSweep() {
+void Replica::performSweep(int thread, int replica) {
     int random_particle;
     double dE;
     for(int i = 0; i < N; i++) {
         random_particle = (int)(this->mc_rng() % N);
+//        printf("Thread %d, replica %d chose particle %d, ", thread, replica, random_particle);
         dE = attemptFlip(random_particle);
         if(dE != numeric_limits<double>::max()) {
+ //           printf("flipped with dE = %f\n", dE);
             energy += dE;
             if(energy < min_energy)
                 min_energy = energy;
         }
+  //      else { printf("not flipped\n"); }
     }
 }
 
