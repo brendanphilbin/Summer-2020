@@ -2,7 +2,8 @@
 // Main file w/ OpenMP
 
 // Recursively includes all header files
-#include "anneal.h"
+// #include "anneal.h"
+#include "replica.h"
 #include "cxxopts.hpp"
 #include <omp.h>
 #include <thread>
@@ -17,7 +18,6 @@ int main(int argc, char** argv) {
     int num_spins, sweeps, num_replicas, j_seed, trial, mc_seed, spin_seed, flip_seed, steps, threads;
     double beta;
     bool ferro = false;
-    bool fixed = false;
 
     // Parse parameters
 
@@ -35,8 +35,7 @@ int main(int argc, char** argv) {
         ("b", "target beta value", cxxopts::value<double>()->default_value("-1"))
         ("k", "number of temperature steps", cxxopts::value<int>()->default_value("-1"))
         ("g", "number of threads", cxxopts::value<int>()->default_value("1"))
-        ("f", "ferromagnetic or not")
-        ("p", "toggle fixed population");
+        ("f", "ferromagnetic or not");
 
     auto parameters = options.parse(argc, argv);
 
@@ -51,8 +50,6 @@ int main(int argc, char** argv) {
     beta = parameters["b"].as<double>();
     steps = parameters["k"].as<int>();
     threads = parameters["g"].as<int>();
-    ferro = parameters["f"].as<bool>();
-    fixed = parameters["p"].as<bool>();
 
     // Check for all required parameters being present
     if(num_spins == -1 || sweeps == -1 || trial == -1 || j_seed == -1 || mc_seed == -1 || flip_seed == -1 ||spin_seed == -1 || beta == -1 || steps == -1) {
@@ -73,7 +70,6 @@ int main(int argc, char** argv) {
         printf("    -l : flip [0,1] distribution seed\n");
         printf("Optional arguments:\n");
         printf("    -f : toggle ferromagnetic interaction\n");
-        // printf("    -p : toggle fixed population size\n");
         printf("    -g : number of threads (default = 1)\n");
         printf("\n");
         return 0;
@@ -86,9 +82,6 @@ int main(int argc, char** argv) {
         printf("Number of available processors = %d\n\n", processor_count);
         return 0;
     }
-
-    int min_replicas_per_thread = num_replicas / threads;
-    int leftovers = num_replicas % threads;
 
     double increment = beta / (double) steps;
     beta = 0;
@@ -103,58 +96,87 @@ int main(int argc, char** argv) {
     }
     energies << "\n";
 
+    // Define shared variables
+    int min_replicas_per_thread = num_replicas / threads;
+    int leftovers = num_replicas % threads;
+    vector<double> weights(num_replicas, 0);
+    vector<vector<double>> old_spins(num_replicas, vector<double>(num_spins, 0));
+    // for(int i = 0; i < population.size(); i++)
+    //     old_spins.push_back(population[i].getSpins());
+    vector<vector<double>> new_spins(num_replicas, vector<double>(num_spins, 0));
+
     #pragma omp parallel num_threads(threads)
     {
        int thread_id = omp_get_thread_num();
        vector<Replica> replicas;
-       
-       // Populate private replica vectors on each thread
-       /*
+
+       // Populate private Replica vectors
        if(thread_id < leftovers) {
-           for(int i = 0; i < min_replicas_per_thread + 1; i++)
-               replicas.push_back( population[ thread_id * (min_replicas_per_thread + 1) + i ] );
+           for(int i = 0; i < min_replicas_per_thread + 1; i++) {
+               int offset = thread_id * (min_replicas_per_thread + 1) + i;
+               int private_spin_seed = spin_seed + offset;
+               int private_flip_seed = flip_seed + offset;
+               int private_mc_seed = mc_seed + offset;
+               replicas.push_back( Replica(num_spins, private_spin_seed, private_flip_seed, private_mc_seed, beta, increment, jij) );
+           }
        }
        else {
-           for(int i = 0; i < min_replicas_per_thread; i++)
-               replicas.push_back( population[ (min_replicas_per_thread + 1) * (leftovers) + (thread_id - leftovers) * (min_replicas_per_thread) + i ] );
+           for(int i = 0; i < min_replicas_per_thread; i++) {
+               int offset = (min_replicas_per_thread + 1) * leftovers + (thread_id - leftovers) * min_replicas_per_thread + i;
+               int private_spin_seed = spin_seed + offset;
+               int private_flip_seed = flip_seed + offset;
+               int private_mc_seed = mc_seed + offset;
+               replicas.push_back( Replica(num_spins, private_spin_seed, private_flip_seed, private_mc_seed, beta, increment, jij) ); 
+           }
        }
-       */
-
-       // Monte Carlo loop
+       
+       // Temperature / annealing step loop
        for(int k = 0; k < steps; k++) {
 
-           // RECALCULATE REPLICA DISTRIBUTION
+           // Perform fixed population annealing
 
-           // Perform population annealing
+           for(int r = 0; r < replicas.size(); r++) {
+               if(thread_id < leftovers) {
+                   weights[ thread_id * (min_replicas_per_thread + 1) + r ] = replicas[r].computeWeight();
+                   old_spins[ thread_id * (min_replicas_per_thread + 1) + r] = replicas[r].getSpins();
+               }
+               else {
+                   weights[ (min_replicas_per_thread + 1) * leftovers + (thread_id - leftovers) * min_replicas_per_thread + r ] = replicas[r].computeWeight();
+                   old_spins[ (min_replicas_per_thread + 1) * leftovers + (thread_id - leftovers) * min_replicas_per_thread + r] = replicas[r].getSpins();
+               }
+           }
+           #pragma omp barrier
+
            #pragma omp master
            {
-              if(fixed)
-                  anneal(population);
-              else
-                  anneal(population, num_replicas, population[population.size() - 1].mc_seed, population[population.size() - 1].flip_seed);
-              min_replicas_per_thread = population.size() / threads;
-              leftovers = population.size() % threads;
+               double normalization = 0;
+               for(int i = 0; i < weights.size(); i++)
+                   normalization += weights[i];
+               vector<double> prob_dist(num_replicas, 0);
+               prob_dist[0] = weights[0] / normalization;
+               for(int i = 1; i < weights.size(); i++)
+                   prob_dist[i] = prob_dist[i-1] + weights[i] / normalization;
+               for(int i = 0; i < weights.size(); i++)
+                   new_spins[i] = old_spins[prob_sample(prob_dist, replicas[0].getFlipRng())];
            }
-
-           // Re-assign private replica vectors
-           replicas.clear();
-           if(thread_id < leftovers) {
-             for(int i = 0; i < min_replicas_per_thread + 1; i++)
-                replicas.push_back(population[ thread_id * (min_replicas_per_thread + 1) + i ]);
+           #pragma omp barrier
+           
+           for(int r = 0; r < replicas.size(); r++) {
+               if(thread_id < leftovers)
+                   replicas[r].setSpins( new_spins[ thread_id * (min_replicas_per_thread + 1) + r ]);
+               else
+                   replicas[r].setSpins( new_spins[ (min_replicas_per_thread + 1) * leftovers + (thread_id - leftovers) * min_replicas_per_thread + r]);
            }
-           else {
-             for(int i = 0; i < min_replicas_per_thread; i++)
-                replicas.push_back(population[ (min_replicas_per_thread + 1) * (leftovers) + (thread_id - leftovers) * (min_replicas_per_thread) + i ]);
-           }  
+           #pragma omp barrier
 
-           // Monte Carlo loop
+           // Monte Carlo Loop
+          
            for(int i = 0; i < sweeps; i++) {
                for(int r = 0; r < replicas.size(); r++) {
+
+                   // Reduce temperature and perform Monte Carlo sweep
                    replicas[r].incrementBeta();
-                   #pragma omp critical
-                   {
-                       replicas[r].performSweep(thread_id, r);
-                   }
+                   replicas[r].performSweep();
 
                    // Write energy information to file
                    #pragma omp critical
@@ -169,17 +191,6 @@ int main(int argc, char** argv) {
                }
            }
 
-           printf("Pop size = %ld\n", population.size());
-
-           // Update shared population replica vector
-           if(thread_id < leftovers) {
-               for(int i = 0; i < replicas.size(); i++)
-                   population[ thread_id * (min_replicas_per_thread + 1) + i ] = replicas[i];
-           }
-           else {
-               for(int i = 0; i < replicas.size(); i++)
-                   population[ (min_replicas_per_thread + 1) * (leftovers) + (thread_id - leftovers) * (min_replicas_per_thread) + i ] = replicas[i];
-           }
        }
     }
 

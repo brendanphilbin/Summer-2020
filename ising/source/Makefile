@@ -1,13 +1,10 @@
-all: ising threaded
+all: pop_fixed
 
-ising: main.cc anneal.h aux.h cxxopts.hpp fixed_anneal.h jij.h replica.h
-	g++ -g main.cc -o ising
-
-threaded: parallel.cc anneal.h aux.h cxxopts.hpp fixed_anneal.h jij.h replica.h
-	g++ -g parallel.cc -o threaded -fopenmp
+pop_fixed: fixed.cc aux.h replica.h jij.h
+	g++ fixed.cc -o pop_fixed -g -fopenmp
 
 clean:
-	rm -f ising threaded
+	rm -f pop_fixed
 
 cleanResults:
 	rm -f ../results/*.csv

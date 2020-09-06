@@ -14,7 +14,7 @@ double computeQ(vector<Replica> replicas) {
 } 
 
 // Population annealing function
-void anneal(vector<Replica>& replicas, int targetPop, int& mc_seed, int& flip_seed) {
+void anneal(vector<Replica>& replicas, int targetPop, int mc_seed, int flip_seed) {
     vector<Replica> replicaCopies;
     double q = computeQ(replicas);
     for(int r = 0; r < replicas.size(); r++) {

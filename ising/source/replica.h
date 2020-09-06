@@ -1,5 +1,4 @@
-// Replica class header file
-// Brendan Philbin
+// Replica class header file // Brendan Philbin
 
 #include "aux.h"
 
@@ -9,7 +8,7 @@ class Replica {
 	    // Instance Variables
         int N, spin_seed, flip_seed, mc_seed;
         mt19937 spin_rng, flip_rng, mc_rng;
-        double beta, beta_increment, energy, min_energy, tau;
+        double beta, beta_increment, energy, tau;
         vector<double> spins;
         JijMatrix jij;
 
@@ -23,14 +22,14 @@ class Replica {
         double getBetaIncrement();
         void incrementBeta();
         double getEnergy();
-        double getMinEnergy();
         double attemptFlip(int index);
         double computeEnergy();
 
-        // void performSweep();
-        void performSweep(int thread, int replica);
+        void performSweep();
         int getFlipSeed();
         int getMCSeed();
+
+        mt19937& getFlipRng();
 
         double computeTau(double q, int targetPop, int size);
         double getTau();
@@ -48,6 +47,8 @@ class Replica {
         double probability;
         double computeProb(double normalization);
 };
+
+mt19937& Replica::getFlipRng() { return flip_rng; }
 
 // Constructor for a Replica object
 Replica::Replica(int num_spins, int spin_seed_param, int flip_seed_param, int mc_seed_param, double beta_param, double beta_increment_param, JijMatrix jij_param) {
@@ -71,10 +72,10 @@ Replica::Replica(int num_spins, int spin_seed_param, int flip_seed_param, int mc
     }
     energy = computeEnergy();
     weight = 1;
-    min_energy = energy;
 }
 
 int Replica::getFlipSeed() { return flip_seed; }
+
 int Replica::getMCSeed() { return mc_seed; }
 
 // Returns # of particles in system
@@ -112,9 +113,6 @@ void Replica::incrementBeta() { beta += beta_increment; }
 
 // Returns total system energy
 double Replica::getEnergy() { return energy; }
-
-// Returns minimum energy reached
-double Replica::getMinEnergy() { return min_energy; }
 
 double Replica::attemptFlip(int index) {
     double current_energy = energy;
@@ -154,20 +152,14 @@ double Replica::computeEnergy() {
 }
 
 // Performs a single Monte Carlo sweep on the system
-void Replica::performSweep(int thread, int replica) {
+void Replica::performSweep() {
     int random_particle;
     double dE;
     for(int i = 0; i < N; i++) {
         random_particle = (int)(this->mc_rng() % N);
-//        printf("Thread %d, replica %d chose particle %d, ", thread, replica, random_particle);
         dE = attemptFlip(random_particle);
-        if(dE != numeric_limits<double>::max()) {
- //           printf("flipped with dE = %f\n", dE);
+        if(dE != numeric_limits<double>::max())
             energy += dE;
-            if(energy < min_energy)
-                min_energy = energy;
-        }
-  //      else { printf("not flipped\n"); }
     }
 }
 
