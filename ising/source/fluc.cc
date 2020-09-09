@@ -17,7 +17,6 @@ int main(int argc, char** argv) {
     int num_spins, sweeps, num_replicas, j_seed, trial, mc_seed, spin_seed, flip_seed, steps, threads;
     double beta;
     bool ferro = false;
-    bool fixed = false;
 
     // Parse parameters
 
@@ -36,7 +35,6 @@ int main(int argc, char** argv) {
         ("k", "number of temperature steps", cxxopts::value<int>()->default_value("-1"))
         ("g", "number of threads", cxxopts::value<int>()->default_value("1"))
         ("f", "ferromagnetic or not")
-        ("p", "toggle fixed population");
 
     auto parameters = options.parse(argc, argv);
 
@@ -52,7 +50,6 @@ int main(int argc, char** argv) {
     steps = parameters["k"].as<int>();
     threads = parameters["g"].as<int>();
     ferro = parameters["f"].as<bool>();
-    fixed = parameters["p"].as<bool>();
 
     // Check for all required parameters being present
     if(num_spins == -1 || sweeps == -1 || trial == -1 || j_seed == -1 || mc_seed == -1 || flip_seed == -1 ||spin_seed == -1 || beta == -1 || steps == -1) {
@@ -73,7 +70,6 @@ int main(int argc, char** argv) {
         printf("    -l : flip [0,1] distribution seed\n");
         printf("Optional arguments:\n");
         printf("    -f : toggle ferromagnetic interaction\n");
-        // printf("    -p : toggle fixed population size\n");
         printf("    -g : number of threads (default = 1)\n");
         printf("\n");
         return 0;
@@ -114,15 +110,7 @@ int main(int argc, char** argv) {
            // Perform population annealing
            #pragma omp master
            {
-              if(fixed)
-                  anneal(population);
-              else {
-                  int mc = population.back().getMCSeed();
-                  int flip = population.back().getFlipSeed();
-                  anneal(population, num_replicas, mc, flip);
-              }
-              min_replicas_per_thread = population.size() / threads;
-              leftovers = population.size() % threads;
+             // ANNEAL
            }
 
            // Re-assign private replica vectors
@@ -155,11 +143,9 @@ int main(int argc, char** argv) {
            }
 
            #pragma omp barrier
-           printf("Thread %d passed barrier 1 on step %d\n", thread_id, k);
            #pragma omp master
            {
                population.clear();
-               printf("Population cleared\n");
            }
            #pragma omp critical
            {
@@ -167,7 +153,6 @@ int main(int argc, char** argv) {
                    population.push_back(replicas[i]);
            }
            #pragma omp barrier
-           printf("Thread %d passed barrier 2 on step %d\n", thread_id, k);
 
            // Update shared population replica vector
            /*

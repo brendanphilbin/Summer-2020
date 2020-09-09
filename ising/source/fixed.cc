@@ -83,51 +83,54 @@ int main(int argc, char** argv) {
         return 0;
     }
 
+    printf("Beginning Trial #%d: N = %d, R = %d, M = %d, K = %d, B = %f, J = %d, C = %d, S = %d, L = %d\n", trial, num_spins, num_replicas, sweeps, steps, beta, j_seed, mc_seed, spin_seed, flip_seed);
+
     double increment = beta / (double) steps;
     beta = 0;
 
     JijMatrix jij(num_spins, ferro, j_seed);
-    vector<Replica> population;
     ofstream energies;
     energies.open("../results/energies_t" + to_string(trial) + ".csv");
-    for(int r = 0; r < num_replicas; r++) {
-        population.push_back( Replica(num_spins, spin_seed++, flip_seed++, mc_seed++, beta, increment, jij) );
-        energies << to_string(population[r].getEnergy()) + ",";
-    }
-    energies << "\n";
 
     // Define shared variables
-    int min_replicas_per_thread = num_replicas / threads;
-    int leftovers = num_replicas % threads;
     vector<double> weights(num_replicas, 0);
     vector<vector<double>> old_spins(num_replicas, vector<double>(num_spins, 0));
-    // for(int i = 0; i < population.size(); i++)
-    //     old_spins.push_back(population[i].getSpins());
     vector<vector<double>> new_spins(num_replicas, vector<double>(num_spins, 0));
 
-    #pragma omp parallel num_threads(threads)
+    // Define firstprivate variables
+    int min_replicas_per_thread = num_replicas / threads;
+    int leftovers = num_replicas % threads;
+
+    #pragma omp parallel num_threads(threads) firstprivate(min_replicas_per_thread, leftovers, steps, sweeps, spin_seed, flip_seed, mc_seed, beta, increment, jij)
     {
        int thread_id = omp_get_thread_num();
        vector<Replica> replicas;
 
        // Populate private Replica vectors
        if(thread_id < leftovers) {
+           int offset = thread_id * (min_replicas_per_thread + 1);
            for(int i = 0; i < min_replicas_per_thread + 1; i++) {
-               int offset = thread_id * (min_replicas_per_thread + 1) + i;
-               int private_spin_seed = spin_seed + offset;
-               int private_flip_seed = flip_seed + offset;
-               int private_mc_seed = mc_seed + offset;
-               replicas.push_back( Replica(num_spins, private_spin_seed, private_flip_seed, private_mc_seed, beta, increment, jij) );
+               replicas.push_back( Replica(num_spins, spin_seed + offset + i, flip_seed + offset + i, mc_seed + offset + i, beta, increment, jij) );
+               #pragma omp critical
+               {
+                   energies << to_string(replicas[i].getEnergy()) + ",";
+               }
            }
        }
        else {
+           int offset = (min_replicas_per_thread + 1) * leftovers + (thread_id - leftovers) * min_replicas_per_thread;
            for(int i = 0; i < min_replicas_per_thread; i++) {
-               int offset = (min_replicas_per_thread + 1) * leftovers + (thread_id - leftovers) * min_replicas_per_thread + i;
-               int private_spin_seed = spin_seed + offset;
-               int private_flip_seed = flip_seed + offset;
-               int private_mc_seed = mc_seed + offset;
-               replicas.push_back( Replica(num_spins, private_spin_seed, private_flip_seed, private_mc_seed, beta, increment, jij) ); 
+               replicas.push_back( Replica(num_spins, spin_seed + offset + i, flip_seed + offset + i, mc_seed + offset + i, beta, increment, jij) ); 
+               #pragma omp critical
+               {
+                   energies << to_string(replicas[i].getEnergy()) + ",";
+               }
            }
+       }    
+       #pragma omp barrier
+       #pragma omp master
+       {
+           energies << "\n";
        }
        
        // Temperature / annealing step loop
@@ -149,14 +152,15 @@ int main(int argc, char** argv) {
 
            #pragma omp master
            {
+               int limit = weights.size();
                double normalization = 0;
-               for(int i = 0; i < weights.size(); i++)
+               for(int i = 0; i < limit; i++)
                    normalization += weights[i];
                vector<double> prob_dist(num_replicas, 0);
                prob_dist[0] = weights[0] / normalization;
-               for(int i = 1; i < weights.size(); i++)
+               for(int i = 1; i < limit; i++)
                    prob_dist[i] = prob_dist[i-1] + weights[i] / normalization;
-               for(int i = 0; i < weights.size(); i++)
+               for(int i = 0; i < limit; i++)
                    new_spins[i] = old_spins[prob_sample(prob_dist, replicas[0].getFlipRng())];
            }
            #pragma omp barrier
@@ -179,6 +183,7 @@ int main(int argc, char** argv) {
                    replicas[r].performSweep();
 
                    // Write energy information to file
+                   // can each thread write its own energies and then concatenate them at the end?
                    #pragma omp critical
                    {
                        energies << to_string(replicas[r].getEnergy()) + ",";
@@ -201,7 +206,7 @@ int main(int argc, char** argv) {
     auto time_end = chrono::high_resolution_clock::now();
     auto elapsed_time = chrono::duration_cast<chrono::microseconds>(time_end - time_begin);
 
-    printf("Trial #%d has completed and stored to disk. Execution time = %f milliseconds\n", trial, elapsed_time.count() * 1e-3);
+    printf("Trial #%d has completed and stored to disk. Execution time = %f seconds\n\n", trial, elapsed_time.count() * 1e-6);
 
     return 1;
 }
