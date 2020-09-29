@@ -1,0 +1,144 @@
+Beginning Trial #1: N = 4, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #1 has completed and stored to disk. Execution time = 0.025245 seconds
+
+Beginning Trial #2: N = 4, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #2 has completed and stored to disk. Execution time = 0.025201 seconds
+
+Beginning Trial #3: N = 4, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #3 has completed and stored to disk. Execution time = 0.025063 seconds
+
+Beginning Trial #4: N = 4, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #4 has completed and stored to disk. Execution time = 0.011755 seconds
+
+Beginning Trial #5: N = 4, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #5 has completed and stored to disk. Execution time = 0.011906 seconds
+
+Beginning Trial #6: N = 4, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #6 has completed and stored to disk. Execution time = 0.011758 seconds
+
+Beginning Trial #7: N = 8, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #7 has completed and stored to disk. Execution time = 0.070838 seconds
+
+Beginning Trial #8: N = 8, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #8 has completed and stored to disk. Execution time = 0.070483 seconds
+
+Beginning Trial #9: N = 8, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #9 has completed and stored to disk. Execution time = 0.069883 seconds
+
+Beginning Trial #10: N = 8, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #10 has completed and stored to disk. Execution time = 0.029610 seconds
+
+Beginning Trial #11: N = 8, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #11 has completed and stored to disk. Execution time = 0.029585 seconds
+
+Beginning Trial #12: N = 8, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #12 has completed and stored to disk. Execution time = 0.030651 seconds
+
+Beginning Trial #13: N = 16, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #13 has completed and stored to disk. Execution time = 0.275502 seconds
+
+Beginning Trial #14: N = 16, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #14 has completed and stored to disk. Execution time = 0.277225 seconds
+
+Beginning Trial #15: N = 16, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #15 has completed and stored to disk. Execution time = 0.275809 seconds
+
+Beginning Trial #16: N = 16, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #16 has completed and stored to disk. Execution time = 0.119718 seconds
+
+Beginning Trial #17: N = 16, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #17 has completed and stored to disk. Execution time = 0.116368 seconds
+
+Beginning Trial #18: N = 16, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #18 has completed and stored to disk. Execution time = 0.115501 seconds
+
+Beginning Trial #19: N = 32, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #19 has completed and stored to disk. Execution time = 1.288475 seconds
+
+Beginning Trial #20: N = 32, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #20 has completed and stored to disk. Execution time = 1.870369 seconds
+
+Beginning Trial #21: N = 32, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #21 has completed and stored to disk. Execution time = 1.282019 seconds
+
+Beginning Trial #22: N = 32, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #22 has completed and stored to disk. Execution time = 0.574704 seconds
+
+Beginning Trial #23: N = 32, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #23 has completed and stored to disk. Execution time = 0.594297 seconds
+
+Beginning Trial #24: N = 32, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #24 has completed and stored to disk. Execution time = 0.565630 seconds
+
+Beginning Trial #25: N = 64, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #25 has completed and stored to disk. Execution time = 7.315860 seconds
+
+Beginning Trial #26: N = 64, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #26 has completed and stored to disk. Execution time = 7.344927 seconds
+
+Beginning Trial #27: N = 64, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #27 has completed and stored to disk. Execution time = 7.350323 seconds
+
+Beginning Trial #28: N = 64, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #28 has completed and stored to disk. Execution time = 3.225140 seconds
+
+Beginning Trial #29: N = 64, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #29 has completed and stored to disk. Execution time = 3.286737 seconds
+
+Beginning Trial #30: N = 64, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #30 has completed and stored to disk. Execution time = 3.879425 seconds
+
+Beginning Trial #31: N = 128, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #31 has completed and stored to disk. Execution time = 47.329267 seconds
+
+Beginning Trial #32: N = 128, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #32 has completed and stored to disk. Execution time = 47.452619 seconds
+
+Beginning Trial #33: N = 128, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #33 has completed and stored to disk. Execution time = 48.055559 seconds
+
+Beginning Trial #34: N = 128, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #34 has completed and stored to disk. Execution time = 26.544447 seconds
+
+Beginning Trial #35: N = 128, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #35 has completed and stored to disk. Execution time = 26.785071 seconds
+
+Beginning Trial #36: N = 128, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #36 has completed and stored to disk. Execution time = 27.647489 seconds
+
+Beginning Trial #37: N = 256, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #37 has completed and stored to disk. Execution time = 351.892120 seconds
+
+Beginning Trial #38: N = 256, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #38 has completed and stored to disk. Execution time = 352.830774 seconds
+
+Beginning Trial #39: N = 256, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #39 has completed and stored to disk. Execution time = 355.556337 seconds
+
+Beginning Trial #40: N = 256, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #40 has completed and stored to disk. Execution time = 203.489104 seconds
+
+Beginning Trial #41: N = 256, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #41 has completed and stored to disk. Execution time = 198.855736 seconds
+
+Beginning Trial #42: N = 256, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #42 has completed and stored to disk. Execution time = 203.102931 seconds
+
+Beginning Trial #43: N = 512, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #43 has completed and stored to disk. Execution time = 2666.702967 seconds
+
+Beginning Trial #44: N = 512, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #44 has completed and stored to disk. Execution time = 2748.676382 seconds
+
+Beginning Trial #45: N = 512, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 1
+Trial #45 has completed and stored to disk. Execution time = 2746.186468 seconds
+
+Beginning Trial #46: N = 512, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #46 has completed and stored to disk. Execution time = 1611.003033 seconds
+
+Beginning Trial #47: N = 512, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #47 has completed and stored to disk. Execution time = 1623.476433 seconds
+
+Beginning Trial #48: N = 512, R = 36, M = 10, K = 10, B = 5.000000, J = 3, C = 2, S = 4, L = 5, G = 4
+Trial #48 has completed and stored to disk. Execution time = 1609.617436 seconds
+

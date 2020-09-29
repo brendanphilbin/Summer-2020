@@ -83,7 +83,7 @@ int main(int argc, char** argv) {
         return 0;
     }
 
-    printf("Beginning Trial #%d: N = %d, R = %d, M = %d, K = %d, B = %f, J = %d, C = %d, S = %d, L = %d\n", trial, num_spins, num_replicas, sweeps, steps, beta, j_seed, mc_seed, spin_seed, flip_seed);
+    printf("Beginning Trial #%d: N = %d, R = %d, M = %d, K = %d, B = %f, J = %d, C = %d, S = %d, L = %d, G = %d\n", trial, num_spins, num_replicas, sweeps, steps, beta, j_seed, mc_seed, spin_seed, flip_seed, threads);
 
     double increment = beta / (double) steps;
     beta = 0;
@@ -205,6 +205,13 @@ int main(int argc, char** argv) {
     // Stop wall clock
     auto time_end = chrono::high_resolution_clock::now();
     auto elapsed_time = chrono::duration_cast<chrono::microseconds>(time_end - time_begin);
+
+    ofstream runtimes;
+    runtimes.open("../results/runtimes.csv", ios_base::app);
+    if(trial == 1)
+        runtimes << "trial number (-t),# of replicas (-r),# of spins (-n),# of threads (-g),runtime (in seconds)\n";
+    runtimes << to_string(trial) + "," + to_string(num_replicas) + "," + to_string(num_spins) + "," + to_string(threads) + "," + to_string(elapsed_time.count() * 1e-6) + "\n";
+    runtimes.close();
 
     printf("Trial #%d has completed and stored to disk. Execution time = %f seconds\n\n", trial, elapsed_time.count() * 1e-6);
 
